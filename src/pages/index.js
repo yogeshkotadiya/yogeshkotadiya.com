@@ -3,9 +3,9 @@ import Link from 'gatsby-link'
 
 const IndexPage = () => (
   <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <h1>Yogesh Kotadiya</h1>
+    <p>Welcome to your My personal Website</p>
+    <p>Be Patient, It's Under Construction</p>
     <Link to="/page-2/">Go to page 2</Link>
   </div>
 )

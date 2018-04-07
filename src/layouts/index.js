@@ -10,8 +10,13 @@ const TemplateWrapper = ({ children }) => (
     <Helmet
       title="Yogesh Kotadiya"
       meta={[
+        { charset: 'utf-8'},
         { name: 'description', content: 'Personal Webpage of Yogesh Kotadiya' },
         { name: 'author', content: 'Yogesh Kotadiya' },
+        { name: 'theme-color', content: '#821cdb'},
+        { name: 'twitter:card', content: 'summary'},
+        { name: 'twitter:site', content: '@yogeshkotadiya'},
+        { name: 'twitter:creator', content: '@yogeshkotadiya'},
       ]}
     />
     <Header />

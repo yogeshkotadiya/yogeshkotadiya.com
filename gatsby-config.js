@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
   },
-  plugins: ['gatsby-plugin-react-helmet'],
-  pathPrefix: `/yogeshkotadiya.github.io`,
+  plugins: [
+  'gatsby-plugin-react-helmet',
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
@@ -16,4 +16,6 @@ module.exports = {
       respectDNT: true,
     },
   },
+],
+  pathPrefix: `/yogeshkotadiya.github.io`,
 };

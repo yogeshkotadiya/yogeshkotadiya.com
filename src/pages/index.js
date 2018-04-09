@@ -6,7 +6,11 @@ const IndexPage = () => (
     <h1>Yogesh Kotadiya</h1>
     <p>Welcome to your My personal Website</p>
     <p>Be Patient, It's Under Construction</p>
-    <Link to="/page-2/">Go to page 2</Link>
+
+
+    <h3>Until then you can find me at</h3>
+    <a href="https://www.twtter.com/yogeshkotadiya">@Yogeshkotadiya</a>
+    <a href="https://github.com/yogeshkotadiya">Github</a>
   </div>
 )
 

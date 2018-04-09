@@ -9,7 +9,7 @@ module.exports = {
     options: {
       trackingId: "UA-117149846-1",
       // Puts tracking script in the head instead of the body
-      head: false,
+      head: true,
       // Setting this parameter is optional
       anonymize: true,
       // Setting this parameter is also optional
@@ -17,5 +17,5 @@ module.exports = {
     },
   },
 ],
-  pathPrefix: `/yogeshkotadiya.github.io`,
+  pathPrefix: `/`,
 };

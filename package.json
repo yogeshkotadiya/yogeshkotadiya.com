@@ -5,6 +5,7 @@
   "author": "Yogesh Kotadiya <contactyogeshkotadiya@gmail.com>",
   "dependencies": {
     "gatsby": "^1.9.241",
+    "gatsby-cli": "^1.1.50",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-google-analytics": "^1.0.28",
     "gatsby-plugin-react-helmet": "^2.0.8",

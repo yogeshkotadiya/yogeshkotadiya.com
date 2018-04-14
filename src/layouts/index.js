@@ -11,14 +11,22 @@ const TemplateWrapper = ({ children }) => (
       title="Yogesh Kotadiya"
       meta={[
         { charset: 'utf-8'},
-        { name: 'description', content: 'Personal Webpage of Yogesh Kotadiya' },
+        { name: 'description', content: 'Personal Webpage of Yogesh Kotadiya, A Full-stack web developer.' },
         { name: 'author', content: 'Yogesh Kotadiya' },
+        { name: 'keywords', content:'yogesh kotadiya, web developer, full-stack developer,'},
+        { property:'og:title', content:'Yogesh Kotadiya'},
+        { property:'og:description', content:'Personal Webpage of Yogesh Kotadiya, A Full-stack web developer.'},
+        { property:'og:type', content:'profile'},
+        { property:'og:url', content:'https://yogeshkotadiya.com'},
         { name: 'theme-color', content: '#821cdb'},
         { name: 'twitter:card', content: 'summary'},
         { name: 'twitter:site', content: '@yogeshkotadiya'},
         { name: 'twitter:creator', content: '@yogeshkotadiya'},
       ]}
     />
+      <Helmet>
+        <link rel="canonical" href="https://yogeshkotadiya.com"/>
+      </Helmet>
     <Header />
     <div
       style={{

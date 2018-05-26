@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "author": "Yogesh Kotadiya <contactyogeshkotadiya@gmail.com>",
   "dependencies": {
-    "gatsby": "^1.9.241",
-    "gatsby-cli": "^1.1.50",
-    "gatsby-link": "^1.6.39",
-    "gatsby-plugin-google-analytics": "^1.0.28",
-    "gatsby-plugin-react-helmet": "^2.0.8",
+    "gatsby": "^1.9.261",
+    "gatsby-cli": "^1.1.52",
+    "gatsby-link": "^1.6.44",
+    "gatsby-plugin-google-analytics": "^1.0.31",
+    "gatsby-plugin-react-helmet": "^2.0.11",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -24,6 +24,6 @@
   },
   "devDependencies": {
     "gh-pages": "^1.1.0",
-    "prettier": "^1.11.1"
+    "prettier": "^1.12.1"
   }
 }

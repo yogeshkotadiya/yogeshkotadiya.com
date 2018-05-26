@@ -8,10 +8,10 @@ import './index.css'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Yogesh Kotadiya"
+      title="Yogesh Kotadiya | FullStack Developer"
       meta={[
         { charset: 'utf-8'},
-        { name: 'description', content: 'Personal Webpage of Yogesh Kotadiya, A Full-stack web developer.' },
+        { name: 'description', content: 'Personal Webpage of Yogesh Kotadiya, Full-Stack developer,OSS supporter.' },
         { name: 'author', content: 'Yogesh Kotadiya' },
         { name: 'keywords', content:'yogesh kotadiya, web developer, full-stack developer,'},
         { property:'og:title', content:'Yogesh Kotadiya'},
@@ -25,6 +25,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
       <Helmet>
+        <html lang="en" />
         <link rel="canonical" href="https://yogeshkotadiya.com"/>
       </Helmet>
     <Header />

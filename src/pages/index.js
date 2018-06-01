@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 const IndexPage = () => (
   <div>
     <h2>Yogesh Kotadiya</h2>
-    <p>I'm a Web Developer, Open-Source supporter,</p>
+    <p>Web Developer, Open-Source supporter.</p>
     <p>Welcome to your My personal Website</p>
     <p>Be Patient, It's Under Construction</p>
 

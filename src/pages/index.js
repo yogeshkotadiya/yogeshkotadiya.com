@@ -12,6 +12,7 @@ const IndexPage = () => (
     <h3>Until then you can find me at</h3>
     <a href="https://www.twitter.com/yogeshkotadiya">@Yogeshkotadiya</a><br/>
     <a href="https://github.com/yogeshkotadiya">Github</a>
+    <a href="http://gitlab.com/yogeshkotadiya">GitLab</a>
   </div>
 )
 

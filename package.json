@@ -1,7 +1,7 @@
 {
   "name": "yogeshkotadiya.com",
   "description": "Personal Website of Yogesh Kotadiya",
-  "version": "1.90.",
+  "version": "1.9.0",
   "author": "Yogesh Kotadiya <contactyogeshkotadiya@gmail.com>",
   "dependencies": {
     "gatsby": "next",

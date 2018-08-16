@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'gatsby';
-import Layout form  '../components/layout';
+// import {Link} from 'gatsby';
+// import Layout from  '../components/layout';
 
 const IndexPage = () => (
   <div>

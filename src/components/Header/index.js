@@ -1,22 +1,21 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
+import styled from 'react-emotion';
 
 const HeaderStyled = styled.div`
-  background-color: eee;
+  display: flex;
+  justify-content: space-between;
   width: 960px;
   height: 50px;
   color: purple;
   margin: 20px auto;
-  font-size: 16px;
-  font-family: 'helvetica';
-
+  font-size: 1.6rem;
   a {
     text-decoration: none;
   }
   nav {
-    float: right;
-    font-size: 20px;
+    margin-top: 30px;
+    font-size: 1.4rem;
     a {
       text-decoration: none;
       padding: 0 10px;
@@ -32,21 +31,12 @@ const HeaderStyled = styled.div`
 const Header = () => (
   <HeaderStyled>
     <Link to={'/'}>
-      <h1>
-        <span>Hi! I'm </span>
-        <a>Yogesh Kotadiya</a>
-      </h1>
+      <h1>Yogesh Kotadiya</h1>
     </Link>
     <nav>
-      <Link to={'/projects'}>
-        <a>Projects</a>
-      </Link>
-      <Link to={'/blog'}>
-        <a>Blog</a>
-      </Link>
-      <Link to={'/about'}>
-        <a>About Me</a>
-      </Link>
+      <Link to={'/projects'}>Projects</Link>
+      <Link to={'/blog'}>Blog</Link>
+      <Link to={'/about'}>About Me</Link>
     </nav>
   </HeaderStyled>
 );

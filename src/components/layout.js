@@ -6,9 +6,8 @@ import Header from '../components/Header';
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Yogesh Kotadiya => FullStack Developer"
+      title="Yogesh Kotadiya"
       meta={[
-        { charset: 'utf-8' },
         {
           name: 'description',
           content:

@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Header from '../components/Header';
+import favicon from '../assets/images/logo_favicon.ico';
 
-const TemplateWrapper = ({ children }) => (
+const Layout = ({ children }) => (
   <div>
     <Helmet
       title="Yogesh Kotadiya"
@@ -35,14 +36,15 @@ const TemplateWrapper = ({ children }) => (
     <Helmet>
       <html lang="en" />
       <link rel="canonical" href="https://yogeshkotadiya.com" />
+      <link rel="shortcut icon" href={favicon} type="image/x-icon" />
     </Helmet>
     <Header />
     <div>{children}</div>
   </div>
 );
 
-TemplateWrapper.propTypes = {
+Layout.propTypes = {
   children: PropTypes.func,
 };
 
-export default TemplateWrapper;
+export default Layout;

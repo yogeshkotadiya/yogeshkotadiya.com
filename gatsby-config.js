@@ -10,6 +10,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
+        path: `(__dirname)/src/pages`,
+        name: 'pages',
         trackingId: process.env.ANALYTICS_TRACKING_ID,
         // Puts tracking script in the head instead of the body
         head: true,
@@ -19,6 +21,7 @@ module.exports = {
         respectDNT: true,
       },
     },
+    'gatsby-mdx',
   ],
   pathPrefix: `/`,
 };

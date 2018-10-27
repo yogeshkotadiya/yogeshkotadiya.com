@@ -1,44 +1,33 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled from 'react-emotion';
+import logo from '../../assets/images/yogesh_logo.svg';
+import HeaderStyled from './HeaderStyled';
 
-const HeaderStyled = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 960px;
-  height: 50px;
-  color: purple;
-  margin: 20px auto;
-  font-size: 1.6rem;
-  a {
-    text-decoration: none;
+class Header extends React.Component {
+  state = {
+    toggleTheme: true,
+  };
+  render() {
+    return (
+      <HeaderStyled>
+        <Link to={'/'}>
+          <img className="logo" src={logo} alt="Logo" />
+        </Link>
+        <nav>
+          <Link to={'/projects'}>Projects</Link>
+          <Link to={'/blog'}>Blog</Link>
+          <Link to={'/about'}>About</Link>
+          <button
+            className="toggle-theme"
+            onClick={() =>
+              this.setState({ toggleTheme: !this.state.toggleTheme })
+            }
+          >
+            {this.state.toggleTheme ? 'Dark' : 'Light'} Theme
+          </button>
+        </nav>
+      </HeaderStyled>
+    );
   }
-  nav {
-    margin-top: 30px;
-    font-size: 1.4rem;
-    a {
-      text-decoration: none;
-      padding: 0 10px;
-      transition: 0.2s all ease-in;
-    }
-    a:hover {
-      padding-bottom: 4px;
-    }
-  }
-`;
-
-/*eslint-disable */
-const Header = () => (
-  <HeaderStyled>
-    <Link to={'/'}>
-      <h1>Yogesh Kotadiya</h1>
-    </Link>
-    <nav>
-      <Link to={'/projects'}>Projects</Link>
-      <Link to={'/blog'}>Blog</Link>
-      <Link to={'/about'}>About Me</Link>
-    </nav>
-  </HeaderStyled>
-);
-
+}
 export default Header;

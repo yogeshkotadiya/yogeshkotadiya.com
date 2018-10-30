@@ -1,10 +1,13 @@
 import styled from 'react-emotion';
 
 const IndexStyled = styled.div`
-  margin-top: 80px;
+  margin: 80px 40px;
   font-size: 1.4rem;
+  background-color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.color};
+  line-height: 1.5;
   p {
-    color: #424242;
+    color: ${props => props.theme.color};
   }
   h2 {
     color: purple;

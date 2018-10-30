@@ -4,9 +4,6 @@ import logo from '../../assets/images/yogesh_logo.svg';
 import HeaderStyled from './HeaderStyled';
 
 class Header extends React.Component {
-  state = {
-    toggleTheme: true,
-  };
   render() {
     return (
       <HeaderStyled>
@@ -19,15 +16,14 @@ class Header extends React.Component {
           <Link to={'/about'}>About</Link>
           <button
             className="toggle-theme"
-            onClick={() =>
-              this.setState({ toggleTheme: !this.state.toggleTheme })
-            }
+            onClick={() => this.props.toggleTheme()}
           >
-            {this.state.toggleTheme ? 'Dark' : 'Light'} Theme
+            {this.props.currentTheme ? 'Dark' : 'Light'} Theme
           </button>
         </nav>
       </HeaderStyled>
     );
   }
 }
+
 export default Header;

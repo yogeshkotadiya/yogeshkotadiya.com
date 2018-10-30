@@ -7,6 +7,7 @@ const HeaderStyled = styled.div`
   height: 50px;
   color: purple;
   margin: 20px auto;
+  padding: 0 20px 0 20px;
   font-size: 1.6rem;
   a {
     text-decoration: none;
@@ -15,6 +16,9 @@ const HeaderStyled = styled.div`
     margin-top: 10px;
     width: 80px;
     height: 80px;
+    user-drag: none;
+    -webkit-user-drag: none;
+    -moz-user-select: none;
   }
   nav {
     margin-top: 30px;

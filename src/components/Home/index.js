@@ -18,11 +18,24 @@ const Home = () => (
       .
     </p>
     <p>
-      You can find me on
-      <a href="https://www.twitter.com/yogeshkotadiya">Twitter</a>, I mostly
-      tinker with new things in Javascript when i'm not doing anything, you can
-      find my Open Source Porjects on
-      <a href="https://github.com/yogeshkotadiya">Github</a>.<br />I enjoy Pizza
+      You can find me on{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.twitter.com/yogeshkotadiya"
+      >
+        Twitter
+      </a>
+      , I mostly tinker with new things in Javascript when i'm not doing
+      anything, you can find my Open Source Porjects on{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/yogeshkotadiya"
+      >
+        Github
+      </a>
+      .<br />I enjoy Pizza
       <span role="img" aria-label="Pizza Emoji">
         🍕
       </span>

@@ -1,5 +1,16 @@
 import { injectGlobal } from 'react-emotion';
 
+export const theme = {
+  light: {
+    backgroundColor: '#fff',
+    color: '#424242',
+  },
+  dark: {
+    backgroundColor: '#616161',
+    color: '#f5f5f5',
+  },
+};
+
 injectGlobal`
   *{
     margin: 0;

@@ -1,14 +1,9 @@
 import { injectGlobal } from 'react-emotion';
 
 export const theme = {
-  light: {
-    backgroundColor: '#fff',
-    color: '#424242',
-  },
-  dark: {
-    backgroundColor: '#616161',
-    color: '#f5f5f5',
-  },
+  backgroundColor: '#fff',
+  color: '#424242',
+  maxWidth: '960px',
 };
 
 injectGlobal`
@@ -17,11 +12,15 @@ injectGlobal`
     padding: 0;
     box-sizing: border-box;
   }
-  body{
+  html,body{
     font-family: 'Lato','Helvetica','sans-sarif';
+    height: 100%;
     font-size: 10px;
-    max-width: 1200px;
     margin: 0 auto;
+  }
+  #___gatsby{
+    min-height: 100%;
+    position: relative;
   }
 `;
 

@@ -1,11 +1,6 @@
 import React from 'react';
+import Projects from '../components/Projects';
 
-const projects = () => {
-  return (
-    <React.Fragment>
-      <h1>Projects</h1>
-    </React.Fragment>
-  );
-};
+const projects = () => <Projects />;
 
 export default projects;

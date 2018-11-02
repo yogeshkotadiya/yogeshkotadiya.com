@@ -1,4 +1,4 @@
-import styled from 'react-emotion';
+import styled from 'styled-components';
 
 const NotFoundStyled = styled.div`
   margin: 100px auto;

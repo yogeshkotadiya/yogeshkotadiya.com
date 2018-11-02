@@ -1,4 +1,4 @@
-import { injectGlobal } from 'react-emotion';
+import { createGlobalStyle } from 'styled-components';
 
 export const theme = {
   backgroundColor: '#fff',
@@ -6,7 +6,7 @@ export const theme = {
   maxWidth: '960px',
 };
 
-injectGlobal`
+const GlobalStyles = createGlobalStyle`
   *{
     margin: 0;
     padding: 0;
@@ -24,4 +24,4 @@ injectGlobal`
   }
 `;
 
-export default injectGlobal;
+export default GlobalStyles;

@@ -6,7 +6,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-emotion',
+    'gatsby-plugin-styled-components',
     'gatsby-mdx',
     {
       resolve: `gatsby-plugin-google-analytics`,

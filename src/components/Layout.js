@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { ThemeProvider } from 'emotion-theming';
-import Header from './Header';
+import { ThemeProvider } from 'styled-components';
 import favicon from '../assets/images/logo_favicon.ico';
-import { theme } from './styles/globalStyles';
+import GlobalStyles, { theme } from './styles/globalStyles';
 import Footer from './Footer';
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <>
+      <GlobalStyles />
       <Helmet
         title="Yogesh Kotadiya"
         meta={[
@@ -42,7 +42,6 @@ const Layout = ({ children }) => (
         <link rel="canonical" href="https://yogeshkotadiya.com" />
         <link rel="shortcut icon" href={favicon} type="image/x-icon" />
       </Helmet>
-      <Header />
       {children}
       <Footer />
     </>

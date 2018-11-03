@@ -1,41 +1,28 @@
 {
-  "name": "yogeshkotadiya.com",
-  "description": "Personal Website of Yogesh Kotadiya",
-  "version": "1.9.0",
-  "author": "Yogesh Kotadiya <hiyogeshkotadiya@gmail.com>",
+  "name": "_P-yogeshkotadiya.com",
+  "version": "2.0.0",
+  "description": "Personal WebPage of Yogesh Kotadiya",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogeshkotadiya/Personal-website.git"
+  },
+  "keywords": [],
+  "author": "Yogesh Kotadiya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yogeshkotadiya/Personal-website/issues"
+  },
+  "homepage": "https://github.com/yogeshkotadiya/Personal-website#readme",
   "dependencies": {
-    "@mdx-js/mdx": "^0.15.5",
-    "@mdx-js/tag": "^0.15.0",
-    "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^2.0.0",
-    "gatsby-cli": "^2.4.0",
-    "gatsby-link": "^2.0.1",
-    "gatsby-mdx": "^0.2.0",
-    "gatsby-plugin-google-analytics": "^2.0.5",
-    "gatsby-plugin-react-helmet": "^3.0.0",
-    "gatsby-plugin-styled-components": "^3.0.1",
-    "gatsby-source-filesystem": "^2.0.5",
-    "prop-types": "^15.6.2",
+    "next": "^7.0.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-helmet": "^5.2.0",
-    "react-typography": "^0.16.13",
-    "styled-components": "^4.0.3",
-    "typography": "^0.16.17"
-  },
-  "keywords": [
-    "gatsby, portfolio"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "serve": "gatsby serve"
-  },
-  "devDependencies": {
-    "gh-pages": "^2.0.1",
-    "prettier": "^1.14.2"
+    "styled-components": "^4.0.3"
   }
 }

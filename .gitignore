@@ -1,9 +1,6 @@
-# Project dependencies
-.vscode
-.cache
+# NextJS build files
+.next
+
+# Node moudles and yarn files
 node_modules
-yarn-error.log
 yarn.lock
-.env
-# Build directory
-/public

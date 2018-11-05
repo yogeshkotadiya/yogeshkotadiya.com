@@ -1,9 +1,10 @@
 import React from "react";
+import Home from "../components/Home";
 
 const Index = () => {
   return (
     <React.Fragment>
-      <p>Hello from NextJS</p>
+      <Home />
     </React.Fragment>
   );
 };

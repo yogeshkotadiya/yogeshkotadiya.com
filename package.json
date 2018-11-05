@@ -1,5 +1,5 @@
 {
-  "name": "_P-yogeshkotadiya.com",
+  "name": "yogeshkotadiya.com",
   "version": "2.0.0",
   "description": "Personal WebPage of Yogesh Kotadiya",
   "main": "index.js",
@@ -20,7 +20,11 @@
   },
   "homepage": "https://github.com/yogeshkotadiya/Personal-website#readme",
   "dependencies": {
+    "@mdx-js/mdx": "^0.15.7",
+    "@mdx-js/tag": "^0.15.6",
+    "@zeit/next-mdx": "^1.2.0",
     "next": "^7.0.2",
+    "next-ga": "^2.3.3",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "styled-components": "^4.0.3"

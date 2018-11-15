@@ -5,6 +5,7 @@ import TopProjects from "../Projects/TopProjects";
 const Home = () => (
   <IndexStyled>
     <div className="introduction">
+      <h1>WORK IN PROGRESS. CHECK BACK SOON.</h1>
       <p>
         Hi!
         <span role="img" aria-label="Wave Emoji">

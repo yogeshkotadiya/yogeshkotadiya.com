@@ -1,6 +1,0 @@
-# NextJS build files
-.next
-
-# Node moudles and yarn files
-node_modules
-yarn.lock

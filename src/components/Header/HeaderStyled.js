@@ -6,7 +6,6 @@ const HeaderStyled = styled.div`
   top: 0;
   width: 100%;
   height: 100px;
-  color: purple;
   margin: 0px auto;
   margin-bottom: 20px;
   padding: 10px 20px 0 20px;
@@ -30,7 +29,6 @@ const HeaderStyled = styled.div`
     max-width: 960px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     transition: all 0.3s;
     @media screen and (max-width: 680px) {
       max-width: 480px;
@@ -38,19 +36,8 @@ const HeaderStyled = styled.div`
       justify-content: center;
       align-items: center;
     }
-    & > a {
-      #logo {
-        width: 60px;
-        height: 60px;
-        user-drag: none;
-        -webkit-user-drag: none;
-        -moz-user-select: none;
-      }
-      #header-name {
-        color: ${props => props.theme.primary};
-        position: absolute;
-        top: 35px;
-      }
+    #header-name {
+      color: ${props => props.theme.primary};
     }
     nav {
       font-size: 2.2rem;

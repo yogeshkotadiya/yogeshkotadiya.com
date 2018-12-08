@@ -7,7 +7,7 @@ const BlogStyled = styled.li`
   margin: 0 auto;
   list-style: none;
   padding: 10px;
-  height: 100px;
+  height: 100%;
   border-radius: 10px;
   transition: 0.2s all;
   a {

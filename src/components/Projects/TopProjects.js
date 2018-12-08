@@ -1,5 +1,46 @@
 import React from "react";
 import styled from "styled-components";
+import { StaticQuery, graphql } from "gatsby";
+
+const TOP_PROJECTS_Query = graphql`
+  {
+    github {
+      viewer {
+        pinnedRepositories(
+          first: 6
+          orderBy: { direction: DESC, field: STARGAZERS }
+        ) {
+          nodes {
+            name
+            url
+            description
+          }
+        }
+      }
+    }
+  }
+`;
+
+const TopProjects = () => {
+  return (
+    <TopStyled>
+      <StaticQuery
+        query={TOP_PROJECTS_Query}
+        render={data => {
+          const node = data.github.viewer.pinnedRepositories.nodes;
+          return node.map(repo => (
+            <div className="singleProject">
+              <a target="_blank" rel="noopener noreferrer" href={repo.url}>
+                {repo.name}
+              </a>
+              <p>{repo.description}</p>
+            </div>
+          ));
+        }}
+      />
+    </TopStyled>
+  );
+};
 
 const TopStyled = styled.div`
   margin: 20px 0;
@@ -13,6 +54,15 @@ const TopStyled = styled.div`
     background: ${props => props.theme.primaryLight};
     color: #fff;
     transition: all 0.2s;
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.6rem;
+      color: #fff;
+    }
     &:hover {
       transform: scale(1.1);
     }
@@ -45,7 +95,7 @@ const TopStyled = styled.div`
         #ee609c 100%
       );
       &:hover {
-        box-shadow: 0 4px 10px #b8cbb8;
+        box-shadow: 0 4px 10px #ee609c;
       }
     }
     &:nth-child(5) {
@@ -76,36 +126,5 @@ const TopStyled = styled.div`
     height: 200px;
   }
 `;
-
-const TopProjects = () => {
-  return (
-    <TopStyled>
-      <div className="singleProject">
-        <h3>Project 1</h3>
-        <p>Project Desc</p>
-      </div>
-      <div className="singleProject">
-        <h3>Project 2</h3>
-        <p>Project Desc</p>
-      </div>
-      <div className="singleProject">
-        <h3>Project 3</h3>
-        <p>Project Desc</p>
-      </div>
-      <div className="singleProject">
-        <h3>Project 4</h3>
-        <p>Project Desc</p>
-      </div>
-      <div className="singleProject">
-        <h3>Project 5</h3>
-        <p>Project Desc</p>
-      </div>
-      <div className="singleProject">
-        <h3>Project 6</h3>
-        <p>Project Desc</p>
-      </div>
-    </TopStyled>
-  );
-};
 
 export default TopProjects;

@@ -16,8 +16,8 @@ class Header extends React.Component {
     return (
       <HeaderStyled id="header">
         <div id="headerContent">
-          <Link to={"/"}>
-            <span id="header-name">&lt;Yogesh Kotadiya &frasl;&gt;</span>
+          <Link to={"/"} id="header-name">
+            &lt;Yogesh Kotadiya &frasl;&gt;
           </Link>
           <nav>
             <Link to={"/projects"}>Projects</Link>

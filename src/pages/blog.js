@@ -5,7 +5,7 @@ import Blogs from "../components/Bloglist";
 
 const Blog = () => (
   <Layout>
-    <Blogs BlogLimit={500} />
+    <Blogs />
   </Layout>
 );
 

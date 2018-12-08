@@ -2,12 +2,13 @@ import React from "react";
 import IndexStyled from "./IndexStyled";
 import TopProjects from "../Projects/TopProjects";
 import BlogList from "../Bloglist";
+import Profile from "../../static/profile.jpeg";
 
 const Home = () => (
   <IndexStyled>
     <div className="introduction">
-      <h1>WORK IN PROGRESS. CHECK BACK SOON.</h1>
-      <p>
+      <img src={Profile} alt="Profile" />
+      <p id="intro">
         Hi!
         <span role="img" aria-label="Wave Emoji">
           👋

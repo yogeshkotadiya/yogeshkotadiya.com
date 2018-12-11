@@ -3,10 +3,8 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 const BlogStyled = styled.li`
-  width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
   list-style: none;
-  padding: 10px;
+  padding: 15px;
   height: 100%;
   border-radius: 10px;
   transition: 0.2s all;

@@ -8,6 +8,7 @@ const HeaderStyled = styled.div`
   margin: 0 auto 20px;
   font-size: 2.4rem;
   transition: all 0.3s;
+  z-index: 10;
   display: flex;
   align-items: center;
   &.header-scrolled {

@@ -4,7 +4,10 @@ import styled from "styled-components";
 import Blog from "./BlogPost";
 
 const BlogListStyled = styled.div`
+  max-width: ${props => props.theme.maxWidth};
   margin: 20px auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const BlogListQuery = graphql`

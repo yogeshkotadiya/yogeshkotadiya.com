@@ -8,8 +8,16 @@ const IndexStyled = styled.div`
   color: ${props => props.theme.lightBlack};
   line-height: 1.5;
   .introduction {
-    width: 680px;
+    max-width: 680px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) minmax(250px, 860px) minmax(
+        1rem,
+        1fr
+      );
+    & > * {
+      grid-column: 2/3;
+    }
     #intro {
       text-align: center;
     }

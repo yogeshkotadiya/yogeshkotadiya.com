@@ -5,6 +5,7 @@ export const theme = {
   lightBlack: "#424242",
   grey100: "#F5F5F5",
   grey200: "#EEEEEE",
+  primaryExtraLight: "#ffebee",
   primaryLight: "#FFCDD2",
   primary: "#e53935",
   maxWidth: "960px",

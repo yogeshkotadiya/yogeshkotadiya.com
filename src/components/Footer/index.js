@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Footerstyled = styled.div`
+const Footerstyled = styled.footer`
   position: relative;
   display: flex;
   justify-content: center;

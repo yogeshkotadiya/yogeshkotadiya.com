@@ -29,12 +29,14 @@ const TopProjects = () => {
         render={data => {
           const node = data.github.viewer.pinnedRepositories.nodes;
           return node.map(repo => (
-            <div className="singleProject">
-              <a target="_blank" rel="noopener noreferrer" href={repo.url}>
-                {repo.name}
-              </a>
-              <p>{repo.description}</p>
-            </div>
+            <React.Fragment key={repo.url}>
+              <div className="singleProject">
+                <a target="_blank" rel="noopener noreferrer" href={repo.url}>
+                  {repo.name}
+                </a>
+                <p>{repo.description}</p>
+              </div>
+            </React.Fragment>
           ));
         }}
       />
@@ -46,9 +48,10 @@ const TopStyled = styled.div`
   margin: 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px;
   grid-gap: 20px;
   .singleProject {
-    height: 150px;
+    height: 100%;
     border-radius: 10px;
     padding: 10px;
     background: ${props => props.theme.primaryLight};
@@ -113,17 +116,22 @@ const TopStyled = styled.div`
   }
   @media screen and (max-width: 860px) {
     margin: 20px 10px;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px;
     grid-gap: 10px;
     .singleProject {
-      height: 180px;
+      height: 100%;
     }
   }
   @media screen and (max-width: 580px) {
     margin: 20px 10px;
     grid-template-columns: 1fr;
     grid-gap: 10px;
-    height: 200px;
+    height: 100%;
+    .singleProject:hover {
+      transform: scale(1);
+    }
   }
 `;
 

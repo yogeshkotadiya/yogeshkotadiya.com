@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
   #page-heading {
     text-transform: uppercase;
     color: ${props => props.theme.primary};
-    width: 200px;
+    width: 250px;
     height: 50px;
     position: relative;
     margin: 0 auto;

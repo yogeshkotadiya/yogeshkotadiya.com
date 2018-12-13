@@ -1,9 +1,10 @@
 ---
-title: "First Post"
+title: "What is the purpose of writing super(props)?"
 author: "Yogesh Kotadiya"
-slug: "post"
-exerpt: "First post created with Gatsby"
-date: "2018-12-03"
+slug: "why-write-super-props"
+readtime: 10
+exerpt: "Why do we write super(props) in constructor"
+date: "2018-12-13"
 ---
 
 I heard [Hooks](https://reactjs.org/docs/hooks-intro.html) are the new hotness. Ironically, I want to start this blog by describing fun facts about _class_ components. How about that!

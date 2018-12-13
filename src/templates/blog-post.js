@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql, Link } from "gatsby";
-
+import styled from "styled-components";
 import Blog from "../components/BlogPost";
 import Layout from "../components/layout";
 
@@ -25,6 +25,23 @@ export const pageQuery = graphql`
   }
 `;
 
+const Style = styled.ul`
+  max-width: 960px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0 20px;
+  font-size: 2rem;
+
+  a {
+    text-decoration: none;
+    color: #e53935;
+  }
+`;
+
+const LinkStyle = {};
 class BlogPost extends Component {
   render() {
     const { markdownRemark } = this.props.data;
@@ -35,30 +52,30 @@ class BlogPost extends Component {
           <title>{markdownRemark.frontmatter.title}</title>
         </Helmet>
         <Blog markdownRemark={markdownRemark} />
-        <ul
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            listStyle: "none",
-            padding: 0
-          }}
-        >
+        <Style>
           <li>
             {previous && (
-              <Link to={`/blog/${previous.frontmatter.slug}`} rel="prev">
+              <Link
+                style={LinkStyle}
+                to={`/blog/${previous.frontmatter.slug}`}
+                rel="prev"
+              >
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={`/blog/${next.frontmatter.slug}`} rel="next">
+              <Link
+                style={LinkStyle}
+                to={`/blog/${next.frontmatter.slug}`}
+                rel="next"
+              >
                 {next.frontmatter.title} →
               </Link>
             )}
           </li>
-        </ul>
+        </Style>
       </Layout>
     );
   }

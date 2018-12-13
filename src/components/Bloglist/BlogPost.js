@@ -35,7 +35,10 @@ function BlogPost({ frontmatter, excerpt }) {
         <Link to={`/blog/${frontmatter.slug}`}>{frontmatter.title}</Link>
       </h1>
       <p>
-        <span id="blog-date">{frontmatter.date}</span>
+        <span id="blog-date">
+          <strong>{frontmatter.date}</strong> ⏳ {frontmatter.readtime || 5} min
+          read
+        </span>
       </p>
       <p>{excerpt}</p>
     </BlogStyled>

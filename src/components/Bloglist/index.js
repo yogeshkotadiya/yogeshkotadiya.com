@@ -23,6 +23,7 @@ const BlogListQuery = graphql`
             title
             author
             slug
+            readtime
             date(formatString: "MMMM DD, YYYY")
           }
         }

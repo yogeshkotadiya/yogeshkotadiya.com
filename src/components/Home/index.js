@@ -1,36 +1,10 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
 import IndexStyled from "./IndexStyled";
 import TopProjects from "../Projects/TopProjects";
 import BlogList from "../Bloglist";
 import Profile from "../../../static/profile.jpeg";
 
-export const blogQuery = graphql`
-  query BLOGQUERY {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMdx(limit: 6, sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            readLength
-          }
-        }
-      }
-    }
-  }
-`;
-
-const Home = () => (
+const Home = ({ data }) => (
   <>
     <IndexStyled>
       <div className="introduction">
@@ -74,15 +48,7 @@ const Home = () => (
     <h1 className="page-heading">Projects</h1>
     <TopProjects />
     <h1 className="page-heading">Blog</h1>
-    <StaticQuery
-      query={blogQuery}
-      render={data => (
-        <BlogList
-          title={data.site.siteMetadata.title}
-          posts={data.allMdx.edges}
-        />
-      )}
-    />
+    <BlogList title={data.site.siteMetadata.title} posts={data.allMdx.edges} />
   </>
 );
 

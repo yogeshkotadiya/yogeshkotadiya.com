@@ -1,8 +1,34 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 import IndexStyled from "./IndexStyled";
 import TopProjects from "../Projects/TopProjects";
 import BlogList from "../Bloglist";
-import Profile from "../../static/profile.jpeg";
+import Profile from "../../../static/profile.jpeg";
+
+export const blogQuery = graphql`
+  query BLOGQUERY {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMdx(limit: 6, sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            readLength
+          }
+        }
+      }
+    }
+  }
+`;
 
 const Home = () => (
   <>
@@ -21,16 +47,16 @@ const Home = () => (
           <span role="img" aria-label="India Flag Emoji">
             🇮🇳
           </span>
-          .
+          . I work with React,Typescript,GraphQL and Javascript(ES8+).
         </p>
         <p>
-          You can find me on{" "}
+          You can follow me on{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.twitter.com/yogeshkotadiya"
           >
-            Twitter
+            @yogeshkotadiya
           </a>
           , I mostly tinker with new things in Javascript when i'm not doing
           anything, you can find my Open Source Porjects on{" "}
@@ -43,11 +69,20 @@ const Home = () => (
           </a>
           .
         </p>
-        <h2 id="page-heading">Projects</h2>
       </div>
     </IndexStyled>
+    <h1 className="page-heading">Projects</h1>
     <TopProjects />
-    <BlogList />
+    <h1 className="page-heading">Blog</h1>
+    <StaticQuery
+      query={blogQuery}
+      render={data => (
+        <BlogList
+          title={data.site.siteMetadata.title}
+          posts={data.allMdx.edges}
+        />
+      )}
+    />
   </>
 );
 

@@ -1,53 +1,44 @@
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
+import { rhythm, scale } from "../../utils/typography";
 import styled from "styled-components";
-import Blog from "./BlogPost";
 
 const BlogListStyled = styled.div`
-  max-width: ${props => props.theme.maxWidth};
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(40)};
+  padding: ${rhythm(2 / 4)} ${rhythm(3 / 4)};
 `;
 
-const BlogListQuery = graphql`
-  query BlogListQuery {
-    allMarkdownRemark(
-      limit: 500
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
-      edges {
-        node {
-          excerpt
-          frontmatter {
-            title
-            author
-            slug
-            readtime
-            date(formatString: "MMMM DD, YYYY")
-          }
-        }
-      }
-    }
-  }
-`;
-
-const Bloglist = () => (
-  <StaticQuery
-    query={BlogListQuery}
-    render={({ allMarkdownRemark: { edges } }) => (
-      <BlogListStyled>
-        <h1 id="page-heading">Blog</h1>
-        {edges.map(({ node }) => (
-          <Blog
-            frontmatter={node.frontmatter}
-            excerpt={node.excerpt}
-            key={node.frontmatter.slug}
-          />
-        ))}
-      </BlogListStyled>
-    )}
-  />
+const BlogList = ({ posts }) => (
+  <>
+    {posts.map(({ node }) => {
+      const title = node.frontmatter.title || node.fields.slug;
+      return (
+        <BlogListStyled
+          style={{
+            ...scale(0.6),
+          }}
+          key={node.fields.slug}
+        >
+          <h1
+            style={{
+              margin: `${rhythm(2 / 4)} 0`,
+            }}
+          >
+            <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+              {title}
+            </Link>
+          </h1>
+          <small>
+            {node.frontmatter.date},{" "}
+            <span>⏳ {node.frontmatter.readLength}</span>
+          </small>
+          <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        </BlogListStyled>
+      );
+    })}
+  </>
 );
 
-export default Bloglist;
+export default BlogList;

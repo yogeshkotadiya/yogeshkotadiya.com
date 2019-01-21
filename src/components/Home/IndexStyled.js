@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const IndexStyled = styled.div`
+  font-family: "montserrat", "lato", "sans-serif";
   margin: 0 auto;
   padding: 20px;
   font-size: 2.2rem;
@@ -23,7 +24,6 @@ const IndexStyled = styled.div`
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     }
     a {
-      text-decoration: none;
       color: ${props => props.theme.primary};
     }
     p {
@@ -37,7 +37,7 @@ const IndexStyled = styled.div`
     }
     #name {
       display: block;
-      color: #e53935;
+      color: #ef5350;
       font-weight: 800;
       font-size: 3.4rem;
     }

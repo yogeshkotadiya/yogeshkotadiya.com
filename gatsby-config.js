@@ -1,13 +1,15 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 });
+
+const mdxFeed = require("gatsby-mdx/feed");
 
 module.exports = {
   siteMetadata: {
     title: "Yogesh Kotadiya",
     author: "Yogesh Kotadiya",
     description: "Personal Webpage",
-    siteURL: "https://yogeshkotadiya.com"
+    siteURL: "https://yogeshkotadiya.com",
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -15,44 +17,45 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/static`
-      }
+        path: `${__dirname}/static`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`
-      }
+        name: `blog`,
+        path: `${__dirname}/content/blog`,
+      },
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-styled-components",
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-mdx`,
       options: {
-        plugins: [
+        extensions: [".mdx", ".md"],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 620
-            }
+              maxWidth: 590,
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`
-            }
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
           },
           {
-            resolve: "gatsby-remark-prismjs",
-            options: {
-              inlineCodeMarker: null
-            }
+            resolve: `gatsby-remark-copy-linked-files`,
           },
-          "gatsby-remark-copy-linked-files"
-        ]
-      }
+
+          {
+            resolve: `gatsby-remark-smartypants`,
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -63,8 +66,8 @@ module.exports = {
         background_color: "#FFCDD2",
         theme_color: "#FFCDD2",
         display: "minimal-ui",
-        icon: "src/static/logo.svg" // This path is relative to the root of the site.
-      }
+        icon: "static/logo.svg", // This path is relative to the root of the site.
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
@@ -75,7 +78,7 @@ module.exports = {
         // Setting this parameter is optional
         anonymize: true,
         // Setting this parameter is also optional
-        respectDNT: true
+        respectDNT: true,
         // Avoids sending pageview hits from custom paths
         //exclude: ["/preview/**", "/do-not-track/me/too/"],
         // Enables Google Optimize using your container Id
@@ -84,7 +87,7 @@ module.exports = {
         // sampleRate: 5,
         // siteSpeedSampleRate: 10,
         // cookieDomain: "example.com"
-      }
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
@@ -98,11 +101,78 @@ module.exports = {
         url: "https://api.github.com/graphql",
         // HTTP headers
         headers: {
-          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
         },
         // Additional options to pass to node-fetch
-        fetchOptions: {}
-      }
-    }
-  ]
+        fetchOptions: {},
+      },
+    },
+    {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: "src/utils/typography",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteURL
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  data: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteURL + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteURL + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.code.boy }],
+                });
+              });
+            },
+
+            /* if you want to filter for only published posts, you can do
+             * something like this:
+             * filter: { frontmatter: { published: { ne: false } } }
+             * just make sure to add a published frontmatter field to all posts,
+             * otherwise gatsby will complain
+             **/
+            query: `
+            {
+              allMdx(
+                limit: 1000,
+                sort: { order: DESC, fields: [frontmatter___date] },
+              ) {
+                edges {
+                  node {
+                    code {
+                      body
+                    }
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: "/rss.xml",
+            title: "Yogesh Kotadiya RSS feed",
+          },
+        ],
+      },
+    },
+  ],
 };

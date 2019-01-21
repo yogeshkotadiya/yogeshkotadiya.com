@@ -17,7 +17,7 @@ const Footerstyled = styled.footer`
 const Footer = () => {
   return (
     <Footerstyled>
-      <p>© 2018 Yogesh Kotadiya</p>
+      <p>© {new Date().getFullYear()} Yogesh Kotadiya</p>
     </Footerstyled>
   );
 };

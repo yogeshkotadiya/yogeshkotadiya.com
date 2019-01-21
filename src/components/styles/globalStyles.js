@@ -7,9 +7,9 @@ export const theme = {
   grey200: "#EEEEEE",
   primaryExtraLight: "#ffebee",
   primaryLight: "#FFCDD2",
-  primary: "#e53935",
+  primary: "#ef5350",
   maxWidth: "960px",
-  white: "#fff"
+  white: "#fff",
 };
 
 const GlobalStyles = createGlobalStyle`
@@ -19,14 +19,12 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   html,body{
-    font-family: 'Lato','Helvetica','sans-sarif';
     height: 100%;
     width:100%;
     font-size: 10px;
     margin: 0 auto;
-    background: "#F5F5F5";
   }
-  #page-heading {
+  .page-heading {
     text-transform: uppercase;
     color: ${props => props.theme.primary};
     width: 250px;

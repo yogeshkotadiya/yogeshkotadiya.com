@@ -24,7 +24,7 @@ export default props => (
     />
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://yogeshkotadiya.com" />
-    <meta name="theme-color" content="#e53935" />
+    <meta name="theme-color" content="#ef5350" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@yogeshkotadiya" />
     <meta name="twitter:creator" content="@yogeshkotadiya" />

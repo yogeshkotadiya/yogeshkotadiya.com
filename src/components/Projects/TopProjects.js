@@ -10,10 +10,15 @@ const TOP_PROJECTS_Query = graphql`
           first: 6
           orderBy: { direction: DESC, field: STARGAZERS }
         ) {
-          nodes {
-            name
-            url
-            description
+          edges {
+            node {
+              name
+              url
+              description
+              stargazers {
+                totalCount
+              }
+            }
           }
         }
       }
@@ -28,15 +33,32 @@ const TopProjects = () => {
         <StaticQuery
           query={TOP_PROJECTS_Query}
           render={data => {
-            const node = data.github.viewer.pinnedRepositories.nodes;
-            return node.map(repo => (
-              <React.Fragment key={repo.url}>
-                <div className="singleProject">
-                  <a target="_blank" rel="noopener noreferrer" href={repo.url}>
-                    {repo.name}
-                  </a>
-                  <p>{repo.description}</p>
-                </div>
+            const nodes = data.github.viewer.pinnedRepositories.edges;
+            return nodes.map(({ node }) => (
+              <React.Fragment key={node.url}>
+                <a
+                  className="singleProject"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={node.url}
+                >
+                  {node.name}
+                  <p>{node.description}</p>
+                  <svg
+                    className="octicon octicon-star v-align-text-bottom"
+                    viewBox="0 0 14 16"
+                    version="1.1"
+                    width="16"
+                    height="14"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                    />
+                  </svg>
+                  <p id="starCount">{node.stargazers.totalCount}</p>
+                </a>
               </React.Fragment>
             ));
           }}
@@ -47,6 +69,7 @@ const TopProjects = () => {
 };
 
 const TopStyled = styled.div`
+  font-family: "montserrat", "lato", "sans-serif";
   margin: 20px auto;
   max-width: ${props => props.theme.maxWidth};
   .containerProject {
@@ -58,66 +81,25 @@ const TopStyled = styled.div`
 
     .singleProject {
       height: 100%;
-      border-radius: 10px;
+      border-radius: 5px;
       padding: 10px;
-      background: ${props => props.theme.primaryLight};
-      color: #fff;
       transition: all 0.2s;
+      box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
+      font-size: 2.2rem;
+      line-height: 2rem;
       a {
-        color: #fff;
         text-decoration: none;
-        font-size: 2.5rem;
       }
       p {
+        margin-top: 5px;
         font-size: 1.6rem;
-        color: #fff;
       }
       &:hover {
-        transform: scale(1.05);
+        transform: scale(1.03);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       }
-      &:nth-child(1) {
-        background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-        &:hover {
-          box-shadow: 0 4px 10px #43e97b;
-        }
-      }
-      &:nth-child(2) {
-        background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
-        &:hover {
-          box-shadow: 0 4px 10px #209cff;
-        }
-      }
-      &:nth-child(3) {
-        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        &:hover {
-          box-shadow: 0 4px 10px #667eea;
-        }
-      }
-      &:nth-child(4) {
-        background-image: linear-gradient(
-          to right,
-          #b8cbb8 0%,
-          #b8cbb8 0%,
-          #b465da 0%,
-          #cf6cc9 33%,
-          #ee609c 66%,
-          #ee609c 100%
-        );
-        &:hover {
-          box-shadow: 0 4px 10px #ee609c;
-        }
-      }
-      &:nth-child(5) {
-        background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
-        &:hover {
-          box-shadow: 0 4px 10px #f83600;
-        }
-      }
-      &:nth-child(6) {
-        background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
-        &:hover {
-          box-shadow: 0 4px 10px #0acffe;
-        }
+      #starCount {
+        display: inline-block;
       }
     }
   }

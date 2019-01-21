@@ -18,10 +18,6 @@ const HeaderStyled = styled.div`
       width: 820px;
     }
   }
-  a {
-    text-decoration: none;
-    outline: none;
-  }
   #headerContent {
     margin: 0 auto;
     padding: 0 20px;
@@ -30,8 +26,8 @@ const HeaderStyled = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     transition: all 0.3s;
+    font-family: "montserrat";
     #header-name {
-      color: ${props => props.theme.primary};
       padding-bottom: 10px;
     }
     nav {
@@ -50,7 +46,7 @@ const HeaderStyled = styled.div`
         height: 3px;
         bottom: 0;
         margin: -8px -10px;
-        background-color: #e53935;
+        background-color: #ef5350;
         visibility: hidden;
         transform: scaleX(0);
         transition: all 0.25s ease-in-out 0s;

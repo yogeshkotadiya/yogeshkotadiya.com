@@ -3,8 +3,8 @@ import React from "react";
 import Layout from "../components/layout";
 import Project from "../components/Projects";
 
-const Projects = () => (
-  <Layout>
+const Projects = ({ location }) => (
+  <Layout location={location}>
     <Project />
   </Layout>
 );

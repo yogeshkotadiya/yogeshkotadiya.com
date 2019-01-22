@@ -57,7 +57,7 @@ const TopProjects = () => {
                       d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
                     />
                   </svg>
-                  <p id="starCount">{node.stargazers.totalCount}</p>
+                  <p className="starCount">{node.stargazers.totalCount}</p>
                 </a>
               </React.Fragment>
             ));
@@ -98,7 +98,7 @@ const TopStyled = styled.div`
         transform: scale(1.03);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       }
-      #starCount {
+      .starCount {
         display: inline-block;
       }
     }

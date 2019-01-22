@@ -53,7 +53,7 @@ const Projects = () => {
                   {node.name}
                 </a>
               </h2>
-              <p id="star">
+              <p className="star">
                 <svg
                   className="octicon octicon-star v-align-text-bottom"
                   viewBox="0 0 14 16"

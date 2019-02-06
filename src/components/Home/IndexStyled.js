@@ -4,7 +4,7 @@ const IndexStyled = styled.div`
   font-family: "montserrat", "lato", "sans-serif";
   margin: 0 auto;
   padding: 20px;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   background-color: ${props => props.theme.backgroundColor};
   color: ${props => props.theme.lightBlack};
   display: flex;

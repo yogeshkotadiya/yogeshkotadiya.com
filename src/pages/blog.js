@@ -4,22 +4,15 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import BlogList from "../components/Bloglist";
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props;
-    const siteTitle = data.site.siteMetadata.title;
-    const posts = data.allMdx.edges;
-    return (
-      <Layout>
-        <BlogList
-          location={this.props.location}
-          title={siteTitle}
-          posts={posts}
-        />
-      </Layout>
-    );
-  }
-}
+const BlogIndex = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title;
+  const posts = data.allMdx.edges;
+  return (
+    <Layout>
+      <BlogList location={location} title={siteTitle} posts={posts} />
+    </Layout>
+  );
+};
 
 export default BlogIndex;
 

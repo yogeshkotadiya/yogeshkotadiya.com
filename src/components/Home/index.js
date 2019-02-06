@@ -24,7 +24,7 @@ const Home = ({ data }) => (
           . I work with React,Typescript,GraphQL and Javascript(ES8+).
         </p>
         <p>
-          You can follow me on{" "}
+          You can follow me on twitter{" "}
           <a
             target="_blank"
             rel="noopener noreferrer"

@@ -27,15 +27,6 @@ const AllProjectQuery = graphql`
     }
   }
 `;
-const listStyle = {
-  margin: "10px 0",
-  padding: "5px",
-  listStyle: "none",
-  fontSize: "1.4rem",
-  height: "100%",
-  backgroundColor: "#ffebee",
-  borderRadius: "10px",
-};
 const Projects = () => {
   return (
     <ProjectStyled>
@@ -47,7 +38,7 @@ const Projects = () => {
         render={data => {
           const repos = data.github.viewer.repositories.edges;
           return repos.map(({ node }) => (
-            <li style={listStyle} key={node.url}>
+            <li className="listStyle" key={node.url}>
               <h2>
                 <a target="_blank" rel="noopener noreferrer" href={node.url}>
                   {node.name}

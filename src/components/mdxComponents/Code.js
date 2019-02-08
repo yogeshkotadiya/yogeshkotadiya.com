@@ -25,22 +25,34 @@ const Code = ({ codeString, language, ...props }) => {
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={style}>
-          {tokens.map((line, i) => (
-            <div
-              {...getLineProps({ line, key: i })}
-              className={
-                highlightLines.includes(i + 1)
-                  ? "gatsby-highlight-code-line"
-                  : null
-              }
-            >
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
+        <div className="gatsby-highlight">
+          <pre className={className} style={style}>
+            <code className="language-jsx">
+              {tokens.map((line, i) => {
+                if (highlightLines.includes(i + 1)) {
+                  return (
+                    <span
+                      {...getLineProps({ line, key: i })}
+                      className={
+                        highlightLines.includes(i + 1)
+                          ? "gatsby-highlight-code-line"
+                          : null
+                      }
+                    >
+                      {line.map((token, key) => (
+                        <span {...getTokenProps({ token, key })} />
+                      ))}
+                    </span>
+                  );
+                } else {
+                  return line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ));
+                }
+              })}
+            </code>
+          </pre>
+        </div>
       )}
     </Highlight>
   );

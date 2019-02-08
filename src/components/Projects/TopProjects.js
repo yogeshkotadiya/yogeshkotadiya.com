@@ -99,6 +99,9 @@ const TopStyled = styled.div`
       .starCount {
         display: inline-block;
       }
+      .octicon {
+        fill: ${props => props.theme.textColor};
+      }
     }
   }
 `;

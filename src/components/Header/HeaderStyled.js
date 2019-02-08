@@ -13,12 +13,13 @@ const HeaderStyled = styled.div`
   align-items: center;
   &.header-scrolled {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    background: ${props => props.theme.white};
+    background: ${props => props.theme.backgroundColor};
     & > #headerContent {
       width: 820px;
     }
   }
   #headerContent {
+    position: relative;
     margin: 0 auto;
     padding: 0 20px;
     width: 960px;
@@ -28,16 +29,25 @@ const HeaderStyled = styled.div`
     transition: all 0.3s;
     font-family: "montserrat";
     #header-name {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
       padding-bottom: 10px;
     }
     nav {
       font-size: 2.2rem;
+      position: relative;
+      padding-right: 50px;
       a {
         position: relative;
         color: ${props => props.theme.lightBlack};
         text-align: center;
         padding: 10px;
         transition: 0.2s all ease-in;
+        .icon {
+          stroke: ${props => props.theme.textColor};
+          fill: ${props => props.theme.textColor};
+        }
       }
       a::before {
         content: "";
@@ -61,8 +71,15 @@ const HeaderStyled = styled.div`
     }
   }
   @media screen and (max-width: 680px) {
+    height: 135px;
     #headerContent {
       justify-content: space-around;
+      nav {
+        padding-right: 10px;
+      }
+    }
+    .toggleWrapper {
+      top: 40%;
     }
   }
 `;

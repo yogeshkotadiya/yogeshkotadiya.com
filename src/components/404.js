@@ -44,4 +44,4 @@ const NotFound = () => (
   </NotFoundStyled>
 );
 
-export default NotFound;
+export default React.memo(NotFound);

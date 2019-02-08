@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "gatsby";
 import HeaderStyled from "./HeaderStyled";
+import Toggle from "./Toggle";
+import Logo from "../../../static/logo.svg";
 
 function Header() {
   React.useEffect(() => {
@@ -11,14 +13,13 @@ function Header() {
         document.getElementById("header").classList.remove("header-scrolled");
       }
     });
-    return () =>
-      window.removeEventListener("scroll", console.log("Event Removed"));
   });
   return (
     <HeaderStyled id="header">
       <div id="headerContent">
         <Link to={"/"} id="header-name">
-          &lt;Yogesh Kotadiya &frasl;&gt;
+          <img src={Logo} alt="Logo" />
+          {/* &lt;Yogesh Kotadiya &frasl;&gt; */}
         </Link>
         <nav>
           <Link to={"/projects"}>Projects</Link>
@@ -51,6 +52,7 @@ function Header() {
               aria-label="Github"
             >
               <svg
+                className="icon icon-github"
                 xmlns="http://www.w3.org/2000/svg"
                 width="1em"
                 height="1em"
@@ -66,6 +68,7 @@ function Header() {
             </a>
             <a href="mailto:hiyogeshkotadiya@gmail.com" aria-label="Mail">
               <svg
+                className="icon icon-mail"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="64 64 896 896"
                 data-icon="mail"
@@ -82,6 +85,7 @@ function Header() {
             </a>
           </div>
         </nav>
+        <Toggle />
       </div>
     </HeaderStyled>
   );

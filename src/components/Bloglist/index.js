@@ -8,6 +8,9 @@ const BlogListStyled = styled.div`
   margin-right: auto;
   max-width: ${rhythm(40)};
   padding: ${rhythm(2 / 4)} ${rhythm(3 / 4)};
+  .blog-date {
+    color: ${props => props.theme.textColor};
+  }
 `;
 
 const BlogList = ({ posts }) => (
@@ -30,7 +33,7 @@ const BlogList = ({ posts }) => (
               {title}
             </Link>
           </h1>
-          <small>
+          <small className="blog-date">
             {node.frontmatter.date},{" "}
             <span>⏳ {node.frontmatter.readLength}</span>
           </small>

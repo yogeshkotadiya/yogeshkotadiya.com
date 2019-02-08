@@ -57,7 +57,7 @@ pre[class*="language-"] ::selection {
 /* Inline code */
 pre[class*="language-"] {
   border-radius: 0.3em;
-  border-left: 5px solid #ef5350;
+  /* border-left: 5px solid #ef5350; */
   background: rgba(255, 100, 120, 0.2);
   color: #1a1a1a;
 }
@@ -135,7 +135,7 @@ pre[data-line] {
   margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.75em;
-  border-right: 0.25em solid #ffee58;
+  border-left: 0.25em solid #ffee58;
 }
 
 .gatsby-highlight {
@@ -146,6 +146,7 @@ pre[data-line] {
   overflow: auto;
   font-size: 1.4rem;
 }
+
 .prism-code {
   font-size: 1.4rem;
 }

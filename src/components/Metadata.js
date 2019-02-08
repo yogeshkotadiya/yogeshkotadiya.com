@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 
 export default props => (
-  <Helmet htmlAttributes={{ lang: "en" }}>
+  <Helmet htmlAttributes={{ lang: "en-US" }}>
     <title>{props.title}</title>
     <meta
       name="viewport"

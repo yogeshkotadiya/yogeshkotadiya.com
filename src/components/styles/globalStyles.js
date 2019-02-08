@@ -1,15 +1,28 @@
 import { createGlobalStyle } from "styled-components";
 
 export const theme = {
-  backgroundColor: "#fff",
-  lightBlack: "#424242",
-  grey100: "#F5F5F5",
-  grey200: "#EEEEEE",
-  primaryExtraLight: "#ffebee",
-  primaryLight: "#FFCDD2",
-  primary: "#ef5350",
-  maxWidth: "960px",
-  white: "#fff",
+  light: {
+    backgroundColor: "#fff",
+    textColor: "#424242",
+    grey100: "#F5F5F5",
+    grey200: "#EEEEEE",
+    primaryExtraLight: "#ffebee",
+    primaryLight: "#FFCDD2",
+    primary: "#ef5350",
+    maxWidth: "960px",
+    white: "#fff",
+  },
+  dark: {
+    backgroundColor: "#3c3c3c",
+    textColor: "#f2f2f2",
+    grey100: "#F5F5F5",
+    grey200: "#EEEEEE",
+    primaryExtraLight: "#ffebee",
+    primaryLight: "#FFCDD2",
+    primary: "#ef5350",
+    maxWidth: "960px",
+    white: "#fff",
+  },
 };
 
 const GlobalStyles = createGlobalStyle`
@@ -23,6 +36,7 @@ const GlobalStyles = createGlobalStyle`
     width:100%;
     font-size: 10px;
     margin: 0 auto;
+    background-color: ${props => props.theme.backgroundColor}
   }
   .page-heading {
     text-transform: uppercase;
@@ -44,8 +58,9 @@ const GlobalStyles = createGlobalStyle`
       bottom: 0;
     }
   }
-  p{
-      color: ${theme.lightBlack};
+
+  h1,h2,h3,h4,h5,h6,p{
+      color: ${props => props.theme.textColor};
   }
 `;
 

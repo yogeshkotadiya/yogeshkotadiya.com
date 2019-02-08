@@ -16,13 +16,16 @@ const ProjectStyled = styled.div`
     list-style: none;
     font-size: 1.4rem;
     height: 100%;
-    background-color: #ffebee;
+    background-color: ${props => props.theme.backgroundColor};
     border-radius: 10px;
     transition: all 0.2s ease;
     &:hover {
       border-left: 5px solid ${props => props.theme.primary};
       transform: translateX(5px);
       box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+    }
+    .octicon {
+      fill: ${props => props.theme.textColor};
     }
   }
 `;

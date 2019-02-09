@@ -4,7 +4,7 @@
 "use strict";
 
 function highlightLine(str) {
-  let array = str.split(",").map(i => {
+  const _array = str.split(",").map(i => {
     if (typeof parseInt(i) === "number" && i.length === 1) {
       return parseInt(i);
     }
@@ -19,7 +19,7 @@ function highlightLine(str) {
     }
     return num;
   });
-  return [].concat.apply([], array);
+  return [].concat.apply([], _array);
 }
 
 export default highlightLine;

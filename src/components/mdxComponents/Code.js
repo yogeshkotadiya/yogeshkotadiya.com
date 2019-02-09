@@ -5,19 +5,16 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 
 import highlightLine from "./HighlightLine";
 
-const Code = ({ codeString, language, ...props }) => {
-  let highlightLines = highlightLine(props.highlight);
+const Code = ({ codeString, language, highlight, ...props }) => {
+  let highlightLines = highlight === undefined ? [] : highlightLine(highlight);
 
-  if (props["react-live"]) {
-    return (
-      <LiveProvider code={codeString} noInline={true}>
-        <LiveEditor />
-        <LiveError />
-        <LivePreview />
-      </LiveProvider>
-    );
-  }
-  return (
+  return props["react-live"] ? (
+    <LiveProvider code={codeString} noInline={true}>
+      <LiveEditor />
+      <LiveError />
+      <LivePreview />
+    </LiveProvider>
+  ) : (
     <Highlight
       {...defaultProps}
       theme={theme}
@@ -27,29 +24,21 @@ const Code = ({ codeString, language, ...props }) => {
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="gatsby-highlight">
           <pre className={className} style={style}>
-            <code className="language-jsx">
-              {tokens.map((line, i) => {
-                if (highlightLines.includes(i + 1)) {
-                  return (
-                    <span
-                      {...getLineProps({ line, key: i })}
-                      className={
-                        highlightLines.includes(i + 1)
-                          ? "gatsby-highlight-code-line"
-                          : null
-                      }
-                    >
-                      {line.map((token, key) => (
-                        <span {...getTokenProps({ token, key })} />
-                      ))}
-                    </span>
-                  );
-                } else {
-                  return line.map((token, key) => (
+            <code className={className.split(" ")[1]}>
+              {tokens.map((line, i) => (
+                <span
+                  {...getLineProps({ line, key: i })}
+                  className={
+                    highlightLines.includes(i + 1)
+                      ? "gatsby-highlight-code-line"
+                      : "code-line"
+                  }
+                >
+                  {line.map((token, key) => (
                     <span {...getTokenProps({ token, key })} />
-                  ));
-                }
-              })}
+                  ))}
+                </span>
+              ))}
             </code>
           </pre>
         </div>

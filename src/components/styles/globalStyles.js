@@ -11,6 +11,7 @@ export const theme = {
     primary: "#ef5350",
     maxWidth: "960px",
     white: "#fff",
+    dropShadow: "#000000a6",
   },
   dark: {
     backgroundColor: "#3c3c3c",
@@ -22,6 +23,7 @@ export const theme = {
     primary: "#ef5350",
     maxWidth: "960px",
     white: "#fff",
+    dropShadow: "#ef5650a6",
   },
 };
 

@@ -8,7 +8,7 @@ import Metadata from "./Metadata";
 
 const ThemeContext = React.createContext();
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isBlog = false }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
       render={data => (
         <>
           <Metadata title={data.site.siteMetadata.title} />
-          <Header />
+          <Header isBlog={isBlog} />
           {children}
           <Footer />
         </>

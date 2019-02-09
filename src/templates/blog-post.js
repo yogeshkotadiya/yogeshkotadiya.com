@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import MDXRenderer from "gatsby-mdx/mdx-renderer";
-
+import Helmet from "react-helmet";
+import { MDXRenderer } from "gatsby-mdx";
 import Layout from "../components/layout";
 import { rhythm, scale } from "../utils/typography";
+import BlogTheme from "../utils/blogTheme";
 
 function BlogPostTemplate(props) {
   const post = props.data.mdx;
@@ -11,7 +12,12 @@ function BlogPostTemplate(props) {
   const { previous, next } = props.pageContext;
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout isBlog={true} location={props.location} title={siteTitle}>
+      <Helmet>
+        <title>
+          {post.frontmatter.title} | {siteTitle}
+        </title>
+      </Helmet>
       <div
         style={{
           marginLeft: `auto`,
@@ -24,7 +30,7 @@ function BlogPostTemplate(props) {
         <h1
           style={{
             ...scale(1.3),
-            marginBottom: rhythm(1.5),
+            marginBottom: rhythm(2),
             marginTop: 0,
             color: "#ef5350",
           }}
@@ -39,9 +45,11 @@ function BlogPostTemplate(props) {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date}
+          {post.frontmatter.date} ⏳ {post.frontmatter.readLength}
         </p>
-        <MDXRenderer>{post.code.body}</MDXRenderer>
+        <BlogTheme>
+          <MDXRenderer>{post.code.body}</MDXRenderer>
+        </BlogTheme>
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -93,6 +101,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        readLength
       }
       code {
         body

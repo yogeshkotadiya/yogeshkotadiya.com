@@ -22,7 +22,7 @@ const ProjectStyled = styled.div`
     &:hover {
       border-left: 5px solid ${props => props.theme.primary};
       transform: translateX(5px);
-      box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 1px 0 6px ${props => props.theme.dropShadow};
     }
     .octicon {
       fill: ${props => props.theme.textColor};

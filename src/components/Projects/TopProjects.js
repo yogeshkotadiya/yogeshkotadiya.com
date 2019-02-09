@@ -7,7 +7,7 @@ const TOP_PROJECTS_Query = graphql`
     github {
       viewer {
         pinnedRepositories(
-          first: 6
+          first: 3
           orderBy: { direction: DESC, field: STARGAZERS }
         ) {
           edges {
@@ -82,7 +82,7 @@ const TopStyled = styled.div`
       border-radius: 5px;
       padding: 10px;
       transition: all 0.2s;
-      box-shadow: 0px 20px 50px -20px rgba(0, 0, 0, 0.6);
+      box-shadow: 0px 20px 40px -25px ${props => props.theme.dropShadow};
       font-size: 2.2rem;
       line-height: 2rem;
       a {
@@ -94,7 +94,7 @@ const TopStyled = styled.div`
       }
       &:hover {
         transform: scale(0.95) translateY(5px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 20px ${props => props.theme.dropShadow};
       }
       .starCount {
         display: inline-block;

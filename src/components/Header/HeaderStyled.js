@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const HeaderStyled = styled.div`
-  position: sticky;
+  position: ${props => props.header};
   background: ${props => props.theme.backgroundColor};
   top: 0;
   height: 100px;
@@ -70,10 +70,12 @@ const HeaderStyled = styled.div`
       display: inline-block;
     }
   }
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 580px) {
     height: 135px;
     #headerContent {
-      justify-content: space-around;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
       nav {
         padding-right: 10px;
       }

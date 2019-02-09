@@ -4,7 +4,7 @@ import HeaderStyled from "./HeaderStyled";
 import Toggle from "./Toggle";
 import Logo from "../../../static/logo.svg";
 
-function Header() {
+function Header({ isBlog }) {
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 30) {
@@ -15,7 +15,7 @@ function Header() {
     });
   });
   return (
-    <HeaderStyled id="header">
+    <HeaderStyled header={isBlog ? "relative" : "sticky"} id="header">
       <div id="headerContent">
         <Link to={"/"} id="header-name">
           <img src={Logo} alt="Logo" />

@@ -6,7 +6,7 @@ pre[class*="language-"] {
   color: white;
   background: none;
   font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -135,7 +135,14 @@ pre[data-line] {
   margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.75em;
-  border-left: 0.25em solid #ffee58;
+  border-left: 0.3em solid #ef5350;
+}
+.code-line {
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
 }
 
 .gatsby-highlight {
@@ -151,7 +158,6 @@ pre[data-line] {
   font-size: 1.4rem;
 }
 a {
-  outline: none;
   color: #ef5350;
 }
 

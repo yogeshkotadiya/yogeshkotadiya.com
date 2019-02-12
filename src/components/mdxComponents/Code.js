@@ -1,4 +1,5 @@
 import React from "react";
+import { css } from "styled-components";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
@@ -7,7 +8,6 @@ import highlightLine from "./HighlightLine";
 
 const Code = ({ codeString, language, highlight, ...props }) => {
   let highlightLines = highlight === undefined ? [] : highlightLine(highlight);
-
   return props["react-live"] ? (
     <LiveProvider code={codeString} noInline={true}>
       <LiveEditor />
@@ -26,7 +26,8 @@ const Code = ({ codeString, language, highlight, ...props }) => {
           <pre className={className} style={style}>
             <code className={className.split(" ")[1]}>
               {tokens.map((line, i) => (
-                <span
+                <div
+                  key={i}
                   {...getLineProps({ line, key: i })}
                   className={
                     highlightLines.includes(i + 1)
@@ -34,10 +35,20 @@ const Code = ({ codeString, language, highlight, ...props }) => {
                       : "code-line"
                   }
                 >
+                  <span
+                    css={css`
+                      display: inline-block;
+                      width: 2em;
+                      user-select: none;
+                      opacity: 0.3;
+                    `}
+                  >
+                    {i + 1}
+                  </span>
                   {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
+                    <span key={key} {...getTokenProps({ token, key })} />
                   ))}
-                </span>
+                </div>
               ))}
             </code>
           </pre>

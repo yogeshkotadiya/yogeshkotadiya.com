@@ -38,6 +38,9 @@ const BlogList = ({ posts }) => (
             <span>⏳ {node.frontmatter.readLength}</span>
           </small>
           <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+            Read More &#10140;
+          </Link>
         </BlogListStyled>
       );
     })}

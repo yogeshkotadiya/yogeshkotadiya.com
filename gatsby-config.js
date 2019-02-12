@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-mdx`,
       options: {
-        extensions: [".mdx", ".md"],
+        extensions: [".mdx", ".md", ".markdown"],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -65,8 +65,8 @@ module.exports = {
         start_url: "https://yogeshkotadiya.com",
         background_color: "#FFCDD2",
         theme_color: "#FFCDD2",
-        display: "minimal-ui",
-        icon: "static/logo.svg", // This path is relative to the root of the site.
+        display: "standalone",
+        icon: "static/YK_Logo.png", // This path is relative to the root of the site.
       },
     },
     {
@@ -155,7 +155,7 @@ module.exports = {
             }
             `,
             output: "/rss.xml",
-            title: "Yogesh Kotadiya RSS feed",
+            title: "Yogesh Kotadiya Blog RSS feed",
           },
         ],
       },

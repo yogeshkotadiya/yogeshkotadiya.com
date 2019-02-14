@@ -2,8 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const mdxFeed = require("gatsby-mdx/feed");
-
 module.exports = {
   siteMetadata: {
     title: "Yogesh Kotadiya",
@@ -66,7 +64,7 @@ module.exports = {
         background_color: "#FFCDD2",
         theme_color: "#FFCDD2",
         display: "standalone",
-        icon: "static/YK_Logo.png", // This path is relative to the root of the site.
+        icon: "static/yk_logo.svg", // This path is relative to the root of the site.
       },
     },
     {

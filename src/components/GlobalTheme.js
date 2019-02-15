@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import GlobalStyles, { theme } from "./styles/globalStyles";
+import GlobalStyles, { theme } from "./styles/globalTheme";
 
 const ThemeContext = React.createContext();
 const GlobalTheme = ({ children }) => {

@@ -2,7 +2,7 @@ import React from "react";
 import IndexStyled from "./IndexStyled";
 import TopProjects from "../Projects/TopProjects";
 import BlogList from "../Bloglist";
-import Profile from "../../../static/profile.jpeg";
+import Profile from "../../../static/profile.jpg";
 
 const Home = ({ data }) => (
   <>

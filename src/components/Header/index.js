@@ -7,13 +7,11 @@ import Logo from "../../../static/logo.svg";
 function Header({ isBlog }) {
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 30) {
-        document.getElementById("header").classList.add("header-scrolled");
-      } else {
-        document.getElementById("header").classList.remove("header-scrolled");
-      }
+      window.scrollY > 30
+        ? document.getElementById("header").classList.add("header-scrolled")
+        : document.getElementById("header").classList.remove("header-scrolled");
     });
-  });
+  }, []);
   return (
     <HeaderStyled header={isBlog ? "relative" : "sticky"} id="header">
       <div id="headerContent">

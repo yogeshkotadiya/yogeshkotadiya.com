@@ -64,7 +64,7 @@ module.exports = {
         background_color: "#FFCDD2",
         theme_color: "#FFCDD2",
         display: "standalone",
-        icon: "static/yk_logo.svg", // This path is relative to the root of the site.
+        icon: "static/YK_Logo.png", // This path is relative to the root of the site.
       },
     },
     {

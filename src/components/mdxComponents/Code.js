@@ -8,6 +8,7 @@ import highlightLine from "./HighlightLine";
 
 const Code = ({ codeString, language, highlight, ...props }) => {
   let highlightLines = highlight === undefined ? [] : highlightLine(highlight);
+
   return props["react-live"] ? (
     <LiveProvider code={codeString} noInline={true}>
       <LiveEditor />

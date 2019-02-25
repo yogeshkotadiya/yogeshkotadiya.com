@@ -1,7 +1,9 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+
+import { rhythm } from "utils/typography";
 import TopProjects from "./TopProjects";
-import ProjectStyled from "./ProjectStyled";
 
 const AllProjectQuery = graphql`
   query AllProjectQuery {
@@ -27,6 +29,7 @@ const AllProjectQuery = graphql`
     }
   }
 `;
+
 const Projects = () => {
   return (
     <ProjectStyled>
@@ -70,3 +73,32 @@ const Projects = () => {
 };
 
 export default Projects;
+
+const ProjectStyled = styled.div`
+  font-family: "montserrat";
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+  padding: 0 ${rhythm(2 / 4)};
+  h2 {
+    margin-top: ${rhythm(2 / 4)};
+  }
+  .listStyle {
+    margin: 10px 0;
+    padding: 5px;
+    padding-left: 10px;
+    list-style: none;
+    font-size: 1.4rem;
+    height: 100%;
+    background-color: ${props => props.theme.backgroundColor};
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    &:hover {
+      border-left: 5px solid ${props => props.theme.primary};
+      transform: translateX(5px);
+      box-shadow: 1px 0 6px ${props => props.theme.dropShadow};
+    }
+    .octicon {
+      fill: ${props => props.theme.textColor};
+    }
+  }
+`;

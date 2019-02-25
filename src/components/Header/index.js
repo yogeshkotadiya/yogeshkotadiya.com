@@ -1,23 +1,19 @@
 import React from "react";
 import { Link } from "gatsby";
-import HeaderStyled from "./HeaderStyled";
+import styled from "styled-components";
+
 import Toggle from "./Toggle";
 import Logo from "../../../static/logo.svg";
+import TwitterIcon from "../../../static/twitter.svg";
+import GithubIcon from "../../../static/github.svg";
+import MailIcon from "../../../static/mail.svg";
 
-function Header({ isBlog }) {
-  React.useEffect(() => {
-    window.addEventListener("scroll", () => {
-      window.scrollY > 30
-        ? document.getElementById("header").classList.add("header-scrolled")
-        : document.getElementById("header").classList.remove("header-scrolled");
-    });
-  }, []);
+function Header() {
   return (
-    <HeaderStyled header={isBlog ? "relative" : "sticky"} id="header">
+    <HeaderStyled id="header">
       <div id="headerContent">
         <Link to={"/"} id="header-name">
           <img src={Logo} alt="Logo" />
-          {/* &lt;Yogesh Kotadiya &frasl;&gt; */}
         </Link>
         <nav>
           <Link to={"/projects"}>Projects</Link>
@@ -29,19 +25,11 @@ function Header({ isBlog }) {
               href="https://twitter.com/yogeshkotadiya"
               aria-label="Twitter"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-                fill="#1da1f2"
-                stroke="#1da1f2"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-              </svg>
+              <img
+                className="icon icon-twitter"
+                src={TwitterIcon}
+                alt="Twitter Logo"
+              />
             </a>
             <a
               target="_blank"
@@ -49,37 +37,18 @@ function Header({ isBlog }) {
               href="https://github.com/yogeshkotadiya"
               aria-label="Github"
             >
-              <svg
-                className="icon icon-github"
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-                fill="black"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
+              <img
+                className="icon icon-twitter"
+                src={GithubIcon}
+                alt="Twitter Logo"
+              />
             </a>
             <a href="mailto:hiyogeshkotadiya@gmail.com" aria-label="Mail">
-              <svg
-                className="icon icon-mail"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="64 64 896 896"
-                data-icon="mail"
-                width="1em"
-                height="1em"
-                fill="black"
-                stroke="black"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0 0 68.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z" />
-              </svg>
+              <img
+                className="icon icon-twitter"
+                src={MailIcon}
+                alt="Twitter Logo"
+              />
             </a>
           </div>
         </nav>
@@ -90,3 +59,92 @@ function Header({ isBlog }) {
 }
 
 export default Header;
+
+const HeaderStyled = styled.div`
+  position: ${props => props.header};
+  background: ${props => props.theme.backgroundColor};
+  top: 0;
+  height: 100px;
+  margin: 0 auto 20px;
+  font-size: 2.4rem;
+  transition: all 0.3s;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  &.header-scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background: ${props => props.theme.backgroundColor};
+    & > #headerContent {
+      width: 820px;
+    }
+  }
+  #headerContent {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: all 0.3s;
+    font-family: "montserrat";
+    #header-name {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      padding-bottom: 10px;
+    }
+    nav {
+      font-size: 2.2rem;
+      position: relative;
+      padding-right: 50px;
+      a {
+        position: relative;
+        color: ${props => props.theme.lightBlack};
+        text-align: center;
+        padding: 10px;
+        transition: 0.2s all ease-in;
+        .icon {
+          width: 25px;
+          margin: 0;
+          margin-bottom: -2px;
+          stroke: ${props => props.theme.textColor};
+          fill: ${props => props.theme.textColor};
+        }
+      }
+      a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: 0;
+        margin: -8px -10px;
+        background-color: #ef5350;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.25s ease-in-out 0s;
+      }
+      a:hover::before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+    }
+    #header-social-links {
+      display: inline-block;
+    }
+  }
+  @media screen and (max-width: 580px) {
+    height: 135px;
+    #headerContent {
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      nav {
+        padding-right: 10px;
+      }
+    }
+    .toggleWrapper {
+      top: 40%;
+    }
+  }
+`;

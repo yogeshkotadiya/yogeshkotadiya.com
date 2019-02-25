@@ -2,9 +2,10 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 import Helmet from "react-helmet";
 import { MDXRenderer } from "gatsby-mdx";
-import Layout from "../components/layout";
-import { rhythm, scale } from "../utils/typography";
-import BlogTheme from "../utils/blogTheme";
+
+import Layout from "components/layout";
+import { rhythm, scale } from "utils/typography";
+import BlogTheme from "utils/blogTheme";
 
 function BlogPostTemplate(props) {
   const post = props.data.mdx;

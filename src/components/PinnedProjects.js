@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { StaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 const TOP_PROJECTS_Query = graphql`
   {
@@ -26,45 +26,45 @@ const TOP_PROJECTS_Query = graphql`
   }
 `;
 
-const TopProjects = () => (
-  <TopStyled>
-    <div className="containerProject">
-      <StaticQuery
-        query={TOP_PROJECTS_Query}
-        render={data => {
-          const nodes = data.github.viewer.pinnedRepositories.edges;
-          return nodes.map(({ node }) => (
-            <React.Fragment key={node.url}>
-              <a
-                className="singleProject"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={node.url}
+const PinnedProjects = () => {
+  const data = useStaticQuery(TOP_PROJECTS_Query);
+  const nodes = data.github.viewer.pinnedRepositories.edges;
+  return (
+    <TopStyled>
+      <div className="containerProject">
+        {nodes.map(({ node }) => (
+          <React.Fragment key={node.url}>
+            <a
+              className="singleProject"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={node.url}
+            >
+              {node.name}
+              <p>{node.description}</p>
+              <svg
+                className="octicon octicon-star v-align-text-bottom"
+                viewBox="0 0 14 16"
+                version="1.1"
+                width="16"
+                height="14"
+                aria-hidden="true"
               >
-                {node.name}
-                <p>{node.description}</p>
-                <svg
-                  className="octicon octicon-star v-align-text-bottom"
-                  viewBox="0 0 14 16"
-                  version="1.1"
-                  width="16"
-                  height="14"
-                  aria-hidden="true"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
-                  />
-                </svg>
-                <p className="starCount">{node.stargazers.totalCount}</p>
-              </a>
-            </React.Fragment>
-          ));
-        }}
-      />
-    </div>
-  </TopStyled>
-);
+                <path
+                  fillRule="evenodd"
+                  d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
+                />
+              </svg>
+              <p className="starCount">{node.stargazers.totalCount}</p>
+            </a>
+          </React.Fragment>
+        ))}
+      </div>
+    </TopStyled>
+  );
+};
+
+export default PinnedProjects;
 
 const TopStyled = styled.div`
   font-family: "montserrat", "lato", "sans-serif";
@@ -105,5 +105,3 @@ const TopStyled = styled.div`
     }
   }
 `;
-
-export default TopProjects;

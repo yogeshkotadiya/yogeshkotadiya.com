@@ -13,7 +13,7 @@ function BlogPostTemplate(props) {
   const { previous, next } = props.pageContext;
 
   return (
-    <Layout isBlog={true} location={props.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle}>
       <Helmet>
         <title>
           {post.frontmatter.title} | {siteTitle}

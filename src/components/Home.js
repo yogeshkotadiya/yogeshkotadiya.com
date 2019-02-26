@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
-import TopProjects from "./Projects/TopProjects";
+import PinnedProjects from "./PinnedProjects";
 import BlogList from "./Bloglist";
 
 const ImgQuery = graphql`
@@ -61,7 +61,7 @@ const Home = ({ data }) => {
         </div>
       </IndexStyled>
       <h1 className="page-heading">Projects</h1>
-      <TopProjects />
+      <PinnedProjects />
       <h1 className="page-heading">Blog</h1>
       <BlogList
         title={data.site.siteMetadata.title}

@@ -6,9 +6,9 @@
   "author": "Yogesh Kotadiya <hiyogeshkotadiya@gmail.com>",
   "dependencies": {
     "@babel/core": "^7.3.3",
-    "@mdx-js/loader": "^0.17.5",
-    "@mdx-js/mdx": "^0.17.5",
-    "@mdx-js/tag": "^0.17.5",
+    "@mdx-js/loader": "^0.20.0",
+    "@mdx-js/mdx": "^0.20.0",
+    "@mdx-js/tag": "^0.18.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.1.13",
     "gatsby-image": "^2.0.29",

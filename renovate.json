@@ -9,5 +9,6 @@
   },
   "minor": {
     "automerge": false
-  }
+  },
+  "rangeStrategy": "replace"
 }

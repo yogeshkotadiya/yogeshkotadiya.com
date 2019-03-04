@@ -15,7 +15,7 @@ const GlobalTheme = ({ children }) => {
     getTheme === "dark" ? setTheme("light") : setTheme("dark");
   }, []);
   return (
-    <ThemeProvider theme={Theme === "light" ? theme.light : theme.dark}>
+    <ThemeProvider theme={theme[Theme]}>
       <ThemeContext.Provider value={{ Theme, handleOnChange }}>
         {children}
         <GlobalStyles />

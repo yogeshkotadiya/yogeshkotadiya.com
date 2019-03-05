@@ -5,7 +5,7 @@ import { MDXRenderer } from "gatsby-mdx";
 
 import Layout from "components/layout";
 import { rhythm, scale } from "utils/typography";
-import BlogTheme from "utils/blogTheme";
+import BlogTheme from "components/blogTheme";
 
 function BlogPostTemplate(props) {
   const post = props.data.mdx;

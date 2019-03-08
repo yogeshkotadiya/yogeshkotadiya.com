@@ -1,13 +1,15 @@
+const config = require("./config");
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
   siteMetadata: {
-    title: "Yogesh Kotadiya",
-    author: "Yogesh Kotadiya",
-    description: "Personal Webpage",
-    siteURL: "https://yogeshkotadiya.com",
+    title: config.title,
+    author: config.title,
+    description: config.description,
+    siteURL: config.siteUrl,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -15,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/static`,
+        path: `${__dirname}/static/Images`,
       },
     },
     {
@@ -23,6 +25,12 @@ module.exports = {
       options: {
         name: `blog`,
         path: `${__dirname}/content/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: config.siteUrl,
       },
     },
     "gatsby-transformer-sharp",
@@ -60,11 +68,11 @@ module.exports = {
       options: {
         name: "yogeshkotadiya.com",
         short_name: "YK",
-        start_url: "https://yogeshkotadiya.com",
+        start_url: config.siteUrl,
         background_color: "#FFCDD2",
         theme_color: "#FFCDD2",
         display: "standalone",
-        icon: "static/YK_Logo.png", // This path is relative to the root of the site.
+        icon: "static/Images/YK_Logo.png", // This path is relative to the root of the site.
       },
     },
     {

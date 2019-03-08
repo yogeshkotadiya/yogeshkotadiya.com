@@ -3,10 +3,10 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import Toggle from "./Toggle";
-import Logo from "../../../static/logo.svg";
-import TwitterIcon from "../../../static/twitter.svg";
-import GithubIcon from "../../../static/github.svg";
-import MailIcon from "../../../static/mail.svg";
+import Logo from "Images/logo.svg";
+import TwitterIcon from "Images/twitter.svg";
+import GithubIcon from "Images/github.svg";
+import MailIcon from "Images/mail.svg";
 
 function Header() {
   return (

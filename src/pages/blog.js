@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Layout from "components/layout";
@@ -15,6 +16,11 @@ const BlogIndex = ({ data, location }) => {
 };
 
 export default BlogIndex;
+
+BlogIndex.propTypes = {
+  data: PropTypes.node.required,
+  location: PropTypes.string,
+};
 
 export const pageQuery = graphql`
   query {

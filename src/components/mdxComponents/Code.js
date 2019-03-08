@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { css } from "styled-components";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl";
@@ -10,7 +11,7 @@ const Code = ({ codeString, language, highlight, ...props }) => {
   let highlightLines = highlight === undefined ? [] : highlightLine(highlight);
 
   return props["react-live"] ? (
-    <LiveProvider code={codeString} noInline={true}>
+    <LiveProvider code={codeString} theme={theme} noInline={true}>
       <LiveEditor />
       <LiveError />
       <LivePreview />
@@ -60,3 +61,10 @@ const Code = ({ codeString, language, highlight, ...props }) => {
 };
 
 export default Code;
+
+Code.propTypes = {
+  codeString: PropTypes.string,
+  language: PropTypes.string,
+  highlight: PropTypes.string,
+  "react-live": PropTypes.string,
+};

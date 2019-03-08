@@ -13,6 +13,7 @@
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.30",
     "gatsby-mdx": "^0.4.0",
+    "gatsby-plugin-canonical-urls": "^2.0.10",
     "gatsby-plugin-feed": "^2.0.14",
     "gatsby-plugin-google-analytics": "^2.0.15",
     "gatsby-plugin-manifest": "^2.0.20",
@@ -50,14 +51,24 @@
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "start": "npm run develop",
+    "lint": "eslint \"src/**/*.js\" ",
     "format": "prettier --write \"src/**/*.js\"",
+    "cy:open": "cypress open",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
+    "cypress": "^3.1.5",
     "eslint": "^5.15.0",
     "eslint-plugin-react": "^7.12.4",
-    "gh-pages": "^2.0.1",
+    "husky": "^1.3.1",
+    "jest": "^24.3.1",
+    "lint-staged": "^8.1.5",
     "prettier": "^1.16.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",

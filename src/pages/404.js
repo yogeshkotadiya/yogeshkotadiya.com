@@ -19,7 +19,7 @@ const NotFoundPage = () => (
         <span role="img" aria-label="Emoji">
           🤷
         </span>
-        ‍ Let's go back
+        ‍ Let&apos;s go back
         <Link to={"/"}>
           HOME
           <span role="img" aria-label="Emoji">

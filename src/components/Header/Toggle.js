@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/Toggle.css";
-import { ThemeContext } from "../GlobalTheme";
+import "styles/Toggle.css";
+import { ThemeContext } from "components/GlobalTheme";
 
 const Toggle = () => {
   const { Theme, handleOnChange } = React.useContext(ThemeContext);

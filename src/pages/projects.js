@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
@@ -72,6 +73,10 @@ const Projects = ({ location }) => {
 };
 
 export default Projects;
+
+Projects.propTypes = {
+  location: PropTypes.string,
+};
 
 const ProjectStyled = styled.div`
   font-family: "montserrat";

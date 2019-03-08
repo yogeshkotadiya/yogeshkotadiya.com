@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
-export default props => (
+const Meta = props => (
   <Helmet htmlAttributes={{ lang: "en-US" }}>
     <title>{props.title}</title>
     <meta
@@ -28,6 +29,11 @@ export default props => (
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@yogeshkotadiya" />
     <meta name="twitter:creator" content="@yogeshkotadiya" />
-    <link rel="canonical" href="https://yogeshkotadiya.com" />
   </Helmet>
 );
+
+export default Meta;
+
+Meta.propTypes = {
+  title: PropTypes.string,
+};

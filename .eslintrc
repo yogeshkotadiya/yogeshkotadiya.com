@@ -3,5 +3,16 @@
   "env": {
     "browser": true,
     "es6": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-undef": "off",
+    "no-unused-vars": "off"
   }
 }

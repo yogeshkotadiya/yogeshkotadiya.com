@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import PropTypes from "prop-types";
 
 import Layout from "components/layout";
 import Home from "components/Home";
@@ -34,5 +35,10 @@ const IndexPage = ({ location, data }) => (
     <Home data={data} />
   </Layout>
 );
+
+IndexPage.propTypes = {
+  data: PropTypes.node.required,
+  location: PropTypes.string,
+};
 
 export default IndexPage;

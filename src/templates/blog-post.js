@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Helmet from "react-helmet";
 import { MDXRenderer } from "gatsby-mdx";
@@ -87,6 +88,12 @@ function BlogPostTemplate(props) {
 }
 
 export default BlogPostTemplate;
+
+BlogPostTemplate.propTypes = {
+  data: PropTypes.any,
+  location: PropTypes.object,
+  pageContext: PropTypes.object,
+};
 
 export const pageQuery = graphql`
   query($slug: String!) {

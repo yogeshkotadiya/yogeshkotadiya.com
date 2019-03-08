@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 
-import GlobalStyles, { theme } from "./styles/globalTheme";
+import GlobalStyles, { theme } from "styles/globalTheme";
 
-const ThemeContext = React.createContext();
+const ThemeContext = React.createContext(); // I know we can destrucure this in import but this is the way I prefer.
 const GlobalTheme = ({ children }) => {
   const [Theme, setTheme] = React.useState("light");
   function handleOnChange() {
@@ -26,3 +27,7 @@ const GlobalTheme = ({ children }) => {
 
 export default GlobalTheme;
 export { ThemeContext };
+
+GlobalTheme.propTypes = {
+  children: PropTypes.any,
+};

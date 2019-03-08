@@ -1,10 +1,18 @@
 language: node_js
+
 node_js:
   - "node"
-  - "lts/*"
   - "8"
   - "10"
 
+install: yarn
+
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+
 script:
-  - npm install
-  - npm run format
+  - yarn format
+  - yarn lint
+  - yarn build

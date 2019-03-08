@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import GatsbyIcon from "../../static/gatsby.svg";
+import GatsbyIcon from "Images/gatsby.svg";
 
 const Footer = () => {
   return (

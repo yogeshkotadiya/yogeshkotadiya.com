@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { rhythm, scale } from "utils/typography";
 import styled from "styled-components";
@@ -48,3 +49,7 @@ const BlogList = ({ posts }) => (
 );
 
 export default BlogList;
+
+BlogList.propTypes = {
+  posts: PropTypes.node.required,
+};

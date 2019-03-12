@@ -1,23 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
 import Helmet from "react-helmet";
 import { MDXRenderer } from "gatsby-mdx";
+import Markdown from "react-markdown";
 
-import Layout from "components/layout";
 import { rhythm, scale } from "utils/typography";
 import BlogTheme from "components/blogTheme";
 
 function BlogPostTemplate(props) {
-  const post = props.data.mdx;
+  const { frontmatter, code } = props.data.mdx;
   const siteTitle = props.data.site.siteMetadata.title;
   const { previous, next } = props.pageContext;
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <>
       <Helmet>
         <title>
-          {post.frontmatter.title} | {siteTitle}
+          {frontmatter.title} | {siteTitle}
         </title>
       </Helmet>
       <div
@@ -31,13 +32,15 @@ function BlogPostTemplate(props) {
       >
         <h1
           style={{
-            ...scale(1.3),
+            ...scale(1.2),
             marginBottom: rhythm(2),
             marginTop: 0,
             color: "#ef5350",
+            fontWeight: 600,
+            textAlign: "center",
           }}
         >
-          {post.frontmatter.title}
+          {frontmatter.title}
         </h1>
         <p
           style={{
@@ -45,12 +48,28 @@ function BlogPostTemplate(props) {
             display: `block`,
             marginBottom: rhythm(1.5),
             marginTop: rhythm(-1),
+            opacity: 0.65,
+            textAlign: "center",
           }}
         >
-          {post.frontmatter.date} ⏳ {post.frontmatter.readLength}
+          Yogesh Kotadiya -{frontmatter.date} ⏳ {frontmatter.readLength}
         </p>
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: rhythm(1.2),
+          }}
+        >
+          <Img
+            fluid={frontmatter.banner.childImageSharp.fluid}
+            alt="Post Banner"
+          />
+          {frontmatter.bannerCredit ? (
+            <Markdown>{frontmatter.bannerCredit}</Markdown>
+          ) : null}
+        </div>
         <BlogTheme>
-          <MDXRenderer>{post.code.body}</MDXRenderer>
+          <MDXRenderer>{code.body}</MDXRenderer>
         </BlogTheme>
         <hr
           style={{
@@ -83,7 +102,7 @@ function BlogPostTemplate(props) {
           </li>
         </ul>
       </div>
-    </Layout>
+    </>
   );
 }
 
@@ -110,6 +129,14 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         readLength
+        banner {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+        bannerCredit
       }
       code {
         body

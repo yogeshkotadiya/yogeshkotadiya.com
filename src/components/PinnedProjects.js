@@ -82,6 +82,7 @@ const TopStyled = styled.div`
       border-radius: 5px;
       padding: 10px;
       transition: all 0.2s;
+      background-color: ${props => props.theme.backgroundColorAlt};
       box-shadow: 0px 20px 40px -25px ${props => props.theme.dropShadow};
       font-size: 2.2rem;
       line-height: 2rem;

@@ -11,8 +11,14 @@
       "jsx": true
     }
   },
+  "settings": {
+    "react": {
+      "version": "detect",
+    }
+  },
   "rules": {
     "no-undef": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "react/prop-types": "off"
   }
 }

@@ -9,6 +9,8 @@ const BlogListStyled = styled.div`
   margin-right: auto;
   max-width: ${rhythm(40)};
   padding: ${rhythm(2 / 4)} ${rhythm(3 / 4)};
+  background-color: ${props => props.theme.backgroundColorAlt};
+  border-radius: 10px;
   .blog-date {
     color: ${props => props.theme.textColor};
   }
@@ -51,5 +53,5 @@ const BlogList = ({ posts }) => (
 export default BlogList;
 
 BlogList.propTypes = {
-  posts: PropTypes.node.required,
+  posts: PropTypes.any,
 };

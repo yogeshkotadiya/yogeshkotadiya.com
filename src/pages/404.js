@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import Layout from "components/layout";
-
 const NotFoundPage = () => (
-  <Layout>
+  <>
     <NotFoundStyled>
       <h1>404 !!!</h1>
       <p>
@@ -20,6 +18,8 @@ const NotFoundPage = () => (
           🤷
         </span>
         ‍ Let&apos;s go back
+      </p>
+      <p>
         <Link to={"/"}>
           HOME
           <span role="img" aria-label="Emoji">
@@ -28,16 +28,16 @@ const NotFoundPage = () => (
         </Link>
       </p>
     </NotFoundStyled>
-  </Layout>
+  </>
 );
 
 export default React.memo(NotFoundPage);
 
 const NotFoundStyled = styled.div`
   margin: 100px auto;
-  font-size: 1.6rem;
+  font-size: 2rem;
   h1 {
-    font-size: 3rem;
+    font-size: 8rem;
     text-align: center;
   }
   p {

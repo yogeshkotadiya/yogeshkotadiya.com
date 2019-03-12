@@ -11,7 +11,7 @@ const GlobalTheme = ({ children }) => {
     Theme === "light" ? setTheme("dark") : setTheme("light");
     return localStorage.setItem("localTheme", JSON.stringify(Theme));
   }
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     const getTheme = JSON.parse(localStorage.getItem("localTheme"));
     getTheme === "dark" ? setTheme("light") : setTheme("dark");
   }, []);

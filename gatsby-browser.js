@@ -2,6 +2,12 @@
 import "typeface-montserrat";
 import "typeface-merriweather";
 import "./src/styles/theme.css";
-import { wrapRootElement as Wrap } from "./wrap-root-element";
 
-export const wrapRootElement = Wrap;
+import React from "react";
+import Layout from "./src/components/layout";
+
+export const wrapPageElement = ({ element, props }) => {
+  // props provide same data to Layout as Page element will get
+  // including location, data, etc - you don't need to pass it
+  return <Layout {...props}>{element}</Layout>;
+};

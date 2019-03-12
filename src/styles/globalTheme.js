@@ -2,10 +2,11 @@ import { createGlobalStyle } from "styled-components";
 
 export const theme = {
   light: {
-    backgroundColor: "#fff",
+    backgroundColor: "#efefef",
+    backgroundColorAlt: "#ffffff",
     textColor: "#424242",
     grey100: "#F5F5F5",
-    grey200: "#EEEEEE",
+    grey200: "#bdbcbc",
     primaryExtraLight: "#ffebee",
     primaryLight: "#FFCDD2",
     primary: "#ef5350",
@@ -15,6 +16,7 @@ export const theme = {
   },
   dark: {
     backgroundColor: "#3c3c3c",
+    backgroundColorAlt: "#2a2a2a",
     textColor: "#f2f2f2",
     grey100: "#F5F5F5",
     grey200: "#EEEEEE",
@@ -46,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
     width: 250px;
     height: 50px;
     position: relative;
-    margin: 0 auto;
+    margin: 0.5rem auto;
     text-align: center;
     font-size: 3rem;
     &:after {
@@ -63,6 +65,10 @@ const GlobalStyles = createGlobalStyle`
 
   h1,h2,h3,h4,h5,h6,p{
       color: ${props => props.theme.textColor};
+  }
+  .btn-link {
+    margin: 0 auto;
+    font-size: 1.6rem;
   }
 `;
 

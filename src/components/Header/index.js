@@ -3,54 +3,16 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import Toggle from "./Toggle";
-import Logo from "Images/logo.svg";
-import TwitterIcon from "Images/twitter.svg";
-import GithubIcon from "Images/github.svg";
-import MailIcon from "Images/mail.svg";
-
 function Header() {
   return (
     <HeaderStyled id="header">
       <div id="headerContent">
         <Link to={"/"} id="header-name">
-          <img src={Logo} alt="Logo" />
+          Yogesh Kotadiya
         </Link>
         <nav>
           <Link to={"/projects"}>Projects</Link>
           <Link to={"/blog"}>Blog</Link>
-          <div id="header-social-links">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://twitter.com/yogeshkotadiya"
-              aria-label="Twitter"
-            >
-              <img
-                className="icon icon-twitter"
-                src={TwitterIcon}
-                alt="Twitter Logo"
-              />
-            </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/yogeshkotadiya"
-              aria-label="Github"
-            >
-              <img
-                className="icon icon-twitter"
-                src={GithubIcon}
-                alt="Twitter Logo"
-              />
-            </a>
-            <a href="mailto:hiyogeshkotadiya@gmail.com" aria-label="Mail">
-              <img
-                className="icon icon-twitter"
-                src={MailIcon}
-                alt="Twitter Logo"
-              />
-            </a>
-          </div>
         </nav>
         <Toggle />
       </div>
@@ -89,28 +51,20 @@ const HeaderStyled = styled.div`
     transition: all 0.3s;
     font-family: "montserrat";
     #header-name {
-      width: 50px;
       height: 50px;
       margin: 5px;
       padding-bottom: 10px;
     }
     nav {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       position: relative;
-      padding-right: 50px;
+      padding: 0.5rem 5rem;
       a {
         position: relative;
         color: ${props => props.theme.lightBlack};
         text-align: center;
         padding: 10px;
         transition: 0.2s all ease-in;
-        .icon {
-          width: 25px;
-          margin: 0;
-          margin-bottom: -2px;
-          stroke: ${props => props.theme.textColor};
-          fill: ${props => props.theme.textColor};
-        }
       }
       a::before {
         content: "";
@@ -128,9 +82,6 @@ const HeaderStyled = styled.div`
         visibility: visible;
         transform: scaleX(1);
       }
-    }
-    #header-social-links {
-      display: inline-block;
     }
   }
   @media screen and (max-width: 580px) {

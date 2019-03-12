@@ -24,37 +24,35 @@ const Code = ({ codeString, language, highlight, ...props }) => {
       language={language}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className="gatsby-highlight">
-          <pre className={className} style={style}>
-            <code className={className.split(" ")[1]}>
-              {tokens.map((line, i) => (
-                <div
-                  key={i}
-                  {...getLineProps({ line, key: i })}
-                  className={
-                    highlightLines.includes(i + 1)
-                      ? "gatsby-highlight-code-line"
-                      : "code-line"
-                  }
+        <pre className={className} style={style}>
+          <code className={className.split(" ")[1]}>
+            {tokens.map((line, i) => (
+              <div
+                key={i}
+                {...getLineProps({ line, key: i })}
+                className={
+                  highlightLines.includes(i + 1)
+                    ? "gatsby-highlight-code-line"
+                    : "code-line"
+                }
+              >
+                <span
+                  css={css`
+                    display: inline-block;
+                    width: 2em;
+                    user-select: none;
+                    opacity: 0.3;
+                  `}
                 >
-                  <span
-                    css={css`
-                      display: inline-block;
-                      width: 2em;
-                      user-select: none;
-                      opacity: 0.3;
-                    `}
-                  >
-                    {i + 1}
-                  </span>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </code>
-          </pre>
-        </div>
+                  {i + 1}
+                </span>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </code>
+        </pre>
       )}
     </Highlight>
   );

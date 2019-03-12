@@ -5,4 +5,5 @@ module.exports = {
   description: `Personal Website of Yogesh Kotadiya.`,
   siteUrl: `https://yogeshkotadiya.com/`,
   twitter: `@yogeshkotadiya`,
+  theme: `#ef5350`,
 };

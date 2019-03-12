@@ -10,6 +10,9 @@ module.exports = {
     author: config.title,
     description: config.description,
     siteURL: config.siteUrl,
+    social: {
+      twitter: config.twitter,
+    },
   },
   plugins: [
     "gatsby-plugin-react-helmet",

@@ -2,24 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
-import Layout from "components/layout";
 import BlogList from "components/Bloglist";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
   return (
-    <Layout>
+    <>
       <BlogList location={location} title={siteTitle} posts={posts} />
-    </Layout>
+    </>
   );
 };
 
 export default BlogIndex;
 
 BlogIndex.propTypes = {
-  data: PropTypes.node.required,
-  location: PropTypes.string,
+  data: PropTypes.any,
+  location: PropTypes.object,
 };
 
 export const pageQuery = graphql`

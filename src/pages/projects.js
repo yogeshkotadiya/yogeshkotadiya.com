@@ -4,39 +4,13 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
 import { rhythm } from "utils/typography";
-import Layout from "components/layout";
 import PinnedProjects from "components/PinnedProjects";
 
-const AllProjectQuery = graphql`
-  query AllProjectQuery {
-    github {
-      viewer {
-        repositories(
-          first: 30
-          orderBy: { field: STARGAZERS, direction: DESC }
-          affiliations: COLLABORATOR
-        ) {
-          edges {
-            node {
-              name
-              description
-              url
-              stargazers {
-                totalCount
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-const Projects = ({ location }) => {
+const Projects = () => {
   const data = useStaticQuery(AllProjectQuery);
   const repos = data.github.viewer.repositories.edges;
   return (
-    <Layout location={location}>
+    <>
       <ProjectStyled>
         <h1 className="page-heading">Projects</h1>
         <PinnedProjects />
@@ -68,15 +42,40 @@ const Projects = ({ location }) => {
           </li>
         ))}
       </ProjectStyled>
-    </Layout>
+    </>
   );
 };
 
 export default Projects;
 
 Projects.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.object,
 };
+
+const AllProjectQuery = graphql`
+  query AllProjectQuery {
+    github {
+      viewer {
+        repositories(
+          first: 30
+          orderBy: { field: STARGAZERS, direction: DESC }
+          affiliations: COLLABORATOR
+        ) {
+          edges {
+            node {
+              name
+              description
+              url
+              stargazers {
+                totalCount
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const ProjectStyled = styled.div`
   font-family: "montserrat";
@@ -93,7 +92,7 @@ const ProjectStyled = styled.div`
     list-style: none;
     font-size: 1.4rem;
     height: 100%;
-    background-color: ${props => props.theme.backgroundColor};
+    background-color: ${props => props.theme.backgroundColorAlt};
     border-radius: 10px;
     transition: all 0.2s ease;
     &:hover {

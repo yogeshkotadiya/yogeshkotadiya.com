@@ -1,5 +1,4 @@
 import React from "react";
-import { wrapRootElement as wrap } from "./wrap-root-element";
 
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
@@ -10,5 +9,3 @@ export const onRenderBody = ({ setHeadComponents }) => {
     />,
   ]);
 };
-
-export const wrapRootElement = wrap;

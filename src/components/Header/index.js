@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import Toggle from "./Toggle";
+
 function Header() {
   return (
     <HeaderStyled id="header">

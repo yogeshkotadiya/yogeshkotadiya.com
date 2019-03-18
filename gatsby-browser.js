@@ -3,7 +3,7 @@ import "typeface-montserrat";
 import "typeface-merriweather";
 import "./src/styles/theme.css";
 
-import React from "react";
+import * as React from "react";
 import Layout from "./src/components/layout";
 
 export const wrapPageElement = ({ element, props }) => {

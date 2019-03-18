@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
@@ -14,6 +14,7 @@ function Header() {
         <nav>
           <Link to={"/projects"}>Projects</Link>
           <Link to={"/blog"}>Blog</Link>
+          <Link to={"/about"}>About</Link>
         </nav>
         <Toggle />
       </div>
@@ -26,7 +27,6 @@ export default Header;
 const HeaderStyled = styled.div`
   position: ${props => props.header};
   background: ${props => props.theme.backgroundColor};
-  top: 0;
   height: 100px;
   margin: 0 auto 20px;
   font-size: 2.4rem;
@@ -50,7 +50,6 @@ const HeaderStyled = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     transition: all 0.3s;
-    font-family: "montserrat";
     #header-name {
       height: 50px;
       margin: 5px;

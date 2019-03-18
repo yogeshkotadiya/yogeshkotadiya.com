@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -10,7 +10,7 @@ const SEO = props => {
           title
           author
           description
-          siteURL
+          siteUrl
           social {
             twitter
           }
@@ -25,7 +25,7 @@ const SEO = props => {
   return (
     <>
       <Helmet htmlAttributes={{ lang: "en" }}>
-        <title>{siteMetadata.title}</title>
+        <title>{props.title}</title>
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width"
@@ -44,7 +44,7 @@ const SEO = props => {
         <meta property="og:title" content={siteMetadata.author} />
         <meta property="og:description" content={siteMetadata.description} />
         <meta property="og:type" content="profile" />
-        <meta property="og:url" content={siteMetadata.siteURL} />
+        <meta property="og:url" content={siteMetadata.siteUrl} />
         {/* Twiiter Card */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content={siteMetadata.social.twitter} />

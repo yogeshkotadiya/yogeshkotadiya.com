@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const theme = {
   light: {
-    backgroundColor: "#efefef",
+    backgroundColor: "#f6f9fc",
     backgroundColorAlt: "#ffffff",
     textColor: "#424242",
     grey100: "#F5F5F5",
@@ -40,7 +40,8 @@ const GlobalStyles = createGlobalStyle`
     width:100%;
     font-size: 10px;
     margin: 0 auto;
-    background-color: ${props => props.theme.backgroundColor}
+    background-color: ${props => props.theme.backgroundColor};
+    font-family: "montserrat", "lato", "sans-serif";
   }
   .page-heading {
     text-transform: uppercase;
@@ -66,9 +67,8 @@ const GlobalStyles = createGlobalStyle`
   h1,h2,h3,h4,h5,h6,p{
       color: ${props => props.theme.textColor};
   }
-  .btn-link {
-    margin: 0 auto;
-    font-size: 1.6rem;
+  .banner-credit{
+    font-size: 1.4rem;
   }
 `;
 

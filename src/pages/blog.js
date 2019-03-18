@@ -1,14 +1,16 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import BlogList from "components/Bloglist";
+import SEO from "components/SEO";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
   return (
     <>
+      <SEO title={`Blog | ${siteTitle}`} />
       <BlogList location={location} title={siteTitle} posts={posts} />
     </>
   );

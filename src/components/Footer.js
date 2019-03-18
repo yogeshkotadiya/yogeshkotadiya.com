@@ -1,9 +1,11 @@
-import React from "react";
+import * as React from "react";
 import styled from "styled-components";
+import { Link } from "gatsby";
 
 import GatsbyIcon from "Images/gatsby.svg";
 import TwitterIcon from "Images/twitter.svg";
 import GithubIcon from "Images/github.svg";
+import LinkedInIcon from "Images/linkedin.svg";
 import MailIcon from "Images/mail.svg";
 
 const Footer = () => {
@@ -29,21 +31,31 @@ const Footer = () => {
           aria-label="Github"
         >
           <img
-            className="icon icon-twitter"
+            className="icon icon-Github"
             src={GithubIcon}
-            alt="Twitter Logo"
+            alt="Github Logo"
+          />
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/in/yogeshkotadiya/"
+          aria-label="LinkedIn"
+        >
+          <img
+            className="icon icon-linkedIn"
+            src={LinkedInIcon}
+            alt="LinkedIn Logo"
           />
         </a>
         <a href="mailto:hiyogeshkotadiya@gmail.com" aria-label="Mail">
-          <img
-            className="icon icon-twitter"
-            src={MailIcon}
-            alt="Twitter Logo"
-          />
+          <img className="icon icon-email" src={MailIcon} alt="Email Icon" />
         </a>
       </div>
       <div>
-        <p>© {new Date().getFullYear()} Yogesh Kotadiya </p>
+        <p>
+          © {new Date().getFullYear()} <Link to="/">Yogesh Kotadiya</Link>
+        </p>
         <p>
           Built with{" "}
           <a
@@ -86,7 +98,7 @@ const Footerstyled = styled.footer`
     text-align: center;
   }
   a > .icon {
-    width: 4rem;
+    width: 3.5rem;
     margin: 0 1rem;
     margin-bottom: -2px;
     stroke: ${props => props.theme.textColor};

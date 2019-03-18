@@ -1,14 +1,6 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
   "schedule": "every weekday",
-  "automerge": true,
-  "major": {
-    "automerge": false
-  },
-  "minor": {
-    "automerge": false
-  },
+  "automerge": false,
   "rangeStrategy": "replace"
 }

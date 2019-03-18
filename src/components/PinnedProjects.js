@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -67,7 +67,6 @@ const PinnedProjects = () => {
 export default PinnedProjects;
 
 const TopStyled = styled.div`
-  font-family: "montserrat", "lato", "sans-serif";
   margin: 20px auto;
   max-width: ${props => props.theme.maxWidth};
   .containerProject {

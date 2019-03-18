@@ -9,7 +9,7 @@ module.exports = {
     title: config.title,
     author: config.title,
     description: config.description,
-    siteURL: config.siteUrl,
+    siteUrl: config.siteUrl,
     social: {
       twitter: config.twitter,
     },
@@ -117,7 +117,7 @@ module.exports = {
               siteMetadata {
                 title
                 description
-                siteURL
+                siteUrl
               }
             }
           }
@@ -129,8 +129,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   data: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteURL + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteURL + edge.node.fields.slug,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   custom_elements: [{ "content:encoded": edge.node.code.boy }],
                 });
               });

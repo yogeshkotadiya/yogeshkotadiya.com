@@ -1,16 +1,18 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
 import { rhythm } from "utils/typography";
 import PinnedProjects from "components/PinnedProjects";
+import SEO from "components/SEO";
 
 const Projects = () => {
   const data = useStaticQuery(AllProjectQuery);
   const repos = data.github.viewer.repositories.edges;
   return (
     <>
+      <SEO title={`Projects | ${data.site.siteMetadata.title}`} />
       <ProjectStyled>
         <h1 className="page-heading">Projects</h1>
         <PinnedProjects />
@@ -54,6 +56,11 @@ Projects.propTypes = {
 
 const AllProjectQuery = graphql`
   query AllProjectQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     github {
       viewer {
         repositories(
@@ -78,7 +85,6 @@ const AllProjectQuery = graphql`
 `;
 
 const ProjectStyled = styled.div`
-  font-family: "montserrat";
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 0 ${rhythm(2 / 4)};

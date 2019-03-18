@@ -1,18 +1,34 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import Markdown from "react-markdown";
 import Img from "gatsby-image";
 import Helmet from "react-helmet";
+import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-mdx";
-import Markdown from "react-markdown";
+import { MDXProvider } from "@mdx-js/tag";
+import { preToCodeBlock } from "mdx-utils";
 
 import { rhythm, scale } from "utils/typography";
 import BlogTheme from "components/blogTheme";
+import Code from "components/mdxComponents/Code";
 
 function BlogPostTemplate(props) {
-  const { frontmatter, code } = props.data.mdx;
-  const siteTitle = props.data.site.siteMetadata.title;
+  const { frontmatter, code, fields } = props.data.mdx;
   const { previous, next } = props.pageContext;
+  const siteTitle = props.data.site.siteMetadata.title;
+
+  const components = {
+    pre: preProps => {
+      const props = preToCodeBlock(preProps);
+      // if there's a codeString and some props, we passed the test
+      if (props) {
+        return <Code {...props} />;
+      } else {
+        // it's possible to have a pre without a code in it
+        return <pre {...preProps} />;
+      }
+    },
+  };
 
   return (
     <>
@@ -60,22 +76,44 @@ function BlogPostTemplate(props) {
             marginBottom: rhythm(1.2),
           }}
         >
-          <Img
-            fluid={frontmatter.banner.childImageSharp.fluid}
-            alt="Post Banner"
-          />
-          {frontmatter.bannerCredit ? (
-            <Markdown>{frontmatter.bannerCredit}</Markdown>
-          ) : null}
+          {frontmatter.banner && (
+            <Img
+              fluid={frontmatter.banner.childImageSharp.fluid}
+              alt="Post Banner"
+            />
+          )}
+          {frontmatter.bannerCredit && (
+            <Markdown className="banner-credit">
+              {frontmatter.bannerCredit}
+            </Markdown>
+          )}
         </div>
-        <BlogTheme>
-          <MDXRenderer>{code.body}</MDXRenderer>
-        </BlogTheme>
+        <MDXProvider components={components}>
+          <BlogTheme>
+            <MDXRenderer>{code.body}</MDXRenderer>
+          </BlogTheme>
+        </MDXProvider>
         <hr
           style={{
             marginBottom: rhythm(1),
           }}
         />
+        <div
+          style={{
+            ...scale(1.5),
+          }}
+        >
+          <a
+            style={{
+              fontSize: "1.8rem",
+            }}
+            href={fields.editBlog}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Edit this on Github
+          </a>
+        </div>
 
         <ul
           style={{
@@ -125,6 +163,9 @@ export const pageQuery = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
+      fields {
+        editBlog
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

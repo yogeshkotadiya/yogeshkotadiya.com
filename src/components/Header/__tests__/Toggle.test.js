@@ -1,6 +1,6 @@
-import React from "react";
+import * as React from "react";
 import { render } from "react-testing-library";
-import Header from "../";
+import Toggle from "../Toggle";
 
 test(`Test`, () => {
   expect(true).toBe(true);

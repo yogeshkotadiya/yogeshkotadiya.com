@@ -6,7 +6,7 @@ exports.onCreateWebpackConfig = ({ _, actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       alias: {
-        Images: path.resolve(__dirname, "static/Images/"),
+        Images: path.resolve(__dirname, "static/Images"),
       },
     },
   });
@@ -15,7 +15,7 @@ exports.onCreateWebpackConfig = ({ _, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const blogTemplate = path.resolve(`./src/templates/blog-post.js`);
-  const result = await graphql(
+  const { data, errors } = await graphql(
     `
       {
         allMdx(
@@ -27,6 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               fields {
                 slug
+                editBlog
               }
               frontmatter {
                 title
@@ -41,8 +42,11 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   );
 
+  if (errors) {
+    return Promise.reject(errors);
+  }
   //reate blog posts pages.
-  const posts = result.data.allMdx.edges;
+  const posts = data.allMdx.edges;
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -64,11 +68,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode });
+    const slug = node.frontmatter.slug || createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
-      value: `blog${slug}`,
+      value: `/blog${slug}`,
+    });
+    createNodeField({
+      name: `editBlog`,
+      node,
+      value: `https://github.com/yogeshkotadiya/yogeshkotadiya.com/edit/master${node.fileAbsolutePath.replace(
+        __dirname,
+        ""
+      )}`,
     });
   }
 };

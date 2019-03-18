@@ -1,25 +1,25 @@
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import Img from "gatsby-image";
+
 import PinnedProjects from "components/PinnedProjects";
 import BlogList from "components/Bloglist";
 import SEO from "components/SEO";
+import Container from "components/Container";
 
 const IndexPage = ({ data }) => {
   return (
-    <>
+    <Container>
       <SEO title={data.site.siteMetadata.title} />
       <IndexStyled>
         <div className="introduction">
-          <Img fluid={data.profile.childImageSharp.fluid} alt="Profile" />
           <p id="intro">
             Hi,
             <span role="img" aria-label="Wave Emoji">
               👋
             </span>{" "}
-            I&apos;m <span id="name">Yogesh Kotadiya</span>
+            I&apos;m <span id="name">Yogesh</span>
           </p>
           <p>
             I&apos;m a Javascript Developer from India
@@ -50,17 +50,22 @@ const IndexPage = ({ data }) => {
           </p>
         </div>
       </IndexStyled>
-      <h1 className="page-heading">Projects</h1>
-      <PinnedProjects />
-      <Link to="/projects" className="btn-link">
-        All Projects
-      </Link>
-      <h1 className="page-heading">Blog</h1>
-      <BlogList
-        title={data.site.siteMetadata.title}
-        posts={data.allMdx.edges}
-      />
-    </>
+      <SectionStyled>
+        <h1 className="page-heading">Projects</h1>
+        <PinnedProjects />
+        <div className="btn-link">
+          <Link to="/projects">All Projects &#10140;</Link>
+        </div>
+        <h1 className="page-heading">Blog</h1>
+        <BlogList
+          title={data.site.siteMetadata.title}
+          posts={data.allMdx.edges}
+        />
+        <div className="btn-link">
+          <Link to="/blog">Checkout all Posts &#10140;</Link>
+        </div>
+      </SectionStyled>
+    </Container>
   );
 };
 IndexPage.propTypes = {
@@ -92,18 +97,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    profile: file(relativePath: { eq: "profile.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
   }
 `;
 
 const IndexStyled = styled.div`
-  font-family: "montserrat";
   margin: 0 auto;
   padding: 20px;
   font-size: 1.8rem;
@@ -116,14 +113,6 @@ const IndexStyled = styled.div`
     width: 680px;
     #intro {
       text-align: center;
-    }
-    .gatsby-image-wrapper {
-      width: 200px;
-      display: block;
-      margin: 0 auto;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
     }
     a {
       color: ${props => props.theme.primary};
@@ -143,5 +132,13 @@ const IndexStyled = styled.div`
       font-weight: 800;
       font-size: 3.4rem;
     }
+  }
+`;
+
+const SectionStyled = styled.div`
+  .btn-link {
+    margin: 2.5rem auto;
+    text-align: center;
+    font-size: 1.7rem;
   }
 `;

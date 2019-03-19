@@ -68,7 +68,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const slug = node.frontmatter.slug || createFilePath({ node, getNode });
+    let slug = node.frontmatter.slug || createFilePath({ node, getNode });
+    slug = slug.replace(/\/$/g, "");
     createNodeField({
       name: `slug`,
       node,

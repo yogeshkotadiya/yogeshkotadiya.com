@@ -114,9 +114,6 @@ const IndexStyled = styled.div`
     #intro {
       text-align: center;
     }
-    a {
-      color: ${props => props.theme.primary};
-    }
     p {
       color: ${props => props.theme.lightBlack};
     }

@@ -88,7 +88,7 @@ const Footerstyled = styled.footer`
   font-size: 1.8rem;
   padding: 0 10px;
   margin-top: 1rem;
-  background: #222338;
+  background: #1a1835;
   height: 400px;
   bottom: 0;
   left: 0;

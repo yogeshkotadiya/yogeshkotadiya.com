@@ -22,7 +22,7 @@ export const theme = {
     grey200: "#EEEEEE",
     primaryExtraLight: "#ffebee",
     primaryLight: "#FFCDD2",
-    primary: "#ef5350",
+    primary: "#ff8484",
     maxWidth: "960px",
     white: "#fff",
     dropShadow: "#ef5650a6",
@@ -66,6 +66,10 @@ const GlobalStyles = createGlobalStyle`
 
   h1,h2,h3,h4,h5,h6,p{
       color: ${props => props.theme.textColor};
+  }
+  a,a.gatsby-resp-image-link {
+    box-shadow: none;
+    color: ${props => props.theme.primary};
   }
   .banner-credit{
     font-size: 1.4rem;

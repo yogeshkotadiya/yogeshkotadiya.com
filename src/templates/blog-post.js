@@ -165,6 +165,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       fields {
         editBlog
+        slug
       }
       frontmatter {
         title

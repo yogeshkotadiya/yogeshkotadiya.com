@@ -1,12 +1,53 @@
-# yogeshkotadiya.com
+# Personal Website of Yogesh Kotadiya
 
-Personal Website
+[![Build Status](https://travis-ci.org/yogeshkotadiya/yogeshkotadiya.com.svg?branch=master)](https://travis-ci.org/yogeshkotadiya/yogeshkotadiya.com)
 
-Build Status [![Build Status](https://travis-ci.org/yogeshkotadiya/yogeshkotadiya.com.svg?branch=master)](https://travis-ci.org/yogeshkotadiya/yogeshkotadiya.com)
+Built using [Gatsby](https://gatsbyjs.org)
 
-To Get started
+# Features
+
+✅ Gatsby
+
+✅ Styled-components
+
+✅ MDX
+
+✅ Typography.js
+
+✅ Prism.js
+
+✅ Light and Dark Theme
+
+✅ Offline Support
+
+✅ Full testing suite
+
+- Unit - Jest
+- E2E - Cypress
+- CI - Travis
+
+### TODO
+
+[] Pagination
+
+---
+
+## Get started
+
+- Clone this repo
 
 ```bash
-npm install
-npm run dev
+git clone git@github.com:yogeshkotadiya/yogeshkotadiya.com.git
+
+cd yogeshkotadiya.com
+
+yarn install
+
+yarn run dev
 ```
+
+- Visit http://localhost:8000
+
+---
+
+MIT [Yogesh Kotadiya](https://www.github.com/yogeshkotadiya)

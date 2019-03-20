@@ -15,4 +15,5 @@ cache:
 script:
   - yarn format
   - yarn lint
+  - yarn test
   - yarn build

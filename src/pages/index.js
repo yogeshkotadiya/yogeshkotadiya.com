@@ -22,31 +22,11 @@ const IndexPage = ({ data }) => {
             I&apos;m <span id="name">Yogesh</span>
           </p>
           <p>
-            I&apos;m a Javascript Developer from India
+            I&apos;m a Front-End Developer from India
             <span role="img" aria-label="India Flag Emoji">
               🇮🇳
             </span>
             . I make better things from javscript, sometime break&apos;em.
-          </p>
-          <p>
-            You can follow me on twitter{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.twitter.com/yogeshkotadiya"
-            >
-              @yogeshkotadiya
-            </a>
-            , I mostly tinker with new things in Javascript when I&apos;m not
-            doing anything, you can find my Open Source Porjects on{" "}
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://github.com/yogeshkotadiya"
-            >
-              Github
-            </a>
-            .
           </p>
         </div>
       </IndexStyled>
@@ -93,6 +73,14 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             readLength
+            description
+            banner {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }
@@ -115,6 +103,7 @@ const IndexStyled = styled.div`
       text-align: center;
     }
     p {
+      font-size: 2.4rem;
       color: ${props => props.theme.lightBlack};
     }
     h2 {

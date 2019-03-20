@@ -1,7 +1,5 @@
-describe(`site`, () => {
+describe(`Smoke Test`, () => {
   it(`works`, () => {
-    cy.visit(`/`)
-      .getByText(/blog/i)
-      .click({ force: true });
+    cy.visit(`/`);
   });
 });

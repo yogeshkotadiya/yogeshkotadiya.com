@@ -41,6 +41,14 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             readLength
+            description
+            banner {
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }

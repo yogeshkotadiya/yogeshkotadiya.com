@@ -18,10 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { data, errors } = await graphql(
     `
       {
-        allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
+        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
           edges {
             node {
               id
@@ -82,6 +79,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         __dirname,
         ""
       )}`,
+    });
+    createNodeField({
+      name: `author`,
+      node,
+      value: node.frontmatter.author || `Yogesh Kotadiya`,
     });
   }
 };

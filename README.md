@@ -14,7 +14,7 @@ Built using [Gatsby](https://gatsbyjs.org)
 
 ✅ Typography.js
 
-✅ Prism.js
+✅ Code Block, Syntax Highlighting - Prism.js
 
 ✅ Light and Dark Theme
 

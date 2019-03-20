@@ -9,7 +9,7 @@ import { MDXProvider } from "@mdx-js/tag";
 import { preToCodeBlock } from "mdx-utils";
 
 import { rhythm, scale } from "utils/typography";
-import BlogTheme from "components/blogTheme";
+import BlogTheme from "styles/blogTheme";
 import Code from "components/mdxComponents/Code";
 
 function BlogPostTemplate(props) {
@@ -68,7 +68,7 @@ function BlogPostTemplate(props) {
             textAlign: "center",
           }}
         >
-          Yogesh Kotadiya -{frontmatter.date} ⏳ {frontmatter.readLength}
+          {fields.author} -{frontmatter.date} ⏳ {frontmatter.readLength}
         </p>
         <div
           style={{
@@ -166,6 +166,7 @@ export const pageQuery = graphql`
       fields {
         editBlog
         slug
+        author
       }
       frontmatter {
         title

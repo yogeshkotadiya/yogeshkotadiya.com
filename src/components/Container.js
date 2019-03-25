@@ -9,5 +9,5 @@ export default Container;
 
 const ContainerStyled = styled.div`
   max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
+  margin: 5rem auto;
 `;

@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import Toggle from "./Toggle";
+import Menu from "./Mobile-nav";
 
 function Header() {
   return (
@@ -11,18 +12,45 @@ function Header() {
         <Link to={"/"} id="header-name">
           Yogesh Kotadiya
         </Link>
-        <nav>
-          <Link to={"/projects"}>Projects</Link>
-          <Link to={"/blog"}>Blog</Link>
-          <Link to={"/about"}>About</Link>
-        </nav>
-        <Toggle />
+        <Menu color="#ef5350" />
+        <div className="desktop-nav">
+          <Nav />
+        </div>
       </div>
     </HeaderStyled>
   );
 }
 
 export default Header;
+
+const Nav = ({ toggle }) => {
+  return (
+    <>
+      <nav>
+        <Link
+          onClick={toggle}
+          aria-label="Navigate to Projects page"
+          to={"/projects"}
+        >
+          Projects
+        </Link>
+        <Link onClick={toggle} aria-label="Navigate to Blog page" to={"/blog"}>
+          Blog
+        </Link>
+        <Link
+          onClick={toggle}
+          aria-label="Navigate to About page"
+          to={"/about"}
+        >
+          About
+        </Link>
+      </nav>
+      <Toggle />
+    </>
+  );
+};
+
+export { Nav };
 
 const HeaderStyled = styled.div`
   position: ${props => props.header};
@@ -83,19 +111,33 @@ const HeaderStyled = styled.div`
         transform: scaleX(1);
       }
     }
+    .mobile-nav {
+      display: none;
+      visibility: hidden;
+    }
   }
-  @media screen and (max-width: 580px) {
+  @media screen and (max-width: 600px) {
     height: 135px;
     #headerContent {
-      flex-direction: column;
-      align-content: center;
+      justify-content: space-around;
       align-items: center;
-      nav {
-        padding-right: 10px;
+      .mobile-nav {
+        display: block;
+        visibility: visible;
+        nav > a {
+          font-size: 2.2rem;
+          color: ${props => props.theme.white};
+        }
+      }
+      .desktop-nav {
+        display: none;
+        visibility: hidden;
       }
     }
     .toggleWrapper {
-      top: 40%;
+      top: none;
+      bottom: 15rem;
+      right: calc(50% - 90px);
     }
   }
 `;

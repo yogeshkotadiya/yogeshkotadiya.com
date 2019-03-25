@@ -1,0 +1,16 @@
+div.not-found {
+  margin: 100px auto;
+  font-size: 2rem;
+}
+div.not-found > h1 {
+  font-size: 8rem;
+  text-align: center;
+}
+div.not-found > p {
+  text-align: center;
+  margin-top: 50px;
+}
+div.not-found > a {
+  text-decoration: none;
+  color: #ff5722;
+}

@@ -40,6 +40,10 @@ const BlogTheme = styled.div`
     opacity: 0.6;
   }
 
+  pre {
+    margin-bottom: 2.5rem;
+  }
+
   .anchor {
     /* position: absolute; */
     left: -4px;

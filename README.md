@@ -28,7 +28,7 @@ Built using [Gatsby](https://gatsbyjs.org)
 
 ### TODO
 
-[] Pagination
+[ ] Pagination
 
 ---
 

@@ -5,13 +5,18 @@ import { graphql } from "gatsby";
 import BlogList from "components/Bloglist";
 import SEO from "components/SEO";
 
+import "./styles/blog.css";
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
   return (
     <>
       <SEO title={`Blog | ${siteTitle}`} />
-      <BlogList location={location} title={siteTitle} posts={posts} />
+      <div className="blog-page">
+        <h1 className="page-heading">Blog</h1>
+        <BlogList location={location} title={siteTitle} posts={posts} />
+      </div>
     </>
   );
 };

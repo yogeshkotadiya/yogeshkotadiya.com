@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
 import { rhythm } from "utils/typography";
+import Container from "components/Container";
 import PinnedProjects from "components/PinnedProjects";
 import SEO from "components/SEO";
 
@@ -11,7 +12,7 @@ const Projects = () => {
   const data = useStaticQuery(AllProjectQuery);
   const repos = data.github.viewer.repositories.edges;
   return (
-    <>
+    <Container>
       <SEO title={`Projects | ${data.site.siteMetadata.title}`} />
       <ProjectStyled>
         <h1 className="page-heading">Projects</h1>
@@ -44,7 +45,7 @@ const Projects = () => {
           </li>
         ))}
       </ProjectStyled>
-    </>
+    </Container>
   );
 };
 
@@ -65,6 +66,7 @@ const AllProjectQuery = graphql`
       viewer {
         repositories(
           first: 30
+          isFork: false
           orderBy: { field: STARGAZERS, direction: DESC }
           affiliations: COLLABORATOR
         ) {

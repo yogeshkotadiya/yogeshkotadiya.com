@@ -8,6 +8,8 @@ import BlogList from "components/Bloglist";
 import SEO from "components/SEO";
 import Container from "components/Container";
 
+import "./styles/index.css";
+
 const IndexPage = ({ data }) => {
   return (
     <Container>
@@ -98,33 +100,16 @@ const IndexStyled = styled.div`
   justify-content: center;
   line-height: 1.5;
   .introduction {
-    width: 680px;
-    #intro {
-      text-align: center;
-    }
     p {
-      font-size: 2.4rem;
       color: ${props => props.theme.lightBlack};
-    }
-    h2 {
-      font-size: 2.5rem;
-    }
-    h3 {
-      font-size: 2rem;
-    }
-    #name {
-      display: block;
-      color: #ef5350;
-      font-weight: 800;
-      font-size: 3.4rem;
     }
   }
 `;
 
 const SectionStyled = styled.div`
   .btn-link {
-    margin: 2.5rem auto;
+    margin: 4rem auto;
     text-align: center;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 `;

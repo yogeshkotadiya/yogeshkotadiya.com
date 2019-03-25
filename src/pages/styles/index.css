@@ -1,0 +1,29 @@
+.introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 680px;
+  height: 70vh;
+  text-align: center;
+}
+.introduction > p {
+  font-size: 2.4rem;
+}
+.introduction > h2 {
+  font-size: 2.5rem;
+}
+.introduction > h3 {
+  font-size: 2rem;
+}
+.introduction > #name {
+  display: block;
+  color: #ef5350;
+  font-weight: 800;
+  font-size: 3.4rem;
+}
+.btn-link {
+  margin: 5rem auto;
+  text-align: center;
+  font-size: 1.8rem;
+}

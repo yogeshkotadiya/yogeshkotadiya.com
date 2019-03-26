@@ -135,8 +135,8 @@ const HeaderStyled = styled.div`
       }
     }
     .toggleWrapper {
-      top: none;
-      bottom: 15rem;
+      top: unset;
+      bottom: 5rem;
       right: calc(50% - 90px);
     }
   }

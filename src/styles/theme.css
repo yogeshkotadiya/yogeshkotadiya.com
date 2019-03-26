@@ -6,13 +6,13 @@ pre[class*="language-"] {
   color: white;
   background: none;
   font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 0;
 
   -moz-tab-size: 4;

@@ -12,10 +12,7 @@ function highlightLine(str) {
     if (typeof parseInt(i) === "number" && i.length === 1) {
       return parseInt(i);
     }
-    let string = i
-      .split("-")
-      .map(e => parseInt(e))
-      .sort((a, b) => a - b);
+    let string = i.split("-").map(e => parseInt(e));
     let num = [string[0]];
     while (string[0] < string[1]) {
       string[0]++;

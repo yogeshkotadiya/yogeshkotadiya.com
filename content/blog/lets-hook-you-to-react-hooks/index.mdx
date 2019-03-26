@@ -21,7 +21,7 @@ So to get started with things we'll do something simple use of [useState()](http
 
 ---
 
-```js highlight=2-5,9
+```jsx highlight=2-5,9
 class App extends React.Component{
   contructor(props){
     super(props);
@@ -51,7 +51,7 @@ And also a input tag with onChnage handler to mutate the state value.
 
 Now let's try the above example with Hooks.
 
-```js highlight=2,6
+```jsx highlight=2,6
 function App() {
   const [name, setName] = React.useState("Yogesh");
   // Here we declare the state and pass a initial value.

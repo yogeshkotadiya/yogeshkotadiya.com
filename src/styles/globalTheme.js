@@ -74,6 +74,10 @@ const GlobalStyles = createGlobalStyle`
   .banner-credit{
     font-size: 1.4rem;
   }
+  ::selection {
+    color: #fff;
+    background-color: ${props => props.theme.primary};
+  }
 `;
 
 export default GlobalStyles;

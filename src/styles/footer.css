@@ -32,3 +32,20 @@ div.footer > div > p {
 #header-social-links > a > .icon:hover {
   opacity: 1;
 }
+
+#header-social-links > a#footer-email {
+  margin-left: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+  height: 35px;
+  font-size: 1.6rem;
+  background-color: #ef5350;
+  color: #fff;
+  transition: 0.2s all ease;
+}
+
+#header-social-links > a#footer-email:hover {
+  transform: scaleX(1.1);
+  background-color: #fff;
+  color: #000;
+}

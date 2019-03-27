@@ -14,6 +14,14 @@ const Footer = () => {
     <div className="footer">
       <div id="header-social-links">
         <a
+          id="footer-email"
+          href="mailto:hiyogeshkotadiya@gmail.com"
+          aria-label="Mail"
+        >
+          {/* <img className="icon icon-email" src={MailIcon} alt="Email Icon" /> */}
+          EMAIL
+        </a>
+        <a
           target="_blank"
           rel="noopener noreferrer"
           href="https://twitter.com/yogeshkotadiya"
@@ -48,9 +56,6 @@ const Footer = () => {
             src={LinkedInIcon}
             alt="LinkedIn Logo"
           />
-        </a>
-        <a href="mailto:hiyogeshkotadiya@gmail.com" aria-label="Mail">
-          <img className="icon icon-email" src={MailIcon} alt="Email Icon" />
         </a>
       </div>
       <div>

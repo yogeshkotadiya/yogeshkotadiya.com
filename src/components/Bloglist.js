@@ -30,6 +30,11 @@ const BlogListStyled = styled.div`
     max-width: ${rhythm(25)};
     height: 200px;
   }
+  @media screen and (max-width: 560px) {
+    .blogList-imageContainer {
+      display: none;
+    }
+  }
 `;
 
 const BlogList = ({ posts }) => (

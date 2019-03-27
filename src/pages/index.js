@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
             <span role="img" aria-label="India Flag Emoji">
               🇮🇳
             </span>
-            . I make better things(sometime) from javscript.
+            . I make better things(sometime) from javascript.
           </p>
         </div>
       </IndexStyled>

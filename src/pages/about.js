@@ -57,12 +57,14 @@ const AboutStyled = styled.div`
   justify-content: space-evenly;
   font-size: 1.8rem;
   margin: 0 auto;
+  min-height: 60vh;
   #intro {
     font-size: ${rhythm(1.7)};
     color: ${props => props.theme.primary};
     font-weight: 600;
   }
   .gatsby-image-wrapper {
+    height: 200px;
     width: 200px;
     margin-bottom: 20px;
     border-radius: 50%;

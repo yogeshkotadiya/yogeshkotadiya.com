@@ -2,7 +2,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import Markdown from "react-markdown";
 import Img from "gatsby-image";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-mdx";
 import { MDXProvider } from "@mdx-js/tag";

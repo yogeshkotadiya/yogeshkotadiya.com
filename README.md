@@ -1,6 +1,9 @@
 # Personal Website of Yogesh Kotadiya
 
 [![Build Status](https://travis-ci.org/yogeshkotadiya/yogeshkotadiya.com.svg?branch=master)](https://travis-ci.org/yogeshkotadiya/yogeshkotadiya.com)
+![Site Status](https://img.shields.io/website/https/yogeshkotadiya.com.svg)
+![License](https://img.shields.io/github/license/yogeshkotadiya/yogeshkotadiya.com.svg)
+![](https://img.shields.io/maintenance/yes/2019.svg)
 
 Built using [Gatsby](https://gatsbyjs.org)
 
@@ -29,6 +32,7 @@ Built using [Gatsby](https://gatsbyjs.org)
 ### TODO
 
 - [ ] Pagination
+- [ ] More Test coverage
 
 ---
 

@@ -15,6 +15,8 @@ const IndexPage = ({ data }) => {
     <Container>
       <SEO title={data.site.siteMetadata.title} />
       <IndexStyled>
+        <div className="indexPattern-1 circles" />
+        <div className="indexPattern-2 circles" />
         <div className="introduction">
           <p id="intro">
             Hi,

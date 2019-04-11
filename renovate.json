@@ -1,6 +1,15 @@
 {
-  "extends": ["config:base"],
+  "extends": ["config:base", ":masterIssueApproval"],
   "schedule": "every weekday",
   "automerge": false,
-  "rangeStrategy": "replace"
+  "rangeStrategy": "replace",
+  "semanticCommitScope": "deps",
+  "prBodyColumns": [
+    "Package",
+    "Update",
+    "Type",
+    "Change",
+    "References",
+    "Sourcegraph"
+  ]
 }

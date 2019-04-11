@@ -17,5 +17,7 @@ module.exports = {
     __PATH_PREFIX__: ``,
   },
   testURL: `http://localhost`,
+  coverageDirectory: `./coverage/`,
+  collectCoverage: true,
   // setupFiles: [`<rootDir>/loadershim.js`],
 };

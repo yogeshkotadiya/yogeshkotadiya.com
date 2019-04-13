@@ -1,7 +1,13 @@
 {
   "extends": ["config:base", ":masterIssueApproval"],
   "schedule": "every weekday",
-  "automerge": false,
+  "automerge": true,
+  "major": {
+    "automerge": false
+  },
+  "patch": {
+    "automerge" : false
+  },
   "rangeStrategy": "bump",
   "semanticCommitScope": "deps",
   "prBodyColumns": [
@@ -9,7 +15,6 @@
     "Update",
     "Type",
     "Change",
-    "References",
-    "Sourcegraph"
+    "References"
   ]
 }

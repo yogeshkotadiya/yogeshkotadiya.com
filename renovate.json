@@ -13,7 +13,7 @@
       "packageNames": [`monorepo:gatsby`],
       "extends": ["schedule:monthly"]
     }
-  ]
+  ],
   "rangeStrategy": "bump",
   "semanticCommitScope": "deps",
   "prBodyColumns": [

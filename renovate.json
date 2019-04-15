@@ -1,6 +1,6 @@
 {
   "extends": ["config:base", ":masterIssueApproval"],
-  "schedule": "every weekday",
+  "schedule": "every sunday",
   "automerge": true,
   "major": {
     "automerge": false
@@ -8,6 +8,12 @@
   "patch": {
     "automerge" : false
   },
+  "packageRules": [
+    {
+      "packageNames": ["monorepo:gatsby"],
+      "extends": ["schedule:monthly"]
+    }
+  ],
   "rangeStrategy": "bump",
   "semanticCommitScope": "deps",
   "prBodyColumns": [

@@ -10,7 +10,7 @@
   },
   "packageRules": [
     {
-      "packageNames": [`monorepo:gatsby`],
+      "packageNames": ["monorepo:gatsby"],
       "extends": ["schedule:monthly"]
     }
   ],

@@ -1,6 +1,6 @@
 {
   "extends": ["config:base", ":masterIssueApproval"],
-  "schedule": "every sunday",
+  "schedule": "monthly",
   "automerge": true,
   "major": {
     "automerge": false

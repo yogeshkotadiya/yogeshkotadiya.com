@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-mdx";
-import { MDXProvider } from "@mdx-js/tag";
+import { MDXProvider } from "@mdx-js/react";
 import { preToCodeBlock } from "mdx-utils";
 
 import { rhythm, scale } from "utils/typography";

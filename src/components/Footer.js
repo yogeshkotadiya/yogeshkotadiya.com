@@ -5,7 +5,6 @@ import GatsbyIcon from "Images/gatsby.svg";
 import TwitterIcon from "Images/twitter.svg";
 import GithubIcon from "Images/github.svg";
 import LinkedInIcon from "Images/linkedin.svg";
-import MailIcon from "Images/mail.svg";
 
 import "styles/footer.css";
 
@@ -18,7 +17,6 @@ const Footer = () => {
           href="mailto:hiyogeshkotadiya@gmail.com"
           aria-label="Mail"
         >
-          {/* <img className="icon icon-email" src={MailIcon} alt="Email Icon" /> */}
           EMAIL
         </a>
         <a

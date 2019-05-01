@@ -32,7 +32,7 @@
     "gatsby-transformer-remark": "^2.3.8",
     "gatsby-transformer-sharp": "^2.1.18",
     "mdx-component-autolink-header": "^0.0.1",
-    "mdx-utils": "^0.1.0",
+    "mdx-utils": "^0.1.1",
     "prism-react-renderer": "^0.1.6",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",

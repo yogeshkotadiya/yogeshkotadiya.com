@@ -18,8 +18,8 @@ action "automerge" {
   secrets = ["GITHUB_TOKEN"]
   env = {
     LABELS = "!WIP,!work in progress"
-    AUTOMERGE = "merge on green"
-    AUTOREBASE = "rebase on green"
+    AUTOMERGE = "merge-on-green"
+    AUTOREBASE = "rebaseon green"
     MERGE_METHOD = "squash"
   }
 }

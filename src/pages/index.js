@@ -25,13 +25,7 @@ const IndexPage = ({ data }) => {
             </span>{" "}
             I&apos;m <span id="name">Yogesh</span>
           </p>
-          <p>
-            I&apos;m a Front-End Developer from India
-            <span role="img" aria-label="India Flag Emoji">
-              🇮🇳
-            </span>
-            . I make better things(sometime) from javascript.
-          </p>
+          <p>Front-End Developer</p>
         </div>
       </IndexStyled>
       <SectionStyled>
@@ -95,8 +89,10 @@ export const pageQuery = graphql`
 const IndexStyled = styled.div`
   margin: 0 auto;
   padding: 20px;
-  font-size: 1.8rem;
-  background-color: ${props => props.theme.backgroundColor};
+  background-color: aquamarine;
+  box-shadow: 0px 0px 20px 15px #00000010;
+  border-radius: 1rem;
+  /* background-color: ${props => props.theme.backgroundColor}; */
   color: ${props => props.theme.lightBlack};
   display: flex;
   justify-content: center;

@@ -4,12 +4,13 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  max-width: 680px;
+  max-width: 1280px;
   height: 70vh;
   text-align: center;
+  z-index: 10;
 }
 .introduction > p {
-  font-size: 2.4rem;
+  font-size: 5.4rem;
 }
 .introduction > h2 {
   font-size: 2.5rem;
@@ -32,6 +33,7 @@
 .indexPattern-1 {
   position: absolute;
   top: 30%;
+  z-index: 1;
   left: calc(30% - 150px);
   width: 150px;
   height: 150px;

@@ -39,6 +39,7 @@
     "react-helmet": "^5.2.1",
     "react-live": "^2.0.1",
     "react-markdown": "^4.0.8",
+    "react-typed": "^1.1.2",
     "react-typography": "^0.16.19",
     "styled-components": "^4.2.0",
     "typeface-merriweather": "^0.0.72",

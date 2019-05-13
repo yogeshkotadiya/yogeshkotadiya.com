@@ -2,6 +2,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
+import Typed from "react-typed";
 
 import PinnedProjects from "components/PinnedProjects";
 import BlogList from "components/Bloglist";
@@ -25,7 +26,15 @@ const IndexPage = ({ data }) => {
             </span>{" "}
             I&apos;m <span id="name">Yogesh</span>
           </p>
-          <p>Front-End Developer</p>
+          <Typed
+            strings={["FrontEnd Developer", "Open Source Contributor"]}
+            typeSpeed={70}
+            backSpeed={40}
+            style={{
+              fontSize: 32,
+            }}
+            loop
+          />
         </div>
       </IndexStyled>
       <SectionStyled>

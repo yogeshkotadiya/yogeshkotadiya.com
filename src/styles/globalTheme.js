@@ -49,7 +49,7 @@ const GlobalStyles = createGlobalStyle`
     width: 250px;
     height: 50px;
     position: relative;
-    margin: 0.5rem auto;
+    margin: 3.5rem auto;
     text-align: center;
     font-size: 3rem;
     &:after {

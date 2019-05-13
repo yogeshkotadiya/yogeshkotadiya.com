@@ -10,7 +10,7 @@ function Header() {
     <HeaderStyled id="header">
       <div id="headerContent">
         <Link to={"/"} id="header-name">
-          Yogesh Kotadiya
+          @yogeshkotadiya
         </Link>
         <Menu color="#ef5350" />
         <div className="desktop-nav">
@@ -82,7 +82,6 @@ const HeaderStyled = styled.div`
     #header-name {
       height: 50px;
       margin: 5px;
-      text-transform: uppercase;
       padding-bottom: 10px;
     }
     .desktop-nav {

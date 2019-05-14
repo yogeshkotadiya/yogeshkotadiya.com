@@ -4,6 +4,7 @@ export const theme = {
   light: {
     backgroundColor: "#f6f9fc",
     backgroundColorAlt: "#ffffff",
+    aquamarineSet: "#82ffcf",
     textColor: "#424242",
     grey100: "#F5F5F5",
     grey200: "#bdbcbc",
@@ -17,6 +18,7 @@ export const theme = {
   dark: {
     backgroundColor: "#3c3c3c",
     backgroundColorAlt: "#2a2a2a",
+    aquamarineSet: "#a0a0a0",
     textColor: "#f2f2f2",
     grey100: "#F5F5F5",
     grey200: "#EEEEEE",

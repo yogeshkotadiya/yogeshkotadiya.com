@@ -51,6 +51,41 @@
   background-repeat: no-repeat;
 }
 
-#intro {
+#intro,
+#intro-bottom {
   color: #222;
+}
+
+#intro-bottom {
+  font-size: 3.4rem;
+}
+
+@keyframes wave-emoji {
+  25% {
+    transform: rotateZ(15deg);
+  }
+  50% {
+    transform: rotateZ(0);
+  }
+  75% {
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+#wave-emoji {
+  display: inline-block;
+  transform-origin: 90% 80%;
+  animation: wave-emoji 2s linear infinite;
+}
+
+@media screen and (max-width: 620px) {
+  .introduction > p {
+    font-size: 2.8rem;
+  }
+  span.type-text > span {
+    font-size: 2.2rem;
+  }
 }

@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
         <div className="introduction">
           <p id="intro">
             Hi,
-            <span role="img" aria-label="Wave Emoji">
+            <span id="wave-emoji" role="img" aria-label="Wave Emoji">
               👋
             </span>{" "}
             I&apos;m <span id="name">Yogesh</span>
@@ -30,11 +30,13 @@ const IndexPage = ({ data }) => {
             strings={["FrontEnd Developer", "Open Source Contributor"]}
             typeSpeed={70}
             backSpeed={40}
+            className="type-text"
             style={{
               fontSize: 32,
             }}
             loop
           />
+          <p id="intro-bottom">From India</p>
         </div>
       </IndexStyled>
       <SectionStyled>
@@ -98,7 +100,7 @@ export const pageQuery = graphql`
 const IndexStyled = styled.div`
   margin: 0 auto;
   padding: 20px;
-  background-color: aquamarine;
+  background-color: ${props => props.theme.aquamarineSet};
   box-shadow: 0px 0px 20px 15px #00000010;
   border-radius: 1rem;
   /* background-color: ${props => props.theme.backgroundColor}; */

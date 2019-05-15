@@ -22,9 +22,22 @@ function About(props) {
             I&apos;m <span id="name">Yogesh Kotadiya</span>
           </p>
           <p>
-            Yes that&apos;s my face. I&apos;m a Front-End developer focuses on
-            performace and design, and loves tweaking and discovering new things
-            on web.
+            I&apos;m a 23 yr old Front-End developer focuses on performace and
+            design, and loves tweaking and discovering new things on web.
+          </p>
+          <p>
+            I specialize in React development with Node.js and GraphQL on
+            backend.
+          </p>
+          <p>
+            In my self time i contribute to open source projects and also manage
+            my npm packages.
+          </p>
+          <p>
+            You can contact me on Twitter or say hi directly to my mail{" "}
+            <a href="mailto:hiyogeshkotadiya@gmail.com">
+              hiyogeshkotadiya@gmail.com
+            </a>
           </p>
         </div>
       </AboutStyled>

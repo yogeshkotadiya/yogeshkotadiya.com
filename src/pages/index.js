@@ -100,7 +100,8 @@ export const pageQuery = graphql`
 const IndexStyled = styled.div`
   margin: 0 auto;
   padding: 20px;
-  background-color: ${props => props.theme.aquamarineSet};
+  // background-color: ${props => props.theme.aquamarineSet};
+  background: linear-gradient(to right, #acb6e5, #86fde8);
   box-shadow: 0px 0px 20px 15px #00000010;
   border-radius: 1rem;
   /* background-color: ${props => props.theme.backgroundColor}; */

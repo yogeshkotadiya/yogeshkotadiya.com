@@ -27,7 +27,7 @@ const IndexPage = ({ data }) => {
             I&apos;m <span id="name">Yogesh</span>
           </p>
           <Typed
-            strings={["FrontEnd Developer", "Open Source Contributor"]}
+            strings={["Full Stack Developer", "Open Source Contributor"]}
             typeSpeed={70}
             backSpeed={40}
             className="type-text"

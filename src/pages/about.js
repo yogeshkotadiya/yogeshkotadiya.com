@@ -26,12 +26,12 @@ function About(props) {
             design, and loves tweaking and discovering new things on web.
           </p>
           <p>
-            I specialize in React development with Node.js and GraphQL on
-            backend.
+            I specialize in React development with Typescript,Node.js and
+            GraphQL.
           </p>
           <p>
             In my self time i contribute to open source projects and also manage
-            my npm packages.
+            my <a href="https://www.npmjs.com/~yogeshkotadiya">npm</a> packages.
           </p>
           <p>
             You can contact me on Twitter or say hi directly to my mail{" "}

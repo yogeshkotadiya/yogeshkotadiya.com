@@ -1,9 +1,9 @@
 .toggleWrapper {
   position: absolute;
   top: 60%;
-  right: -50px;
+  right: -5rem;
   overflow: hidden;
-  padding: 20px;
+  padding: 2rem;
   transform: translate3d(-50%, -50%, 0);
 }
 .toggleWrapper input {
@@ -15,25 +15,25 @@
   cursor: pointer;
   display: inline-block;
   position: relative;
-  width: 50px;
-  height: 25px;
+  width: 5rem;
+  height: 2.5rem;
   background-color: #83d8ff;
-  border-radius: 50px;
+  border-radius: 5rem;
   transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 .toggle:before {
   content: "";
   position: absolute;
-  left: -45px;
-  top: 4px;
-  font-size: 14px;
+  left: -4.5rem;
+  top: 0.4rem;
+  font-size: 1.4rem;
 }
 .toggle:after {
   content: "";
   position: absolute;
-  right: -40px;
-  top: 4px;
-  font-size: 14px;
+  right: -4rem;
+  top: 0.4rem;
+  font-size: 1.4rem;
   color: #749ed7;
 }
 
@@ -41,13 +41,13 @@
   display: inline-block;
   position: relative;
   z-index: 1;
-  top: -7px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
+  top: -0.7rem;
+  left: 0.3rem;
+  width: 2rem;
+  height: 2rem;
   background-color: rgb(252, 229, 101);
-  border-radius: 50px;
-  box-shadow: 0 0 15px 4px rgba(252, 229, 101, 0.4);
+  border-radius: 5rem;
+  box-shadow: 0 0 1.5rem 0.4rem rgba(252, 229, 101, 0.4);
   transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform: rotate(-45deg);
 }
@@ -59,22 +59,22 @@
   border-radius: 100%;
 }
 .toggle__handler .crater--1 {
-  top: 9px;
-  left: 5px;
-  width: 2px;
-  height: 2px;
+  top: 0.9rem;
+  left: 0.5rem;
+  width: 0.2rem;
+  height: 0.2rem;
 }
 .toggle__handler .crater--2 {
-  top: 13px;
-  left: 8px;
-  width: 3px;
-  height: 3px;
+  top: 1.3rem;
+  left: 0.8rem;
+  width: 0.3rem;
+  height: 0.3rem;
 }
 .toggle__handler .crater--3 {
-  top: 7px;
-  left: 12px;
-  width: 4px;
-  height: 4px;
+  top: 0.7rem;
+  left: 1.2rem;
+  width: 0.4rem;
+  height: 0.4rem;
 }
 
 .star {
@@ -85,27 +85,27 @@
 }
 
 .star--1 {
-  top: 4px;
-  left: 18px;
+  top: 0.4rem;
+  left: 1.8rem;
   z-index: 0;
-  width: 20px;
-  height: 2px;
+  width: 2rem;
+  height: 0.2rem;
 }
 
 .star--2 {
-  top: 10px;
-  left: 16px;
+  top: 1rem;
+  left: 1.6rem;
   z-index: 1;
-  width: 18px;
-  height: 2px;
+  width: 1.8rem;
+  height: 0.2rem;
 }
 
 .star--3 {
-  top: 17px;
-  left: 12px;
+  top: 1.7rem;
+  left: 1.2rem;
   z-index: 0;
-  width: 25px;
-  height: 2px;
+  width: 2.5rem;
+  height: 0.2rem;
 }
 
 .star--4,
@@ -116,30 +116,30 @@
 }
 
 .star--4 {
-  top: 20px;
-  left: 22px;
+  top: 2rem;
+  left: 2.2rem;
   z-index: 0;
-  width: 2px;
-  height: 2px;
-  transform: translate3d(3px, 0, 0);
+  width: 0.2rem;
+  height: 0.2rem;
+  transform: translate3d(0.3rem, 0, 0);
 }
 
 .star--5 {
-  top: 14px;
-  left: 19px;
+  top: 1.4rem;
+  left: 1.9rem;
   z-index: 0;
-  width: 3px;
-  height: 3px;
-  transform: translate3d(3px, 0, 0);
+  width: 0.3rem;
+  height: 0.3rem;
+  transform: translate3d(0.3rem, 0, 0);
 }
 
 .star--6 {
-  top: 7px;
-  left: 4px;
+  top: 0.7rem;
+  left: 0.4rem;
   z-index: 0;
-  width: 2px;
-  height: 2px;
-  transform: translate3d(3px, 0, 0);
+  width: 0.2rem;
+  height: 0.2rem;
+  transform: translate3d(0.3rem, 0, 0);
 }
 
 input:checked + .toggle {
@@ -153,24 +153,24 @@ input:checked + .toggle:after {
 }
 input:checked + .toggle .toggle__handler {
   background-color: #ffe5b5;
-  transform: translate3d(24px, 0, 0) rotate(0);
+  transform: translate3d(2.4rem, 0, 0) rotate(0);
 }
 input:checked + .toggle .toggle__handler .crater {
   opacity: 1;
 }
 input:checked + .toggle .star--1 {
-  width: 2px;
-  height: 2px;
+  width: 0.2rem;
+  height: 0.2rem;
 }
 input:checked + .toggle .star--2 {
-  width: 4px;
-  height: 4px;
-  transform: translate3d(-5px, 0, 0);
+  width: 0.4rem;
+  height: 0.4rem;
+  transform: translate3d(-0.5rem, 0, 0);
 }
 input:checked + .toggle .star--3 {
-  width: 2px;
-  height: 2px;
-  transform: translate3d(-7px, 0, 0);
+  width: 0.2rem;
+  height: 0.2rem;
+  transform: translate3d(-0.7rem, 0, 0);
 }
 input:checked + .toggle .star--4,
 input:checked + .toggle .star--5,

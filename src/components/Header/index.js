@@ -55,37 +55,34 @@ export { Nav };
 const HeaderStyled = styled.div`
   position: ${props => props.header};
   background: ${props => props.theme.backgroundColor};
-  height: 100px;
-  margin: 0 auto 20px;
+  height: 10rem;
+  margin: 0 auto;
   font-size: 2.4rem;
   transition: all 0.3s;
   z-index: 10;
   display: flex;
   align-items: center;
-  &.header-scrolled {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    background: ${props => props.theme.backgroundColor};
-    & > #headerContent {
-      width: 820px;
-    }
+}
+#header {
+  padding: 0 3rem;
+}
+#headerContent {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 4rem;
+  width: 96rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s;
+  #header-name {
+    height: 5rem;
+    margin: 5px;
+    padding-bottom: 10px;
   }
-  #headerContent {
-    position: relative;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 960px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s;
-    #header-name {
-      height: 50px;
-      margin: 5px;
-      padding-bottom: 10px;
-    }
-    .desktop-nav {
-      nav {
+  .desktop-nav {
+    nav {
         font-size: 1.6rem;
         position: relative;
         padding: 0 5rem;
@@ -117,6 +114,7 @@ const HeaderStyled = styled.div`
     .mobile-nav {
       display: none;
       visibility: hidden;
+      padding: 0;
     }
   }
   @media screen and (max-width: 620px) {

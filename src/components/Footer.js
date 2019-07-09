@@ -58,7 +58,7 @@ const Footer = () => {
       </div>
       <div>
         <p>
-          © {new Date().getFullYear()} <Link to="/">Yogesh Kotadiya</Link>
+          © {new Date().getFullYear()} <Link to="/">@yogeshkotadiya</Link>
         </p>
         <p>
           Built with{" "}
@@ -81,4 +81,4 @@ const Footer = () => {
   );
 };
 
-export default React.memo(Footer);
+export default Footer;

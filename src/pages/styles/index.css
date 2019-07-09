@@ -4,12 +4,12 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1280px;
+  /* max-width: 1280px; */
   height: 70vh;
   text-align: center;
   z-index: 10;
 }
-.introduction > p {
+.introduction {
   font-size: 5.4rem;
 }
 .introduction > h2 {
@@ -34,26 +34,21 @@
   position: absolute;
   top: 30%;
   z-index: 1;
-  left: calc(30% - 150px);
-  width: 150px;
-  height: 150px;
+  left: calc(30% - 15rem);
+  width: 15rem;
+  height: 15rem;
 }
 
 .indexPattern-2 {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 15rem;
+  height: 15rem;
   right: calc(40% - 150px);
   bottom: 15%;
 }
 .circles {
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDIiIGhlaWdodD0iMTQyIj48ZyBmaWxsPSIjZWY1MzUwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoMnYySDB6TTAgMjBoMnYySDB6TTIwIDBoMnYyaC0yek0yMCAyMGgydjJoLTJ6TTQwIDBoMnYyaC0yek00MCAyMGgydjJoLTJ6TTYwIDBoMnYyaC0yek02MCAyMGgydjJoLTJ6TTgwIDBoMnYyaC0yek04MCAyMGgydjJoLTJ6TTEwMCAwaDJ2MmgtMnpNMTAwIDIwaDJ2MmgtMnpNMTIwIDBoMnYyaC0yek0xMjAgMjBoMnYyaC0yek0xNDAgMGgydjJoLTJ6TTE0MCAyMGgydjJoLTJ6TTAgNDBoMnYySDB6TTIwIDQwaDJ2MmgtMnpNNDAgNDBoMnYyaC0yek02MCA0MGgydjJoLTJ6TTgwIDQwaDJ2MmgtMnpNMTAwIDQwaDJ2MmgtMnpNMTIwIDQwaDJ2MmgtMnpNMTQwIDQwaDJ2MmgtMnpNMCA2MGgydjJIMHpNMjAgNjBoMnYyaC0yek00MCA2MGgydjJoLTJ6TTYwIDYwaDJ2MmgtMnpNODAgNjBoMnYyaC0yek0xMDAgNjBoMnYyaC0yek0xMjAgNjBoMnYyaC0yek0xNDAgNjBoMnYyaC0yek0wIDgwaDJ2Mkgwek0yMCA4MGgydjJoLTJ6TTQwIDgwaDJ2MmgtMnpNNjAgODBoMnYyaC0yek04MCA4MGgydjJoLTJ6TTEwMCA4MGgydjJoLTJ6TTEyMCA4MGgydjJoLTJ6TTE0MCA4MGgydjJoLTJ6TTAgMTAwaDJ2Mkgwek0yMCAxMDBoMnYyaC0yek00MCAxMDBoMnYyaC0yek02MCAxMDBoMnYyaC0yek04MCAxMDBoMnYyaC0yek0xMDAgMTAwaDJ2MmgtMnpNMTIwIDEwMGgydjJoLTJ6TTE0MCAxMDBoMnYyaC0yek0wIDEyMGgydjJIMHpNMjAgMTIwaDJ2MmgtMnpNNDAgMTIwaDJ2MmgtMnpNNjAgMTIwaDJ2MmgtMnpNODAgMTIwaDJ2MmgtMnpNMTAwIDEyMGgydjJoLTJ6TTEyMCAxMjBoMnYyaC0yek0xNDAgMTIwaDJ2MmgtMnpNMCAxNDBoMnYySDB6TTIwIDE0MGgydjJoLTJ6TTQwIDE0MGgydjJoLTJ6TTYwIDE0MGgydjJoLTJ6TTgwIDE0MGgydjJoLTJ6TTEwMCAxNDBoMnYyaC0yek0xMjAgMTQwaDJ2MmgtMnpNMTQwIDE0MGgydjJoLTJ6Ii8+PC9nPjwvc3ZnPg==");
   background-repeat: no-repeat;
-}
-
-#intro,
-#intro-bottom {
-  color: #222;
 }
 
 #intro-bottom {

@@ -2,12 +2,16 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
+import Typed from "react-typed";
 
-import PinnedProjects from "components/PinnedProjects";
 import BlogList from "components/Bloglist";
 import SEO from "components/SEO";
 import Container from "components/Container";
+import PageHeading from "components/PageHeading";
+import HomeProjects from "components/HomeProjects";
 
+import openSourceBackground from "Images/openSourceBackground.svg";
+import HeroBG from "Images/heroBg.svg";
 import "./styles/index.css";
 
 const IndexPage = ({ data }) => {
@@ -18,29 +22,66 @@ const IndexPage = ({ data }) => {
         <div className="indexPattern-1 circles" />
         <div className="indexPattern-2 circles" />
         <div className="introduction">
-          <p id="intro">
+          <Intro id="intro">
             Hi,
-            <span role="img" aria-label="Wave Emoji">
+            <span id="wave-emoji" role="img" aria-label="Wave Emoji">
               👋
             </span>{" "}
             I&apos;m <span id="name">Yogesh</span>
-          </p>
-          <p>
-            I&apos;m a Front-End Developer from India
-            <span role="img" aria-label="India Flag Emoji">
-              🇮🇳
-            </span>
-            . I make better things(sometime) from javascript.
-          </p>
+          </Intro>
+          <TypedStyle>
+            &#123;
+            <Typed
+              strings={["Web Developer", "Designer", "Open Source Wizard"]}
+              typeSpeed={70}
+              backSpeed={30}
+              className="type-text"
+              style={{
+                fontSize: 32,
+              }}
+              loop
+            />
+            &#125;
+          </TypedStyle>
+          <Intro id="intro-bottom">From India</Intro>
+          <p style={{ fontSize: 26 }}>exploring</p>
+          <SubTypedStyle>
+            &#8725;&#8725;
+            <Typed
+              strings={[
+                "React",
+                "Javascript",
+                "Typescript",
+                "Node.js",
+                "GraphQL",
+              ]}
+              typeSpeed={70}
+              backSpeed={70}
+              className="type-text_sub"
+              style={{
+                fontSize: 32,
+              }}
+              loop
+            />
+          </SubTypedStyle>
         </div>
+        <HeroBackground src={HeroBG} alt="Hero Background" />
       </IndexStyled>
       <SectionStyled>
-        <h1 className="page-heading">Projects</h1>
-        <PinnedProjects />
+        <PageHeading headingName="Projects">Projects</PageHeading>
+        <HomeProjects
+          projectTitle="SLPS"
+          projectType="React Native Application"
+          projectDescription="SLPS is a mobile application built on React Native"
+          projectCaseLink="/projects/slps"
+          projectImage={openSourceBackground}
+        />
+        {/* <HomeProjects /> */}
+        {/* <HomeProjects /> */}
         <div className="btn-link">
           <Link to="/projects">All Projects &#10140;</Link>
         </div>
-        <h1 className="page-heading">Blog</h1>
+        <PageHeading headingName="Blog">Blog</PageHeading>
         <BlogList
           title={data.site.siteMetadata.title}
           posts={data.allMdx.edges}
@@ -58,6 +99,52 @@ IndexPage.propTypes = {
 };
 
 export default IndexPage;
+
+const IndexStyled = styled.div`
+  margin: 0 auto;
+  padding: 20px;
+  /* background: linear-gradient(to right, #acb6e5, #86fde8); */
+  box-shadow: 0px 0px 20px 15px #00000010;
+  border-radius: 1rem;
+  background-color: ${props => props.theme.backgroundColorAlt};
+  color: ${props => props.theme.lightBlack};
+  display: flex;
+  justify-content: center;
+  line-height: 1.5;
+  .introduction {
+    p {
+      color: ${props => props.theme.lightBlack};
+    }
+  }
+`;
+
+const HeroBackground = styled.img`
+  max-width: 50rem;
+  @media screen and (max-width: 1040px) {
+    display: none;
+  }
+`;
+
+const SectionStyled = styled.div`
+  .btn-link {
+    margin: 4rem auto;
+    text-align: center;
+    font-size: 1.8rem;
+  }
+`;
+
+const SubTypedStyle = styled.p`
+  font-size: 3.2rem;
+  color: ${props => props.theme.primary};
+`;
+
+const TypedStyle = styled.p`
+  color: ${props => props.theme.primary};
+`;
+
+const Intro = styled.p`
+  color: ${props => props.theme.textColor};
+`;
 
 export const pageQuery = graphql`
   query {
@@ -89,29 +176,5 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
-`;
-
-const IndexStyled = styled.div`
-  margin: 0 auto;
-  padding: 20px;
-  font-size: 1.8rem;
-  background-color: ${props => props.theme.backgroundColor};
-  color: ${props => props.theme.lightBlack};
-  display: flex;
-  justify-content: center;
-  line-height: 1.5;
-  .introduction {
-    p {
-      color: ${props => props.theme.lightBlack};
-    }
-  }
-`;
-
-const SectionStyled = styled.div`
-  .btn-link {
-    margin: 4rem auto;
-    text-align: center;
-    font-size: 1.8rem;
   }
 `;

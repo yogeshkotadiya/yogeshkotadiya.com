@@ -17,18 +17,32 @@ const BlogListStyled = styled.div`
   padding: ${rhythm(2 / 4)} ${rhythm(3 / 4)};
   background-color: ${props => props.theme.backgroundColorAlt};
   border-bottom: 2px dashed ${props => props.theme.primary};
+  &:hover {
+    .gatsby-image-wrapper {
+      transform: scale(1.1);
+      filter: contrast(80%);
+    }
+  }
   .blog-date {
     color: ${props => props.theme.textColor};
   }
   .blogList-container {
     width: 100%;
+    h1 {
+      color: ${props => props.theme.primary};
+    }
+    p {
+      font-family: "inconsolata";
+    }
   }
   .blogList-imageContainer {
     width: 60%;
+    overflow: hidden;
   }
   .gatsby-image-wrapper {
     max-width: ${rhythm(25)};
     height: 200px;
+    transition: all 0.3s ease;
   }
   @media screen and (max-width: 560px) {
     .blogList-imageContainer {
@@ -51,22 +65,20 @@ const BlogList = ({ posts }) => (
           key={node.fields.slug}
         >
           <div className="blogList-container">
-            <h1
-              style={{
-                margin: `${rhythm(2 / 4)} 0`,
-              }}
-            >
-              <Link style={{ boxShadow: `none` }} to={blogLink}>
-                {title}
-              </Link>
-            </h1>
-            <small className="blog-date">
-              {node.frontmatter.date} &#9679;
-              <span>⏳ {node.frontmatter.readLength}</span>
-            </small>
-            <p>{node.frontmatter.description}</p>
             <Link style={{ boxShadow: `none` }} to={blogLink}>
-              Read &#10140;
+              <h1
+                style={{
+                  margin: `${rhythm(2 / 4)} 0`,
+                }}
+              >
+                {title}
+              </h1>
+              <small className="blog-date">
+                {node.frontmatter.date} &#9679;
+                <span>⏳ {node.frontmatter.readLength}</span>
+              </small>
+              <p>{node.frontmatter.description}</p>
+              <p>Read &#10140;</p>
             </Link>
           </div>
           <div className="blogList-imageContainer">
@@ -78,7 +90,7 @@ const BlogList = ({ posts }) => (
   </Container>
 );
 
-export default BlogList;
+export default React.memo(BlogList);
 
 BlogList.propTypes = {
   posts: PropTypes.any,

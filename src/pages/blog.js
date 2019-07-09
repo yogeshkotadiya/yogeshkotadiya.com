@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 
 import BlogList from "components/Bloglist";
 import SEO from "components/SEO";
+import PageHeading from "components/PageHeading";
 
 import "./styles/blog.css";
 
@@ -14,7 +15,7 @@ const BlogIndex = ({ data, location }) => {
     <>
       <SEO title={`Blog | ${siteTitle}`} />
       <div className="blog-page">
-        <h1 className="page-heading">Blog</h1>
+        <PageHeading headingName="Blog">Blog</PageHeading>
         <BlogList location={location} title={siteTitle} posts={posts} />
       </div>
     </>

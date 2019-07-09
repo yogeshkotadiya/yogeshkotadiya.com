@@ -94,7 +94,7 @@ const TopStyled = styled.div`
       }
       &:hover {
         transform: scale(0.95) translateY(5px);
-        box-shadow: 0 4px 20px ${props => props.theme.dropShadow};
+        box-shadow: 0 10px 20px -10px ${props => props.theme.dropShadow};
       }
       .starCount {
         display: inline-block;

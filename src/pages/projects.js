@@ -7,6 +7,10 @@ import { rhythm } from "utils/typography";
 import Container from "components/Container";
 import PinnedProjects from "components/PinnedProjects";
 import SEO from "components/SEO";
+import PageHeading from "components/PageHeading";
+import ProjectList from "components/ProjectList";
+
+import openSourceBackground from "Images/openSourceBackground.svg";
 
 const Projects = () => {
   const data = useStaticQuery(AllProjectQuery);
@@ -15,35 +19,34 @@ const Projects = () => {
     <Container>
       <SEO title={`Projects | ${data.site.siteMetadata.title}`} />
       <ProjectStyled>
-        <h1 className="page-heading">Projects</h1>
+        <PageHeading className="page-heading" headingName="Projects">
+          Projects
+        </PageHeading>
         <PinnedProjects />
-        <h1 className="page-heading">All Projects</h1>
-        {repos.map(({ node }) => (
-          <li className="listStyle" key={node.url}>
-            <h2>
-              <a target="_blank" rel="noopener noreferrer" href={node.url}>
-                {node.name}
-              </a>
-            </h2>
-            <p className="stargazer">
-              <svg
-                className="octicon octicon-star v-align-text-bottom"
-                viewBox="0 0 14 16"
-                version="1.1"
-                width="16"
-                height="14"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"
-                />
-              </svg>
-              {node.stargazers.totalCount}
-            </p>
-            <p>{node.description}</p>
-          </li>
-        ))}
+        <OpenSource className="openSource-background">
+          <PageHeading className="page-heading" headingName="Open Source">
+            ❤ open source
+          </PageHeading>
+          <div>
+            <OpenSourceIntro>
+              Open Source is huge part of Web today as most of our development
+              liberaries are free and open source possible by lots of developers
+              so as a fellow developer In my self time I contribute to open
+              source projects and also manage my
+              <a href="https://www.npmjs.com/~yogeshkotadiya"> npm</a> packages.
+            </OpenSourceIntro>
+            <OpenSourceIntro>
+              Below are some of my github projects feel free to dig around.
+            </OpenSourceIntro>
+          </div>
+          <OpenSourceImage src={openSourceBackground} />
+        </OpenSource>
+        <ProjectList repos={repos} />
+        <ProjectFooter>
+          <RepoLink href="https://github.com/yogeshkotadiya?tab=repositories&type=source">
+            All Github Repositories
+          </RepoLink>
+        </ProjectFooter>
       </ProjectStyled>
     </Container>
   );
@@ -55,6 +58,51 @@ Projects.propTypes = {
   location: PropTypes.object,
 };
 
+const OpenSource = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  margin-bottom: 1.5rem;
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+`;
+
+const OpenSourceIntro = styled.p`
+  font-size: 1.8rem;
+  width: 100%;
+  min-width: 250px;
+  font-family: "inconsolata";
+`;
+
+const OpenSourceImage = styled.img`
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 300px;
+`;
+
+const ProjectStyled = styled.div`
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+  padding: 0 ${rhythm(2 / 4)};
+  h2 {
+    margin-top: ${rhythm(2 / 4)};
+  }
+`;
+
+const ProjectFooter = styled.div`
+  margin: 3rem auto 0;
+  display: flex;
+  justify-content: center;
+`;
+
+const RepoLink = styled.a`
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #ef5350;
+  padding: 1rem;
+`;
+
 const AllProjectQuery = graphql`
   query AllProjectQuery {
     site {
@@ -65,10 +113,11 @@ const AllProjectQuery = graphql`
     github {
       viewer {
         repositories(
-          first: 30
+          first: 12
           isFork: false
           orderBy: { field: STARGAZERS, direction: DESC }
           affiliations: COLLABORATOR
+          privacy: PUBLIC
         ) {
           edges {
             node {
@@ -82,34 +131,6 @@ const AllProjectQuery = graphql`
           }
         }
       }
-    }
-  }
-`;
-
-const ProjectStyled = styled.div`
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-  padding: 0 ${rhythm(2 / 4)};
-  h2 {
-    margin-top: ${rhythm(2 / 4)};
-  }
-  .listStyle {
-    margin: 10px 0;
-    padding: 5px;
-    padding-left: 10px;
-    list-style: none;
-    font-size: 1.4rem;
-    height: 100%;
-    background-color: ${props => props.theme.backgroundColorAlt};
-    border-radius: 10px;
-    transition: all 0.2s ease;
-    &:hover {
-      border-left: 5px solid ${props => props.theme.primary};
-      transform: translateX(5px);
-      box-shadow: 1px 0 6px ${props => props.theme.dropShadow};
-    }
-    .octicon {
-      fill: ${props => props.theme.textColor};
     }
   }
 `;

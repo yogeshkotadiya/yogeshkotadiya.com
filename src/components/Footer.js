@@ -60,7 +60,7 @@ const Footer = () => {
         <p>
           © {new Date().getFullYear()} <Link to="/">@yogeshkotadiya</Link>
         </p>
-        <p>
+        <p id="build-footer">
           Built with{" "}
           <a
             target="_blank"

@@ -53,3 +53,7 @@ div.footer > div > p {
   background-color: #fff;
   color: #000;
 }
+
+#build-footer {
+  font-size: 1.4rem;
+}

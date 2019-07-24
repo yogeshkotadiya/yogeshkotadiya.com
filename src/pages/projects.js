@@ -43,7 +43,7 @@ const Projects = () => {
         </OpenSource>
         <ProjectList repos={repos} />
         <ProjectFooter>
-          <RepoLink href="https://github.com/yogeshkotadiya?tab=repositories&type=source">
+          <RepoLink href="https://github.com/yogeshkotadiya">
             All Github Repositories
           </RepoLink>
         </ProjectFooter>
@@ -101,6 +101,12 @@ const RepoLink = styled.a`
   color: #fff;
   background-color: #ef5350;
   padding: 1rem;
+  transition: 0.2s all;
+  &:hover {
+    background-color: #fff;
+    box-shadow: 0 0 4px 0 #00000033;
+    color: #000;
+  }
 `;
 
 const AllProjectQuery = graphql`

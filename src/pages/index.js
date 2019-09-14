@@ -10,7 +10,7 @@ import Container from "components/Container";
 import PageHeading from "components/PageHeading";
 import HomeProjects from "components/HomeProjects";
 
-import openSourceBackground from "Images/openSourceBackground.svg";
+import SLPSBackground from "Images/slps-project-banner_new.webp";
 import HeroBG from "Images/heroBg.svg";
 import "./styles/index.css";
 
@@ -29,27 +29,27 @@ const IndexPage = ({ data }) => {
             </span>{" "}
             I&apos;m <span id="name">Yogesh</span>
           </Intro>
-          <TypedStyle>
-            &#123;
-            <Typed
-              strings={["Web Developer", "Designer", "Open Source Wizard"]}
-              typeSpeed={70}
-              backSpeed={30}
-              className="type-text"
-              style={{
-                fontSize: 32,
-              }}
-              loop
-            />
-            &#125;
-          </TypedStyle>
-          <Intro id="intro-bottom">From India</Intro>
-          <p style={{ fontSize: 26 }}>exploring</p>
+          <TypedStyle>&#123; Web Developer &#125;</TypedStyle>
+          <Intro id="intro-bottom">
+            From India <span>🇮🇳</span>
+          </Intro>
+          <p style={{ fontSize: 22 }}>
+            Founder{" "}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://fregmaa.com"
+            >
+              @fregmaa
+            </a>
+          </p>
+          <p style={{ fontSize: 24 }}>exploring</p>
           <SubTypedStyle>
             &#8725;&#8725;
             <Typed
               strings={[
                 "React",
+                "React Native",
                 "Javascript",
                 "Typescript",
                 "Node.js",
@@ -73,8 +73,8 @@ const IndexPage = ({ data }) => {
           projectTitle="SLPS"
           projectType="React Native Application"
           projectDescription="SLPS is a mobile application built on React Native"
-          projectCaseLink="/projects/slps"
-          projectImage={openSourceBackground}
+          projectCaseLink="https://fregmaa.com/projects/slps"
+          projectImage={SLPSBackground}
         />
         {/* <HomeProjects /> */}
         {/* <HomeProjects /> */}
@@ -139,6 +139,7 @@ const SubTypedStyle = styled.p`
 `;
 
 const TypedStyle = styled.p`
+  font-size: 2.8rem;
   color: ${props => props.theme.primary};
 `;
 

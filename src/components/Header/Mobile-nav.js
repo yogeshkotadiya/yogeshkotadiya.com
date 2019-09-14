@@ -13,11 +13,13 @@ const Menu = ({ color = "white" }) => {
         aria-label={`${isToggledOn ? "close menu" : "open menu"}`}
         css={css`
           z-index: 30;
-          top: 0px;
+          top: ${isToggledOn ? "5%" : 0};
+          right: ${isToggledOn ? "15%" : 0};
           position: relative;
           background: transparent;
           border: none;
           cursor: pointer;
+          position: ${isToggledOn ? "fixed" : "relative"};
           width: 24px;
           height: 24px;
           :hover:not(.touch),
@@ -69,26 +71,31 @@ const Menu = ({ color = "white" }) => {
       {isToggledOn && (
         <div
           css={css`
-            position: absolute;
+            position: fixed;
             z-index: 20;
             left: 0;
-            top: -38px;
+            top: -1rem;
             width: 100vw;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow-x: hidden;
             nav {
               display: flex;
               justify-content: center;
               flex-direction: column;
               align-items: center;
             }
+            a {
+              font-weight: 600;
+            }
             .toggleWrapper {
               right: -1rem;
               bottom: 2rem;
             }
-            background: ${props => props.theme.primary};
+            background: ${props => props.theme.primary}60;
+            backdrop-filter: blur(1.5rem);
           `}
         >
           <Nav toggle={toggle} />

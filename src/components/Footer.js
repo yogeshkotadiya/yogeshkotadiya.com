@@ -14,7 +14,7 @@ const Footer = () => {
       <div id="header-social-links">
         <a
           id="footer-email"
-          href="mailto:hiyogeshkotadiya@gmail.com"
+          href="mailto:hi@yogeshkotadiya.com"
           aria-label="Mail"
         >
           EMAIL

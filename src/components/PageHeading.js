@@ -9,7 +9,7 @@ const PageHeading = styled.h1`
   text-align: center;
   font-size: 4rem;
   font-weight: 500;
-  z-index: 21;
+  z-index: 15;
   grid-column: 1 / -1;
   /* &:before {
     content: "";

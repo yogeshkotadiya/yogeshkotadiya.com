@@ -29,9 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
               }
-              code {
-                scope
-              }
+              body
             }
           }
         }

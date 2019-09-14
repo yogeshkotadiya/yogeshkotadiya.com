@@ -44,7 +44,7 @@ const Projects = () => {
         <ProjectList repos={repos} />
         <ProjectFooter>
           <RepoLink href="https://github.com/yogeshkotadiya">
-            All Github Repositories
+            All Repositories
           </RepoLink>
         </ProjectFooter>
       </ProjectStyled>
@@ -99,13 +99,13 @@ const ProjectFooter = styled.div`
 const RepoLink = styled.a`
   font-size: 1.4rem;
   color: #fff;
-  background-color: #ef5350;
+  border: 2px solid #ef5350;
   padding: 1rem;
   transition: 0.2s all;
+  color: #ef5350;
   &:hover {
-    background-color: #fff;
-    box-shadow: 0 0 4px 0 #00000033;
-    color: #000;
+    background-color: #ef5350;
+    color: #fff;
   }
 `;
 

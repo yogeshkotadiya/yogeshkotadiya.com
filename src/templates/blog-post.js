@@ -4,7 +4,7 @@ import Markdown from "react-markdown";
 import Img from "gatsby-image";
 import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-mdx";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import { preToCodeBlock } from "mdx-utils";
 
@@ -13,7 +13,7 @@ import BlogTheme from "styles/blogTheme";
 import Code from "components/mdxComponents/Code";
 
 function BlogPostTemplate(props) {
-  const { frontmatter, code, fields } = props.data.mdx;
+  const { frontmatter, body, fields } = props.data.mdx;
   const { previous, next } = props.pageContext;
   const siteTitle = props.data.site.siteMetadata.title;
 
@@ -90,7 +90,7 @@ function BlogPostTemplate(props) {
         </div>
         <MDXProvider components={components}>
           <BlogTheme>
-            <MDXRenderer>{code.body}</MDXRenderer>
+            <MDXRenderer>{body}</MDXRenderer>
           </BlogTheme>
         </MDXProvider>
         <hr
@@ -181,9 +181,7 @@ export const pageQuery = graphql`
         }
         bannerCredit
       }
-      code {
-        body
-      }
+      body
     }
   }
 `;

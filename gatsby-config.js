@@ -40,7 +40,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-styled-components",
     {
-      resolve: `gatsby-mdx`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [".mdx", ".md", ".markdown"],
         gatsbyRemarkPlugins: [

@@ -2,11 +2,16 @@
  * Kinda inspired from formidable
  */
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 
 function HomeProjects(props) {
-  const { projectTitle, projectType, projectDescription, projectImage } = props;
+  const {
+    projectTitle,
+    projectType,
+    projectDescription,
+    projectImage,
+    projectCaseLink,
+  } = props;
   return (
     <Container>
       <InfoContainer>
@@ -15,13 +20,17 @@ function HomeProjects(props) {
           <ProjectType>{projectType}</ProjectType>
           <ProjectInfo>{projectDescription}</ProjectInfo>
         </div>
-        <ProjectLink
-          aria-label="Navigate to Projects page"
-          to={"/projects/slps"}
-        >
-          <span id="caselink">View Case Study</span>
-          <span id="linkarrow">&#10140;</span>
-        </ProjectLink>
+        {projectCaseLink && (
+          <ProjectLink
+            aria-label="Navigate to Projects page"
+            href={projectCaseLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span id="caselink">View Case Study</span>
+            <span id="linkarrow">&#10140;</span>
+          </ProjectLink>
+        )}
       </InfoContainer>
       <ImageContainer>
         <img src={projectImage} alt="Project Screenshot" />
@@ -32,20 +41,23 @@ function HomeProjects(props) {
 
 const Container = styled.div`
   background-color: ${props => props.theme.backgroundColorAlt};
-  border-radius: 5px 5px 0 0;
+  border-radius: 0.5rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 100rem;
+  margin: 0 auto;
   box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
 `;
 
 const InfoContainer = styled.div`
-  max-width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  /* flex-grow: 1; */
+  padding: 1.5rem 2rem;
+  margin: 0 auto;
   & > div {
     border-bottom: 1px solid #ef5350;
     margin-bottom: 1rem;
@@ -57,10 +69,27 @@ const InfoContainer = styled.div`
   }
 `;
 
-const ProjectLink = styled(props => <Link {...props} />)`
+const ProjectType = styled.p`
+  font-size: 1.8rem;
+  font-family: "inconsolata";
+`;
+
+const ProjectInfo = styled.p`
+  font-size: 1.6rem;
+  font-family: "inconsolata";
+`;
+
+const ImageContainer = styled.div`
+  max-width: 550px;
+  & > img {
+    margin: 0;
+  }
+`;
+
+const ProjectLink = styled.a`
   margin-bottom: 2rem;
   height: 4rem;
-  width: 60%;
+  width: 22rem;
   align-items: center;
   display: flex;
   align-items: center;
@@ -97,20 +126,6 @@ const ProjectLink = styled(props => <Link {...props} />)`
   @media screen and (max-width: 400px) {
     width: 80%;
   }
-`;
-
-const ProjectType = styled.p`
-  font-size: 1.8rem;
-  font-family: "inconsolata";
-`;
-
-const ProjectInfo = styled.p`
-  font-size: 1.4rem;
-  font-family: "inconsolata";
-`;
-
-const ImageContainer = styled.div`
-  max-width: 550px;
 `;
 
 export default HomeProjects;

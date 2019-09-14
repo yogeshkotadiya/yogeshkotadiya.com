@@ -1,5 +1,5 @@
 ---
-title: Let's hook you to React Hooks
+title: Let's catch React with Hooks 🎣
 date: "2019-02-09"
 readLength: "25 Mins"
 description: "Learn about new React Hooks API"
@@ -7,13 +7,11 @@ banner: ./images/banner.jpeg
 bannerCredit: Photo By [Jaime Fernández](https://www.pexels.com/photo/grayscale-photograph-of-a-hook-hitch-1422580/) on [Pexels](https://pexels.com).
 ---
 
-# Draft (writing under progress...)
+React Hooks allows us to write Stateful functional Components by using functions called hooks provided by React and you can create your own custom Hooks that you can share across many components.
 
-As you know React Team just last week released most-awaited React Hooks API. React Hooks allows us to write Stateful functional Components by using hooks API and also you can create your own Custom Hooks that you can share across many components.
+In this article we are going to look into some of the different hooks and see how they compare to traditional Class based components.
 
-Today we going to look into some of the different hooks and see how they compare to traditional Class based components. I'm not going to dive deep into how they work under the hood. For that, I recommend you to read Dan's Personal Blog [Overreacted](https://overreacted.io).
-
-Let's get started but before we start I hope you have a bit of experience with React.
+Let's get started but before we start I hope you have a bit of experience with React and Component lifecycles.
 
 # useState() Hook
 
@@ -53,7 +51,7 @@ Now let's try the above example with Hooks.
 
 ```jsx highlight=2,6
 function App() {
-  const [name, setName] = React.useState("Yogesh");
+  const [name, setName] = useState("Yogesh");
   // Here we declare the state and pass a initial value.
 
   function handleNameChange(event) {
@@ -72,10 +70,35 @@ function App() {
 ```
 
 As you can see using new hooks method not only made our code cleaner but easier to understand.
+You can use as many as hooks you want in a single functional component.
+Just make sure you are not calling hooks in nested conditional body.
 
-> Note: Hook methods can only be called inside a functional body.
+```jsx
+function App(props) {
+  if (props.isValid) {
+    const [name, setName] = useState("Yogesh");
+    // ❌ You can't use hooks in conditional statement
+  }
+  const [name, setName] = useState("Yogesh");
+  // ✔ Use Hooks in function body only.
 
-# So what exactly happened?🧐
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+  return (
+    <div>
+      <input
+        type="text"
+        value={this.state.name}
+        onChange={this.handleNameChange}
+      />
+    </div> //You can also write method inline using arrow function
+  );
+}
+```
 
-As you can see using 'useState' hook API we can manage state easily without writing too much overhead like Contructor and you don't have to worry about binding 'this' as we are using functional components this makes our code clean and easy to understand.
-One caveat with Hooks is that you can not use hooks API outside function component. But maybe this is design choice to make Application more secure.
+> Note: Hook can only be called inside a functional body because react keeps tracks of all hooks calls in component to determine which hook to run when condition is met so putting hook into condtional will break the call track.
+
+# useEffect()
+
+"The Effect Hook lets you perform side effects in function components" - [Reactjs.org](https://reactjs.org/docs/hooks-effect.html)

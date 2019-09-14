@@ -3,7 +3,7 @@ describe(`Should Navigate Back from Page`, () => {
     cy.visit(`/`);
   });
   it(`Navigate back to Home Page`, () => {
-    cy.get(`#header`)
+    cy.find(`#header`)
       .contains(`Blog`)
       .click({ force: true });
     cy.go("back")

@@ -71,7 +71,7 @@ function App() {
 
 As you can see using new hooks method not only made our code cleaner but easier to understand.
 You can use as many as hooks you want in a single functional component.
-Just make sure you are not calling hooks in nested conditional body.
+Just make sure you are not calling hooks in conditional body.
 
 ```jsx
 function App(props) {
@@ -97,8 +97,82 @@ function App(props) {
 }
 ```
 
-> Note: Hook can only be called inside a functional body because react keeps tracks of all hooks calls in component to determine which hook to run when condition is met so putting hook into condtional will break the call track.
+> Note: Hook can only be called `inside a functional body` because react keeps tracks of all hooks calls in component to determine which hook to run when condition is met so putting hook into condtional will break the call track.
 
 # useEffect()
 
 "The Effect Hook lets you perform side effects in function components" - [Reactjs.org](https://reactjs.org/docs/hooks-effect.html)
+
+Well, Let's break it down what does that means. In `functional` paradigm a function sould always be `Pure Function` with out an side effects. Means output of a function should always be the same given the same input everytime.
+
+Before React Hooks function components were stateless that means you cannot mutate or create state inside that component and since you cannot change anything that component will always render same given the same props and that's why they were called functional components.
+But now with hooks you can perform side Effects without breaking too much functional principles.
+
+So `useEffect()` is replacement for `componentDidMount()` and `componentDidUpdate()` in component lifecycle.
+
+Let's check with an example as I think that's best way to understand.
+Will use the above example.
+
+```jsx
+class App extends React.Component{
+  contructor(props){
+    super(props);
+    this.name = "Yogesh";
+  }
+
+  handleNameChange = (event) => {
+    this.setState(name: event.target.value);
+  }
+
+  componentDidMount(){
+    // This method runs when component first mounts
+    console.log('Run this when Component mounts');
+  }
+
+  componentDidUpdate(){
+    // This method runs whenever props or state
+    // changes in component
+    console.log('Run this when Component updates');
+  }
+
+  render(){
+    return (
+      <div>
+        <input
+          type="text"
+          value={this.state.name}
+          onChange={this.handleNameChange} />
+      </div>
+    )
+  }
+}
+```
+
+This is the Class way of to perform updates whenever props or state changes.
+
+Now let's see how we can perform those lifecycles in functional component using Hooks.
+
+```jsx highlight=4,6
+function App(props) {
+  const [name, setName] = useState("Yogesh");
+
+  useEffect(() => {
+    console.log("Run this when Component mounts");
+  }, []);
+
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+  return (
+    <div>
+      <input
+        type="text"
+        value={this.state.name}
+        onChange={this.handleNameChange}
+      />
+    </div> //You can also write method inline using arrow function
+  );
+}
+```
+
+`useEffect()` takes function callback as an arguments. Additionally you can also provide Hooks dependency to determine how hook will perform.

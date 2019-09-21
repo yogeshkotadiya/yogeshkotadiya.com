@@ -32,8 +32,9 @@ function About(props) {
             <li>
               <strong>TypeScript</strong>: Typescript is Godsent for me when I
               first heard that you can now write fully typed Javascript and I
-              was so excited and really curious to try it out and Typescript
-              lived up to its expectation.
+              was so excited and really curious to try it out and now I
+              can&apos;t imagine writing production Javascript without
+              Typescript.
             </li>
             <li>
               <strong>Node.js</strong>: As web developer today it&apos;s
@@ -50,10 +51,10 @@ function About(props) {
             <li>
               <strong>GoLang</strong>: Having a knowledge of good performance
               centric language for backend can really save you hustle of
-              optimizing server load, Go is fast and typed safe allows me to
-              write good web services and it also integrates with GraphQL
-              nicely. I&apos;m currently learning Go and building scalable web
-              services.
+              optimizing server load, Go is fast, typed safe and has amazing
+              concurrency modal allows me to write great web services and it
+              also integrates with GraphQL nicely. I&apos;m currently learning
+              Go and building scalable web and micro services.
             </li>
           </ul>
           <p>

@@ -13,6 +13,11 @@ const BlogTheme = styled.div`
   p {
     color: ${props => props.theme.textColor};
     line-height: 1.8;
+
+    & > code {
+      padding: 0.2rem 0.4rem;
+      background-color: ${props => props.theme.blogHighLight};
+    }
   }
   h1,
   h2,

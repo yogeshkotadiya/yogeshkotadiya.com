@@ -15,7 +15,7 @@ const PageHeading = styled.h1`
     content: "";
     position: absolute;
     height: 8px;
-    background-color: ${props => props.theme.aquamarineSet};
+    background-color: ${props => props.theme.lightGrey};
     opacity: 0.2;
     width: 40%;
     left: 0;
@@ -28,7 +28,7 @@ const PageHeading = styled.h1`
     left: -50%;
     width: 100%;
     text-align: right;
-    color: ${props => props.theme.aquamarineSet};
+    color: ${props => props.theme.lightGrey};
     opacity: 0.1;
     font-size: 7.5rem;
     font-weight: 600;

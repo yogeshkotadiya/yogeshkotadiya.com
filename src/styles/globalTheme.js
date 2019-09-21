@@ -4,7 +4,7 @@ export const theme = {
   light: {
     backgroundColor: "#f6f9fc",
     backgroundColorAlt: "#ffffff",
-    aquamarineSet: "#a0a0a0",
+    lightGrey: "#a0a0a0",
     textColor: "#424242",
     grey100: "#F5F5F5",
     grey200: "#bdbcbc",
@@ -14,11 +14,12 @@ export const theme = {
     maxWidth: "1260px",
     white: "#fff",
     dropShadow: "#000000a6",
+    blogHighLight: "#FFCDD2",
   },
   dark: {
     backgroundColor: "#3c3c3c",
     backgroundColorAlt: "#2a2a2a",
-    aquamarineSet: "#FFCDD2",
+    lightGrey: "#FFCDD2",
     textColor: "#f2f2f2",
     grey100: "#F5F5F5",
     grey200: "#EEEEEE",
@@ -28,6 +29,7 @@ export const theme = {
     maxWidth: "1260px",
     white: "#fff",
     dropShadow: "#ef5650a6",
+    blogHighLight: "#ef5350",
   },
 };
 

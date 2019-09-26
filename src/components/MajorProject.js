@@ -2,9 +2,10 @@
  * Kinda inspired from formidable
  */
 import React from "react";
+import Img from "gatsby-image";
 import styled from "styled-components";
 
-function HomeProjects(props) {
+function MajorProjects(props) {
   const {
     projectTitle,
     projectType,
@@ -12,6 +13,7 @@ function HomeProjects(props) {
     projectImage,
     projectCaseLink,
   } = props;
+
   return (
     <Container>
       <InfoContainer>
@@ -32,23 +34,23 @@ function HomeProjects(props) {
           </ProjectLink>
         )}
       </InfoContainer>
-      <ImageContainer>
-        <img src={projectImage} alt="Project Screenshot" />
-      </ImageContainer>
+      <ImageContainer
+        fluid={projectImage.childImageSharp.fluid}
+        alt="Project Screenshot"
+      />
     </Container>
   );
 }
 
+export default MajorProjects;
+
 const Container = styled.div`
-  background-color: ${props => props.theme.backgroundColorAlt};
   border-radius: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 100rem;
   margin: 0 auto;
-  box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
 `;
 
 const InfoContainer = styled.div`
@@ -57,7 +59,11 @@ const InfoContainer = styled.div`
   justify-content: space-between;
   /* flex-grow: 1; */
   padding: 1.5rem 2rem;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  max-width: 55rem;
+  width: 100%;
+  background-color: ${props => props.theme.backgroundColorAlt};
+  box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
   & > div {
     border-bottom: 1px solid #ef5350;
     margin-bottom: 1rem;
@@ -79,11 +85,10 @@ const ProjectInfo = styled.p`
   font-family: "inconsolata";
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled(Img)`
+  width: 100%;
   max-width: 550px;
-  & > img {
-    margin: 0;
-  }
+  box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
 `;
 
 const ProjectLink = styled.a`
@@ -127,5 +132,3 @@ const ProjectLink = styled.a`
     width: 80%;
   }
 `;
-
-export default HomeProjects;

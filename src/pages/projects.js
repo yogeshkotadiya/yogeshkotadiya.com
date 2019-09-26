@@ -5,14 +5,14 @@ import styled from "styled-components";
 
 import { rhythm } from "utils/typography";
 import Container from "components/Container";
-import PinnedProjects from "components/PinnedProjects";
 import SEO from "components/SEO";
 import PageHeading from "components/PageHeading";
 import ProjectList from "components/ProjectList";
+import MajorProject from "components/MajorProject";
 
 import openSourceBackground from "Images/openSourceBackground.svg";
 
-const Projects = () => {
+function Projects() {
   const data = useStaticQuery(AllProjectQuery);
   const repos = data.github.viewer.repositories.edges;
   return (
@@ -22,7 +22,13 @@ const Projects = () => {
         <PageHeading className="page-heading" headingName="Projects">
           Projects
         </PageHeading>
-        <PinnedProjects />
+        <MajorProject
+          projectTitle="SLPS"
+          projectType="React Native Application"
+          projectDescription="SLPS is a mobile application built on React Native"
+          projectCaseLink="https://fregmaa.com/projects/slps"
+          projectImage={data.slpsBanner}
+        />
         <OpenSource className="openSource-background">
           <PageHeading className="page-heading" headingName="Open Source">
             ❤ open source
@@ -50,7 +56,7 @@ const Projects = () => {
       </ProjectStyled>
     </Container>
   );
-};
+}
 
 export default Projects;
 
@@ -114,6 +120,13 @@ const AllProjectQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    slpsBanner: file(relativePath: { eq: "slps-project-banner_new.webp" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
       }
     }
     github {

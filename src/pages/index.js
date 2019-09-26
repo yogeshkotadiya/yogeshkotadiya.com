@@ -8,16 +8,17 @@ import BlogList from "components/Bloglist";
 import SEO from "components/SEO";
 import Container from "components/Container";
 import PageHeading from "components/PageHeading";
-import HomeProjects from "components/HomeProjects";
+import MajorProject from "components/MajorProject";
 
-import SLPSBackground from "Images/slps-project-banner_new.webp";
+import { rhythm } from "../utils/typography";
 import HeroBG from "Images/heroBg.svg";
 import "./styles/index.css";
 
-const IndexPage = ({ data }) => {
+function IndexPage({ data }) {
+  const { site, slpsBanner, allMdx } = data;
   return (
     <Container>
-      <SEO title={data.site.siteMetadata.title} />
+      <SEO title={site.siteMetadata.title} />
       <IndexStyled>
         <div className="indexPattern-1 circles" />
         <div className="indexPattern-2 circles" />
@@ -64,35 +65,34 @@ const IndexPage = ({ data }) => {
               loop
             />
           </SubTypedStyle>
+          <MailMe href="mailto:hi@yogeshkotadiya.com">
+            hi@yogeshkotadiya.com
+          </MailMe>
         </div>
         <HeroBackground src={HeroBG} alt="Hero Background" />
       </IndexStyled>
       <SectionStyled>
         <PageHeading headingName="Projects">Projects</PageHeading>
-        <HomeProjects
+        <MajorProject
           projectTitle="SLPS"
           projectType="React Native Application"
           projectDescription="SLPS is a mobile application built on React Native"
           projectCaseLink="https://fregmaa.com/projects/slps"
-          projectImage={SLPSBackground}
+          projectImage={slpsBanner}
         />
-        {/* <HomeProjects /> */}
-        {/* <HomeProjects /> */}
         <div className="btn-link">
           <Link to="/projects">All Projects &#10140;</Link>
         </div>
         <PageHeading headingName="Blog">Blog</PageHeading>
-        <BlogList
-          title={data.site.siteMetadata.title}
-          posts={data.allMdx.edges}
-        />
+        <BlogList title={site.siteMetadata.title} posts={allMdx.edges} />
         <div className="btn-link">
           <Link to="/blog">Checkout all Posts &#10140;</Link>
         </div>
       </SectionStyled>
     </Container>
   );
-};
+}
+
 IndexPage.propTypes = {
   data: PropTypes.any,
   location: PropTypes.object,
@@ -102,10 +102,11 @@ export default IndexPage;
 
 const IndexStyled = styled.div`
   margin: 0 auto;
+  margin-bottom: 15rem;
   padding: 20px;
-  /* background: linear-gradient(to right, #acb6e5, #86fde8); */
-  box-shadow: 0px 0px 20px 15px #00000010;
+  max-width: ${rhythm(70)};
   border-radius: 1rem;
+  box-shadow: 0px 2rem 40px -15px ${props => props.theme.primaryLight};
   background-color: ${props => props.theme.backgroundColorAlt};
   color: ${props => props.theme.lightBlack};
   display: flex;
@@ -118,8 +119,13 @@ const IndexStyled = styled.div`
   }
 `;
 
+const MailMe = styled.a`
+  font-size: 2.6rem;
+`;
+
 const HeroBackground = styled.img`
   max-width: 50rem;
+  z-index: 10;
   @media screen and (max-width: 1040px) {
     display: none;
   }
@@ -152,6 +158,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    slpsBanner: file(relativePath: { eq: "slps-project-banner_new.webp" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
       }
     }
     allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {

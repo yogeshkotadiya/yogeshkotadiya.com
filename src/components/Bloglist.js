@@ -54,7 +54,7 @@ BlogList.propTypes = {
 
 const BlogListStyled = styled.div`
   margin: 0 auto;
-  max-width: ${rhythm(40)};
+  max-width: ${rhythm(45)};
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -84,7 +84,7 @@ const BlogListStyled = styled.div`
     overflow: hidden;
   }
   .gatsby-image-wrapper {
-    max-width: ${rhythm(25)};
+    max-width: ${rhythm(30)};
     height: 200px;
     transition: all 0.3s ease;
   }

@@ -82,7 +82,7 @@ export const PageQuery = graphql`
         title
       }
     }
-    profile: file(relativePath: { eq: "profile.jpg" }) {
+    profile: file(relativePath: { eq: "profile_new.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid_withWebp
@@ -105,8 +105,8 @@ const AboutStyled = styled.div`
     font-weight: 600;
   }
   .gatsby-image-wrapper {
-    height: 200px;
-    width: 200px;
+    height: 30rem;
+    width: 30rem;
     margin-bottom: 20px;
     border-radius: 50%;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);

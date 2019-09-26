@@ -3,7 +3,7 @@ import styled from "styled-components";
 const BlogTheme = styled.div`
   & > * {
     margin-bottom: 1em;
-    font-family: "merriweather";
+    font-family: "inconsolata", Arial, Helvetica, sans-serif;
   }
   a {
     text-decoration: none;
@@ -12,7 +12,8 @@ const BlogTheme = styled.div`
   }
   p {
     color: ${props => props.theme.textColor};
-    line-height: 1.8;
+    line-height: 1.6;
+    font-size: 2rem;
 
     & > code {
       padding: 0.2rem 0.4rem;

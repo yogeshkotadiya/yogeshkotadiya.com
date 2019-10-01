@@ -11,9 +11,11 @@ React Hooks allows us to write Stateful functional Components by using functions
 
 In this article we are going to look into some of the different hooks and see how they compare to traditional Class based components.
 
+We are gonna look at the three basic and most used hooks `useState`,`useEffect` and `useContext`.
+
 Let's get started but before we start I hope you have a bit of experience with React and Component lifecycles.
 
-# useState() Hook
+# useState()
 
 So to get started with things we'll do something simple use of [useState()](https://reactjs.org/docs/hooks-reference.html#usestate) for Creating and mutating state.
 
@@ -64,14 +66,14 @@ function App() {
         value={this.state.name}
         onChange={this.handleNameChange}
       />
-    </div> //You can also write method inline using arrow function
+    </div>
   );
 }
 ```
 
-As you can see using new hooks method not only made our code cleaner but easier to understand.
+As you can see using hooks not only made our code cleaner but easier to understand.
 You can use as many as hooks you want in a single functional component.
-Just make sure you are not calling hooks in conditional body.
+Just make sure you are not calling hooks in **conditional, loops or nested body**.
 
 ```jsx
 function App(props) {
@@ -92,12 +94,36 @@ function App(props) {
         value={this.state.name}
         onChange={this.handleNameChange}
       />
-    </div> //You can also write method inline using arrow function
+    </div>
   );
 }
 ```
 
-> Note: Hook can only be called `inside a functional body` because react keeps tracks of all hooks calls in component to determine which hook to run when condition is met so putting hook into condtional will break the call track.
+> Note: Hook can only be called at `top level function body` because react keeps tracks of all hooks calls in component to determine which hook to run when condition is met so putting hook into condtional will break the call track.
+
+You can use multiple `useState` inside a single component.
+
+```jsx
+function App(props) {
+  const [name, setName] = useState("Yogesh");
+  const [state, setState] = useState({ isCool: true });
+
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+  return (
+    <div>
+      <input
+        type="text"
+        value={this.state.name}
+        onChange={this.handleNameChange}
+      />
+    </div>
+  );
+}
+```
+
+I think that's it for useState, onto the next one.
 
 # useEffect()
 
@@ -158,7 +184,7 @@ function App(props) {
 
   useEffect(() => {
     console.log("Run this when Component mounts");
-  }, []);
+  }, []); // This hook will only run once when component mounts
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -170,9 +196,38 @@ function App(props) {
         value={this.state.name}
         onChange={this.handleNameChange}
       />
-    </div> //You can also write method inline using arrow function
+    </div>
   );
 }
 ```
 
 `useEffect()` takes function callback as an arguments. Additionally you can also provide Hooks dependency to determine how hook will perform.
+
+Now let's try to implement `componentDidUpdate` using Hooks. To execute something when component updates using useEffect hook we have to provide dependencies to hook.
+
+Whenever that dependency changes it will run the hooks callback.
+
+```jsx highlight=6
+function App(props) {
+  const [name, setName] = useState("Yogesh");
+
+  useEffect(() => {
+    console.log("Run this when Props changes");
+  }, [props]); // this is where we provide all the dependencies
+
+  function handleNameChange(event) {
+    setName(event.target.value);
+  }
+  return (
+    <div>
+      <input
+        type="text"
+        value={this.state.name}
+        onChange={this.handleNameChange}
+      />
+    </div>
+  );
+}
+```
+
+In the above snippet `useEffect` will run everytime `props` changes. And we can provide multiple dependencies since it's an Array.

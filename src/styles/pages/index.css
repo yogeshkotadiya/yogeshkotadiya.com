@@ -55,6 +55,12 @@
   font-size: 3.4rem;
 }
 
+.btn-link {
+  margin: 4rem auto;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
 @keyframes wave-emoji {
   25% {
     transform: rotateZ(15deg);
@@ -82,5 +88,14 @@
   }
   span.type-text > span {
     font-size: 2.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container .indexPattern-1 {
+    display: none;
+  }
+  .container .indexPattern-2 {
+    display: none;
   }
 }

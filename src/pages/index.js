@@ -1,7 +1,7 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Typed from "react-typed";
 
 import BlogList from "components/Bloglist";
@@ -12,7 +12,7 @@ import MajorProject from "components/MajorProject";
 
 import { rhythm } from "../utils/typography";
 import HeroBG from "Images/heroBg.svg";
-import "./styles/index.css";
+import "styles/pages/index.css";
 
 function IndexPage({ data }) {
   const { site, slpsBanner, allMdx } = data;
@@ -49,12 +49,13 @@ function IndexPage({ data }) {
             &#8725;&#8725;
             <Typed
               strings={[
-                "React",
-                "React Native",
                 "Javascript",
                 "Typescript",
+                "React",
+                "React Native",
                 "Node.js",
                 "GraphQL",
+                "Golang",
               ]}
               typeSpeed={70}
               backSpeed={70}
@@ -65,13 +66,13 @@ function IndexPage({ data }) {
               loop
             />
           </SubTypedStyle>
-          <MailMe href="mailto:hi@yogeshkotadiya.com">
+          <a style={{ fontSize: "2.6rem" }} href="mailto:hi@yogeshkotadiya.com">
             hi@yogeshkotadiya.com
-          </MailMe>
+          </a>
         </div>
         <HeroBackground src={HeroBG} alt="Hero Background" />
       </IndexStyled>
-      <SectionStyled>
+      <div>
         <PageHeading headingName="Projects">Projects</PageHeading>
         <MajorProject
           projectTitle="SLPS"
@@ -88,7 +89,7 @@ function IndexPage({ data }) {
         <div className="btn-link">
           <Link to="/blog">Checkout all Posts &#10140;</Link>
         </div>
-      </SectionStyled>
+      </div>
     </Container>
   );
 }
@@ -119,23 +120,11 @@ const IndexStyled = styled.div`
   }
 `;
 
-const MailMe = styled.a`
-  font-size: 2.6rem;
-`;
-
 const HeroBackground = styled.img`
   max-width: 50rem;
   z-index: 10;
   @media screen and (max-width: 1040px) {
     display: none;
-  }
-`;
-
-const SectionStyled = styled.div`
-  .btn-link {
-    margin: 4rem auto;
-    text-align: center;
-    font-size: 1.8rem;
   }
 `;
 

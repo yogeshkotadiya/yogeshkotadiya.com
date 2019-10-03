@@ -4,7 +4,8 @@ import { ThemeProvider } from "styled-components";
 
 import GlobalStyles, { theme } from "styles/globalTheme";
 
-const ThemeContext = React.createContext(); // I know we can destrucure this in import but this is the way I prefer.
+const ThemeContext = React.createContext();
+
 const GlobalTheme = ({ children }) => {
   const [Theme, setTheme] = React.useState("light");
   function handleOnChange() {
@@ -13,7 +14,11 @@ const GlobalTheme = ({ children }) => {
   }
   React.useEffect(() => {
     const getTheme = JSON.parse(localStorage.getItem("localTheme"));
-    getTheme === "dark" ? setTheme("light") : setTheme("dark");
+    if (!getTheme) {
+      setTheme("light");
+    } else {
+      getTheme === "dark" ? setTheme("light") : setTheme("dark");
+    }
   }, []);
   return (
     <ThemeProvider theme={theme[Theme]}>
@@ -29,5 +34,5 @@ export default GlobalTheme;
 export { ThemeContext };
 
 GlobalTheme.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
 };

@@ -1,0 +1,90 @@
+.projectContainer {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: minmax(150px, 1fr);
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-auto-flow: dense;
+}
+
+.projectContainer .projectTitle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-family: "lato", Arial, Helvetica, sans-serif;
+}
+
+.projectContainer .projectCard #description {
+  padding: 0 1rem;
+}
+
+.projectContainer .projectCard:nth-child(2n):before {
+  background-color: #aaffcc;
+}
+
+.projectContainer .projectCard:before {
+  content: "";
+  width: 2rem;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  border-radius: 1rem 0 0 1rem;
+  background-color: #ffff99;
+}
+
+.projectContainer .projectCard:after {
+  content: "Project";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #663399;
+  transform: rotate(-90deg) translate(2rem, 0);
+  transform-origin: top left;
+}
+
+.projectFooter {
+  margin: 3rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.projectFooter .repoLink {
+  font-size: 1.4rem;
+  color: #fff;
+  border: 2px solid #ef5350;
+  padding: 1rem;
+  transition: 0.2s all;
+  color: #ef5350;
+}
+
+.projectFooter .repoLink:hover {
+  background-color: #ef5350;
+  color: #fff;
+}
+
+.openSource {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.openSource .openSourceBg {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 300px;
+}
+
+.openSource .openSource__intro {
+  font-size: 1.8rem;
+  width: 100%;
+  min-width: 250px;
+  font-family: "inconsolata", Arial, Helvetica, sans-serif;
+}
+
+@media screen and (max-width: 500px) {
+  .openSource {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}

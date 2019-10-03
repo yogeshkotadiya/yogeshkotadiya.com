@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 
-import "./styles/404.css";
+import "styles/pages/404.css";
 
 const NotFoundPage = () => (
   <div className="not-found">

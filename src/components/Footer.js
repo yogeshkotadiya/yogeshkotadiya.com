@@ -8,10 +8,10 @@ import LinkedInIcon from "Images/linkedin.svg";
 
 import "styles/footer.css";
 
-const Footer = () => {
+function Footer() {
   return (
-    <div className="footer">
-      <div id="header-social-links">
+    <footer className="footer">
+      <div className="header-social-links">
         <a
           id="footer-email"
           href="mailto:hi@yogeshkotadiya.com"
@@ -77,8 +77,8 @@ const Footer = () => {
           />
         </p>
       </div>
-    </div>
+    </footer>
   );
-};
+}
 
 export default Footer;

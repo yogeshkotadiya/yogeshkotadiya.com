@@ -1,0 +1,49 @@
+.mobile-nav .mobile-nav__button {
+  z-index: 30;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-nav .mobile-nav__button:hover:not(.touch),
+.mobile-nav .mobile-nav__button:focus {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.mobile-nav .mobile-nav__button .mobile-nav__button--ghost {
+  width: 24px;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  transition: all 250ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.mobile-nav .nav__container {
+  position: fixed;
+  z-index: 20;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  backdrop-filter: blur(1.5rem);
+}
+
+.mobile-nav .nav__container .nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-nav .nav__container a {
+  font-weight: 600;
+}

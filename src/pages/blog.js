@@ -6,7 +6,7 @@ import BlogList from "components/Bloglist";
 import SEO from "components/SEO";
 import PageHeading from "components/PageHeading";
 
-import "./styles/blog.css";
+import "styles/pages/blog.css";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;

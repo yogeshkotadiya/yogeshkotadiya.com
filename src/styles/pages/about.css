@@ -1,0 +1,21 @@
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 1.8rem;
+  margin: 0 auto;
+  min-height: 60vh;
+}
+.about #intro {
+  font-weight: 600;
+}
+.about .gatsby-image-wrapper {
+  height: 30rem;
+  width: 30rem;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+.about .aboutContainer {
+  width: 100%;
+}

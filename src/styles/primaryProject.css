@@ -1,0 +1,70 @@
+.primaryProjectContainer {
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.primaryProjectContainer .projectInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* flex-grow: 1; */
+  padding: 1.5rem 2rem;
+  /* margin: 0 auto; */
+  max-width: 55rem;
+  width: 100%;
+  box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.primaryProjectContainer .projectInfoContainer p {
+  font-family: "inconsolata", Arial, Helvetica, sans-serif;
+}
+
+.projectLink {
+  margin-bottom: 2rem;
+  height: 4rem;
+  width: 22rem;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ef5350;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.projectLink #caselink {
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 1rem;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+  background: linear-gradient(to right, #cc132e 50%, #ef5350 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+}
+
+.projectLink #linkarrow {
+  transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1) 0.1s;
+  transform: translateX(-10px);
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 0 2rem;
+}
+
+.projectLink:hover #caselink {
+  background-position: left bottom;
+}
+
+.projectLink:hover #linkarrow {
+  transform: translateX(-3px);
+}
+
+@media screen and (max-width: 400px) {
+  .projectLink {
+    width: 80%;
+  }
+}

@@ -1,20 +1,32 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 function ProjectList(props) {
   const { repos } = props;
   return (
-    <ProjectListContainer>
+    <div className="projectContainer">
       {repos.map(({ node }) => (
         <ProjectTile
           key={node.url}
           href={node.url}
           target="_blank"
           rel="noopener noreferrer"
+          className="projectCard"
         >
-          <ProjectTitle>
-            <p>{node.name}</p>
-            <span className="stargazer">
+          <h2 className="projectTitle">
+            <p
+              css={css`
+                color: ${props => props.theme.primary};
+              `}
+            >
+              {node.name}
+            </p>
+            <span
+              className="stargazer"
+              css={css`
+                color: ${props => props.theme.primary};
+              `}
+            >
               <svg
                 className="octicon octicon-star v-align-text-bottom"
                 viewBox="0 0 14 16"
@@ -30,24 +42,15 @@ function ProjectList(props) {
               </svg>
               {node.stargazers.totalCount}
             </span>
-          </ProjectTitle>
+          </h2>
           <p id="description">{node.description}</p>
         </ProjectTile>
       ))}
-    </ProjectListContainer>
+    </div>
   );
 }
 
 export default ProjectList;
-
-const ProjectListContainer = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-template-rows: minmax(150px, 1fr);
-  grid-auto-rows: minmax(min-content, max-content);
-  grid-auto-flow: dense;
-`;
 
 const ProjectTile = styled.a`
   font-size: 1.4rem;
@@ -60,6 +63,9 @@ const ProjectTile = styled.a`
   transition: all 0.2s ease;
   &:hover {
     background-color: ${props => props.theme.primaryExtraLight};
+    p#description {
+      color: #222222;
+    }
     &:before,
     &:after {
       z-index: 0;
@@ -67,43 +73,5 @@ const ProjectTile = styled.a`
   }
   .octicon {
     fill: ${props => props.theme.primary};
-  }
-  #description {
-    padding: 0 1rem;
-  }
-  &:nth-child(2n) {
-    &:before {
-      background-color: #aaffcc;
-    }
-  }
-  &:before {
-    content: "";
-    width: 2rem;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    position: absolute;
-    border-radius: 1rem 0 0 1rem;
-    background-color: #ffff99;
-  }
-  &:after {
-    content: "Project";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    color: #663399;
-    transform: rotate(-90deg) translate(2rem, 0);
-    transform-origin: top left;
-  }
-`;
-
-const ProjectTitle = styled.h2`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  font-family: "lato";
-  p,
-  span {
-    color: ${props => props.theme.primary};
   }
 `;

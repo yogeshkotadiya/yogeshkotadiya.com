@@ -2,30 +2,6 @@ import * as React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 
-const TOP_PROJECTS_Query = graphql`
-  {
-    github {
-      viewer {
-        pinnedRepositories(
-          first: 3
-          orderBy: { direction: DESC, field: STARGAZERS }
-        ) {
-          edges {
-            node {
-              name
-              url
-              description
-              stargazers {
-                totalCount
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 const PinnedProjects = () => {
   const data = useStaticQuery(TOP_PROJECTS_Query);
   const nodes = data.github.viewer.pinnedRepositories.edges;
@@ -101,6 +77,30 @@ const TopStyled = styled.div`
       }
       .octicon {
         fill: ${props => props.theme.textColor};
+      }
+    }
+  }
+`;
+
+const TOP_PROJECTS_Query = graphql`
+  {
+    github {
+      viewer {
+        pinnedRepositories(
+          first: 3
+          orderBy: { direction: DESC, field: STARGAZERS }
+        ) {
+          edges {
+            node {
+              name
+              url
+              description
+              stargazers {
+                totalCount
+              }
+            }
+          }
+        }
       }
     }
   }

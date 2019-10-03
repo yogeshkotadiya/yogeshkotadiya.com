@@ -12,7 +12,6 @@ export const theme = {
     primaryLight: "#FFCDD2",
     primary: "#ef5350",
     maxWidth: "1260px",
-    white: "#fff",
     dropShadow: "#000000a6",
     blogHighLight: "#FFCDD2",
   },
@@ -27,31 +26,15 @@ export const theme = {
     primaryLight: "#FFCDD2",
     primary: "#ff8484",
     maxWidth: "1260px",
-    white: "#fff",
     dropShadow: "#ef5650a6",
     blogHighLight: "#ef5350",
   },
 };
 
 const GlobalStyles = createGlobalStyle`
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  html,body{
-    height: 100%;
-    width:100%;
-    font-size: 10px;
-    margin: 0 auto;
-    background-color: ${props => props.theme.backgroundColor};
-    font-family: "montserrat", "lato", "sans-serif";
-  }
 
-  @media screen and (min-width: 2150px){
-    html,body{
-      font-size: 12px;
-    }
+  html,body{
+    background-color: ${props => props.theme.backgroundColor};
   }
 
   h1,h2,h3,h4,h5,h6,p{

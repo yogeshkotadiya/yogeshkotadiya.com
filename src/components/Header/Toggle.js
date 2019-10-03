@@ -11,9 +11,9 @@ const Toggle = () => {
         onChange={handleOnChange}
         type="checkbox"
         className="dn"
-        id="dn"
+        id="toggleInput"
       />
-      <label htmlFor="dn" className="toggle">
+      <label htmlFor="toggleInput" className="toggle">
         <span className="toggle__handler">
           <span className="crater crater--1" />
           <span className="crater crater--2" />
@@ -30,4 +30,4 @@ const Toggle = () => {
   );
 };
 
-export default React.memo(Toggle);
+export default Toggle;

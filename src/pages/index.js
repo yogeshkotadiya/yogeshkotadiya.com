@@ -1,5 +1,4 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import styled, { css } from "styled-components";
 import Typed from "react-typed";
@@ -30,7 +29,14 @@ function IndexPage({ data }) {
             </span>{" "}
             I&apos;m <span id="name">Yogesh</span>
           </Intro>
-          <TypedStyle>&#123; Web Developer &#125;</TypedStyle>
+          <p
+            css={css`
+              font-size: 2.8rem;
+              color: ${props => props.theme.primary};
+            `}
+          >
+            &#123; Web Developer &#125;
+          </p>
           <Intro id="intro-bottom">
             From India <span>🇮🇳</span>
           </Intro>
@@ -45,7 +51,12 @@ function IndexPage({ data }) {
             </a>
           </p>
           <p style={{ fontSize: 24 }}>exploring</p>
-          <SubTypedStyle>
+          <p
+            css={css`
+              font-size: 3rem;
+              color: ${props => props.theme.primary};
+            `}
+          >
             &#8725;&#8725;
             <Typed
               strings={[
@@ -65,12 +76,12 @@ function IndexPage({ data }) {
               }}
               loop
             />
-          </SubTypedStyle>
-          <a style={{ fontSize: "2.6rem" }} href="mailto:hi@yogeshkotadiya.com">
+          </p>
+          <a style={{ fontSize: "2.2rem" }} href="mailto:hi@yogeshkotadiya.com">
             hi@yogeshkotadiya.com
           </a>
         </div>
-        <HeroBackground src={HeroBG} alt="Hero Background" />
+        <img className="hero_bg" src={HeroBG} alt="Hero Background" />
       </IndexStyled>
       <div>
         <PageHeading headingName="Projects">Projects</PageHeading>
@@ -94,11 +105,6 @@ function IndexPage({ data }) {
   );
 }
 
-IndexPage.propTypes = {
-  data: PropTypes.any,
-  location: PropTypes.object,
-};
-
 export default IndexPage;
 
 const IndexStyled = styled.div`
@@ -118,24 +124,6 @@ const IndexStyled = styled.div`
       color: ${props => props.theme.lightBlack};
     }
   }
-`;
-
-const HeroBackground = styled.img`
-  max-width: 50rem;
-  z-index: 10;
-  @media screen and (max-width: 1040px) {
-    display: none;
-  }
-`;
-
-const SubTypedStyle = styled.p`
-  font-size: 3.2rem;
-  color: ${props => props.theme.primary};
-`;
-
-const TypedStyle = styled.p`
-  font-size: 2.8rem;
-  color: ${props => props.theme.primary};
 `;
 
 const Intro = styled.p`

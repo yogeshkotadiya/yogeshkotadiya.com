@@ -52,13 +52,18 @@
 }
 
 #intro-bottom {
-  font-size: 3.4rem;
+  font-size: 2.6rem;
 }
 
 .btn-link {
   margin: 4rem auto;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+}
+
+.hero_bg {
+  max-width: 50rem;
+  z-index: 10;
 }
 
 @keyframes wave-emoji {
@@ -82,12 +87,18 @@
   animation: wave-emoji 2s linear infinite;
 }
 
+@media screen and (max-width: 1040px) {
+  .hero_bg {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 620px) {
   .introduction > p {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
   span.type-text > span {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 }
 

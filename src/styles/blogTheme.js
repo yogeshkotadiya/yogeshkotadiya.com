@@ -34,6 +34,7 @@ const BlogTheme = styled.div`
       }
     }
   }
+
   blockquote {
     font-size: 1.8rem;
     border-left-color: ${props => props.theme.primary};
@@ -41,6 +42,7 @@ const BlogTheme = styled.div`
       opacity: 0.8;
     }
   }
+
   hr {
     background: ${props => props.theme.textColor};
     opacity: 0.6;
@@ -60,6 +62,20 @@ const BlogTheme = styled.div`
     &:hover {
       opacity: 1;
     }
+  }
+
+  .gatsby-resp-image-link {
+    display: inline-block !important;
+    box-shadow: 0 1.5rem 3rem -1rem rgba(0, 0, 0, 0.6);
+    margin: 2rem 0;
+  }
+
+  .gatsby-resp-image-background-image {
+    display: none !important;
+  }
+
+  .gatsby-resp-image-image {
+    max-width: 30rem !important;
   }
 `;
 export default BlogTheme;

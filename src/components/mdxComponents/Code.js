@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { css } from "styled-components";
 import Highlight, { defaultProps } from "prism-react-renderer";

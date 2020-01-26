@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
@@ -74,6 +74,7 @@ const BlogListStyled = styled.div`
     padding: ${rhythm(2 / 4)} ${rhythm(3 / 4)};
     h1 {
       color: ${props => props.theme.primary};
+      font-weight: 800;
     }
     p {
       font-family: "inconsolata";

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { graphql, Link } from "gatsby";
 import styled, { css } from "styled-components";
 import Typed from "react-typed";

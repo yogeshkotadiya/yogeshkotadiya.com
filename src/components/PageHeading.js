@@ -8,7 +8,7 @@ const PageHeading = styled.h1`
   margin: 5rem auto;
   text-align: center;
   font-size: 4rem;
-  font-weight: 500;
+  font-weight: 400;
   z-index: 15;
   grid-column: 1 / -1;
   /* &:before {
@@ -31,7 +31,7 @@ const PageHeading = styled.h1`
     color: ${props => props.theme.lightGrey};
     opacity: 0.1;
     font-size: 7.5rem;
-    font-weight: 600;
+    font-weight: 800;
     z-index: -1;
     display: block;
     position: absolute;

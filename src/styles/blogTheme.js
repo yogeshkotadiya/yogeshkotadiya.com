@@ -26,7 +26,7 @@ const BlogTheme = styled.div`
   h4 {
     margin-top: 4rem;
     font-family: inherit;
-    font-weight: 600;
+    font-weight: 800;
 
     &:hover {
       & > a {

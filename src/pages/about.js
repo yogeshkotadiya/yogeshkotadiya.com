@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Img from "gatsby-image";
 import { graphql } from "gatsby";
 import styled, { css } from "styled-components";

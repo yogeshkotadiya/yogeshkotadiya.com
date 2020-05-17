@@ -1,5 +1,5 @@
 import React from "react";
-import { render, waitForElement, cleanup } from "react-testing-library";
+import { render, waitForElement, cleanup } from "@testing-library/react";
 import Toggle from "../Toggle";
 
 afterEach(cleanup);

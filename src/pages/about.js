@@ -18,7 +18,7 @@ function About(props) {
         <div
           className="aboutContainer"
           css={css`
-            max-width: calc(${props => props.theme.maxWidth} - 300px);
+            max-width: calc(${(props) => props.theme.maxWidth} - 300px);
             padding: 0 ${rhythm(1.5)};
           `}
         >
@@ -26,7 +26,7 @@ function About(props) {
             id="intro"
             css={css`
               font-size: ${rhythm(1.7)};
-              color: ${props => props.theme.primary};
+              color: ${(props) => props.theme.primary};
             `}
           >
             Hi,
@@ -78,7 +78,7 @@ function About(props) {
           <div
             css={css`
               display: flex;
-              border-top: 2px solid ${props => props.theme.primary};
+              border-top: 2px solid ${(props) => props.theme.primary};
               flex-direction: column;
               padding: 2rem;
             `}
@@ -103,7 +103,7 @@ export const PageQuery = graphql`
         title
       }
     }
-    profile: file(relativePath: { eq: "profile_new.jpg" }) {
+    profile: file(relativePath: { eq: "profileV3.jpeg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid_withWebp
@@ -114,5 +114,5 @@ export const PageQuery = graphql`
 `;
 
 const AboutPoints = styled.div`
-  color: ${props => props.theme.textColor};
+  color: ${(props) => props.theme.textColor};
 `;

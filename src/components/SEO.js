@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 
-const SEO = props => {
+const SEO = (props) => {
   const SeoQuery = graphql`
     {
       site {
@@ -22,10 +22,11 @@ const SEO = props => {
   const {
     site: { siteMetadata },
   } = useStaticQuery(SeoQuery);
+
   return (
     <>
       <Helmet htmlAttributes={{ lang: "en" }}>
-        <title>{props.title}</title>
+        <title>{props.title || siteMetadata.title}</title>
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width"

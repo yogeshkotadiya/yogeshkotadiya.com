@@ -44,7 +44,7 @@ export default PinnedProjects;
 
 const TopStyled = styled.div`
   margin: 20px auto;
-  max-width: ${props => props.theme.maxWidth};
+  max-width: ${(props) => props.theme.maxWidth};
   .containerProject {
     margin: 0 20px;
     display: grid;
@@ -57,8 +57,8 @@ const TopStyled = styled.div`
       border-radius: 5px;
       padding: 10px;
       transition: all 0.2s;
-      background-color: ${props => props.theme.backgroundColorAlt};
-      box-shadow: 0px 20px 40px -25px ${props => props.theme.dropShadow};
+      background-color: ${(props) => props.theme.backgroundColorAlt};
+      box-shadow: 0px 20px 40px -25px ${(props) => props.theme.dropShadow};
       font-size: 2.2rem;
       line-height: 2rem;
       a {
@@ -70,13 +70,13 @@ const TopStyled = styled.div`
       }
       &:hover {
         transform: scale(0.95) translateY(5px);
-        box-shadow: 0 10px 20px -10px ${props => props.theme.dropShadow};
+        box-shadow: 0 10px 20px -10px ${(props) => props.theme.dropShadow};
       }
       .starCount {
         display: inline-block;
       }
       .octicon {
-        fill: ${props => props.theme.textColor};
+        fill: ${(props) => props.theme.textColor};
       }
     }
   }
@@ -85,18 +85,18 @@ const TopStyled = styled.div`
 const TOP_PROJECTS_Query = graphql`
   {
     github {
-      viewer {
-        pinnedRepositories(
-          first: 3
-          orderBy: { direction: DESC, field: STARGAZERS }
-        ) {
+      user(login: "yogeshkotadiya") {
+        pinnedItems(first: 10) {
           edges {
             node {
-              name
-              url
-              description
-              stargazers {
-                totalCount
+              ... on GitHub_Repository {
+                id
+                name
+                url
+                description
+                stargazers {
+                  totalCount
+                }
               }
             }
           }

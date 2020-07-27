@@ -24,6 +24,12 @@ const GlobalTheme = ({ children }) => {
     }
   }, []);
 
+  React.useEffect(() => {
+    setGlobalTheme({
+      ...theme[Theme],
+    });
+  }, [Theme]);
+
   /**
    * Update current Global Theme Colors
    * @param {Object} newtheme - New theme with updated colors swatches

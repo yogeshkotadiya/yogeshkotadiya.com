@@ -24,11 +24,15 @@ const GlobalTheme = ({ children }) => {
     }
   }, []);
 
+  /**
+   * Update current Global Theme Colors
+   * @param {Object} newtheme - New theme with updated colors swatches
+   */
   const updateTheme = (newtheme) => {
-    setGlobalTheme({
-      ...globalTheme,
+    setGlobalTheme((currentTheme) => ({
+      ...currentTheme,
       ...newtheme,
-    });
+    }));
   };
 
   return (

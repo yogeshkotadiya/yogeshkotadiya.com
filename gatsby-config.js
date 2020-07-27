@@ -99,7 +99,7 @@ module.exports = {
         url: "https://api.github.com/graphql",
         // HTTP headers
         headers: {
-          Authorization: `bearer 805a52210c0dc391b5f460f0840f3aa70fa6eee1`,
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
         },
         // Additional options to pass to node-fetch
         fetchOptions: {},

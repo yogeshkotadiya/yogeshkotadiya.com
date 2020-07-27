@@ -21,18 +21,18 @@ function MajorProjects(props) {
       <div
         className="projectInfoContainer"
         css={css`
-          background-color: ${props => props.theme.backgroundColorAlt};
+          background-color: ${(props) => props.theme.backgroundColorAlt};
         `}
       >
         <div
           css={css`
-            border-bottom: 1px solid #ef5350;
+            border-bottom: 1px solid ${(props) => props.theme.primary};
             margin-bottom: 1rem;
           `}
         >
           <h2
             css={css`
-              color: ${props => props.theme.textColor};
+              color: ${(props) => props.theme.textColor};
               font-size: 5.5rem;
               font-family: "lato";
             `}

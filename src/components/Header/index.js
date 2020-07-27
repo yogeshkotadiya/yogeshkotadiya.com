@@ -7,47 +7,18 @@ import Toggle from "./Toggle";
 import Menu from "./Mobile-nav";
 import "styles/header.css";
 
-const Nav = withTheme(({ toggle, theme }) => {
+const Nav = ({ toggle, theme }) => {
   const colorPickerRef = React.useRef(null);
   const { updateTheme } = React.useContext(ThemeContext);
 
-  React.useLayoutEffect(() => {
-    if (colorPickerRef.current) {
-      colorPickerRef.current.addEventListener(
-        "input",
-        function (e) {
-          updateTheme({
-            primary: e.target.value,
-          });
-        },
-        false
-      );
-
-      colorPickerRef.current.addEventListener(
-        "change",
-        function (e) {
-          updateTheme({
-            primary: e.target.value,
-          });
-        },
-        false
-      );
-
-      return () => {
-        colorPickerRef.current.removeEventListener("input", function () {
-          console.log("removed");
-        });
-
-        colorPickerRef.current.removeEventListener("change", function () {
-          console.log("removed");
-        });
-      };
-    }
-  }, [colorPickerRef]);
-
-  // const handleOnChange = (e) => {
-  //   console.log(e.target);
-  // };
+  /**
+   * Change the Primary Color of Global Theme
+   */
+  const handleOnChangeColor = (e) => {
+    updateTheme({
+      primary: e.target.value,
+    });
+  };
 
   return (
     <>
@@ -92,17 +63,18 @@ const Nav = withTheme(({ toggle, theme }) => {
           name="color-picker"
           ref={colorPickerRef}
           value={theme.primary}
-          // onInput={handleOnChange}
+          onInput={handleOnChangeColor}
+          onChange={handleOnChangeColor}
         />
       </div>
       <Toggle />
     </>
   );
-});
+};
 
 export { Nav };
 
-function Header() {
+function Header({ theme }) {
   return (
     <nav className="header">
       <div className="headerContent">
@@ -110,12 +82,12 @@ function Header() {
           @yogeshkotadiya
         </Link>
         <div className="desktop-nav">
-          <Nav />
+          <Nav theme={theme} />
         </div>
-        <Menu color="#ef5350" />
+        <Menu color={theme.primary} />
       </div>
     </nav>
   );
 }
 
-export default Header;
+export default withTheme(Header);

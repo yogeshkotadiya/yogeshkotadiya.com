@@ -84,7 +84,7 @@ function Header({ theme }) {
         <div className="desktop-nav">
           <Nav theme={theme} />
         </div>
-        <Menu color={theme.primary} />
+        <Menu color={theme.primary} theme={theme} />
       </div>
     </nav>
   );

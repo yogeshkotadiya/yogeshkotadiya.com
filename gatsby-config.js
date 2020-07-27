@@ -99,7 +99,7 @@ module.exports = {
         url: "https://api.github.com/graphql",
         // HTTP headers
         headers: {
-          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+          Authorization: `bearer 805a52210c0dc391b5f460f0840f3aa70fa6eee1`,
         },
         // Additional options to pass to node-fetch
         fetchOptions: {},
@@ -128,7 +128,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
+              return allMdx.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   data: edge.node.frontmatter.date,

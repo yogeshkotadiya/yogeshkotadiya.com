@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { css } from "styled-components";
 
 import GatsbyIcon from "Images/gatsby.svg";
 import TwitterIcon from "Images/twitter.svg";
@@ -16,6 +17,9 @@ function Footer() {
           id="footer-email"
           href="mailto:hi@yogeshkotadiya.com"
           aria-label="Mail"
+          css={css`
+            background-color: ${(props) => props.theme.primary};
+          `}
         >
           EMAIL
         </a>

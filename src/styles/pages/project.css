@@ -49,20 +49,6 @@
   justify-content: center;
 }
 
-.projectFooter .repoLink {
-  font-size: 1.4rem;
-  color: #fff;
-  border: 2px solid #ef5350;
-  padding: 1rem;
-  transition: 0.2s all;
-  color: #ef5350;
-}
-
-.projectFooter .repoLink:hover {
-  background-color: #ef5350;
-  color: #fff;
-}
-
 .openSource {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));

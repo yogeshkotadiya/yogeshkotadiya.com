@@ -51,9 +51,12 @@ function Projects() {
         </div>
         <ProjectList repos={repos} />
         <div className="projectFooter">
-          <a className="repoLink" href="https://github.com/yogeshkotadiya">
+          <RepoButton
+            className="repoLink"
+            href="https://github.com/yogeshkotadiya"
+          >
             All Repositories
-          </a>
+          </RepoButton>
         </div>
       </ProjectStyled>
     </Container>
@@ -66,8 +69,22 @@ Projects.propTypes = {
   location: PropTypes.object,
 };
 
+const RepoButton = styled.a`
+  font-size: 1.4rem;
+  color: #fff;
+  border: 2px solid ${(props) => props.theme.primary};
+  padding: 1rem;
+  transition: 0.2s all;
+  color: ${(props) => props.theme.primary};
+
+  &:hover {
+    background-color: ${(props) => props.theme.primary};
+    color: #fff;
+  }
+`;
+
 const ProjectStyled = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  max-width: ${(props) => props.theme.maxWidth};
   margin: 0 auto;
   padding: 0 ${rhythm(2 / 4)};
   h2 {

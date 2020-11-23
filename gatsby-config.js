@@ -81,6 +81,7 @@ module.exports = {
         icon: "static/Images/YK_Logo.png", // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-advanced-sitemap`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -99,7 +100,7 @@ module.exports = {
         url: "https://api.github.com/graphql",
         // HTTP headers
         headers: {
-          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         },
         // Additional options to pass to node-fetch
         fetchOptions: {},

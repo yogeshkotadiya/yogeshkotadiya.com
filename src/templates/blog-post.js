@@ -7,6 +7,7 @@ import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import { preToCodeBlock } from "mdx-utils";
+import { css } from "styled-components";
 
 import { rhythm, scale } from "utils/typography";
 import BlogTheme from "styles/blogTheme";
@@ -18,7 +19,7 @@ function BlogPostTemplate(props) {
   const siteTitle = props.data.site.siteMetadata.title;
 
   const components = {
-    pre: preProps => {
+    pre: (preProps) => {
       const props = preToCodeBlock(preProps);
       // if there's a codeString and some props, we passed the test
       if (props) {
@@ -51,10 +52,12 @@ function BlogPostTemplate(props) {
             ...scale(1.2),
             marginBottom: rhythm(2),
             marginTop: 0,
-            color: "#ef5350",
             fontWeight: 600,
             textAlign: "center",
           }}
+          css={css`
+            color: ${(props) => props.theme.primary};
+          `}
         >
           {frontmatter.title}
         </h1>

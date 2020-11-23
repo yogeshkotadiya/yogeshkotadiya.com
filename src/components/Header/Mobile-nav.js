@@ -4,7 +4,7 @@ import { css } from "styled-components";
 import { Nav } from "./index";
 import "styles/mobile-nav.css";
 
-const Menu = ({ color = "white" }) => {
+const Menu = ({ color = "white", theme }) => {
   const [isToggledOn, setToggle] = useState(false);
   const toggle = () => setToggle(!isToggledOn);
   return (
@@ -56,11 +56,11 @@ const Menu = ({ color = "white" }) => {
       {isToggledOn && (
         <div
           css={css`
-            background: ${props => props.theme.primary}60;
+            background: ${(props) => props.theme.primary}60;
           `}
           className="nav__container"
         >
-          <Nav toggle={toggle} />
+          <Nav toggle={toggle} theme={theme} />
         </div>
       )}
     </div>

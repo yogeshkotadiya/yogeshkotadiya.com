@@ -118,7 +118,7 @@ const IndexStyled = styled.div`
   padding: 20px;
   max-width: ${rhythm(70)};
   border-radius: 1rem;
-  box-shadow: 0px 2rem 40px -15px ${(props) => props.theme.primaryLight};
+  box-shadow: 0px 2rem 40px -15px ${(props) => props.theme.primary};
   background-color: ${(props) => props.theme.backgroundColorAlt};
   color: ${(props) => props.theme.lightBlack};
   display: flex;

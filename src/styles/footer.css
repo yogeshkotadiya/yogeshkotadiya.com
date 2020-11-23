@@ -48,7 +48,7 @@
   padding: 0.5rem;
   height: 35px;
   font-size: 1.6rem;
-  background-color: #cc3e3c;
+  /* background-color: #cc3e3c; */
   color: #fff;
   transition: 0.2s all ease;
 }

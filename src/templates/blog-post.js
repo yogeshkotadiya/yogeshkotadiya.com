@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Markdown from "react-markdown";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
 import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -18,7 +18,7 @@ function BlogPostTemplate(props) {
   const siteTitle = props.data.site.siteMetadata.title;
 
   const components = {
-    pre: preProps => {
+    pre: (preProps) => {
       const props = preToCodeBlock(preProps);
       // if there's a codeString and some props, we passed the test
       if (props) {
@@ -77,8 +77,8 @@ function BlogPostTemplate(props) {
           }}
         >
           {frontmatter.banner && (
-            <Img
-              fluid={frontmatter.banner.childImageSharp.fluid}
+            <GatsbyImage
+              image={frontmatter.banner.childImageSharp.gatsbyImageData}
               alt="Post Banner"
             />
           )}
@@ -174,9 +174,7 @@ export const pageQuery = graphql`
         readLength
         banner {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(placeholder: TRACED_SVG, layout: FULL_WIDTH)
           }
         }
         bannerCredit

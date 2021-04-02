@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const PageHeading = styled.h1`
   text-transform: uppercase;
-  color: ${props => props.theme.primary};
+  color: ${(props) => props.theme.primary};
   width: 100%;
   position: relative;
   margin: 5rem auto;
@@ -15,7 +15,7 @@ const PageHeading = styled.h1`
     content: "";
     position: absolute;
     height: 8px;
-    background-color: ${props => props.theme.lightGrey};
+    background-color: ${(props) => props.theme.lightGrey};
     opacity: 0.2;
     width: 40%;
     left: 0;
@@ -23,12 +23,12 @@ const PageHeading = styled.h1`
     top: 25%;
   } */
   &:after {
-    content: "${props => props.headingName}";
+    content: "${(props) => props.headingName}";
     top: -60%;
     left: -50%;
     width: 100%;
     text-align: right;
-    color: ${props => props.theme.lightGrey};
+    color: ${(props) => props.theme.lightGrey};
     opacity: 0.1;
     font-size: 7.5rem;
     font-weight: 800;

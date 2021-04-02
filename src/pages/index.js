@@ -136,7 +136,7 @@ const Intro = styled.p`
 `;
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -144,9 +144,7 @@ export const pageQuery = graphql`
     }
     slpsBanner: file(relativePath: { eq: "slps-project-banner_new.webp" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 800, layout: CONSTRAINED)
       }
     }
     allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
@@ -163,9 +161,7 @@ export const pageQuery = graphql`
             description
             banner {
               childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 300, layout: CONSTRAINED)
               }
             }
           }

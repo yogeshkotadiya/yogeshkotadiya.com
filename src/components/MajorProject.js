@@ -2,7 +2,7 @@
  * Kinda inspired from formidable
  */
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { css } from "styled-components";
 
 import "styles/primaryProject.css";
@@ -21,7 +21,7 @@ function MajorProjects(props) {
       <div
         className="projectInfoContainer"
         css={css`
-          background-color: ${props => props.theme.backgroundColorAlt};
+          background-color: ${(props) => props.theme.backgroundColorAlt};
         `}
       >
         <div
@@ -32,7 +32,7 @@ function MajorProjects(props) {
         >
           <h2
             css={css`
-              color: ${props => props.theme.textColor};
+              color: ${(props) => props.theme.textColor};
               font-size: 5.5rem;
               font-family: "lato";
             `}
@@ -67,13 +67,13 @@ function MajorProjects(props) {
           </a>
         )}
       </div>
-      <Img
+      <GatsbyImage
+        image={projectImage.childImageSharp.gatsbyImageData}
         css={css`
           width: 100%;
           max-width: 550px;
           box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.1);
         `}
-        fluid={projectImage.childImageSharp.fluid}
         alt="Project Screenshot"
       />
     </div>

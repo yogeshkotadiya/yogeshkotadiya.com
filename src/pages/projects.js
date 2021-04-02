@@ -67,7 +67,7 @@ Projects.propTypes = {
 };
 
 const ProjectStyled = styled.div`
-  max-width: ${props => props.theme.maxWidth};
+  max-width: ${(props) => props.theme.maxWidth};
   margin: 0 auto;
   padding: 0 ${rhythm(2 / 4)};
   h2 {
@@ -84,9 +84,7 @@ const AllProjectQuery = graphql`
     }
     slpsBanner: file(relativePath: { eq: "slps-project-banner_new.webp" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 800, layout: CONSTRAINED)
       }
     }
     github {

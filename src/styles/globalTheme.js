@@ -34,22 +34,22 @@ export const theme = {
 const GlobalStyles = createGlobalStyle`
 
   html,body{
-    background-color: ${props => props.theme.backgroundColor};
+    background-color: ${(props) => props.theme.backgroundColor};
   }
 
   h1,h2,h3,h4,h5,h6,p{
-      color: ${props => props.theme.textColor};
+      color: ${(props) => props.theme.textColor};
   }
   a,a.gatsby-resp-image-link {
     box-shadow: none;
-    color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.primary};
   }
   .banner-credit{
     font-size: 1.4rem;
   }
   ::selection {
     color: #fff;
-    background-color: ${props => props.theme.primary};
+    background-color: ${(props) => props.theme.primary};
   }
 `;
 

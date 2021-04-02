@@ -16,7 +16,7 @@ function ProjectList(props) {
           <h2 className="projectTitle">
             <p
               css={css`
-                color: ${props => props.theme.primary};
+                color: ${(props) => props.theme.primary};
               `}
             >
               {node.name}
@@ -24,7 +24,7 @@ function ProjectList(props) {
             <span
               className="stargazer"
               css={css`
-                color: ${props => props.theme.primary};
+                color: ${(props) => props.theme.primary};
               `}
             >
               <svg
@@ -57,12 +57,12 @@ const ProjectTile = styled.a`
   position: relative;
   padding: 1.5rem 2.5rem;
   /* height: 100%; */
-  background-color: ${props => props.theme.backgroundColorAlt};
+  background-color: ${(props) => props.theme.backgroundColorAlt};
   border-radius: 10px;
   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
   &:hover {
-    background-color: ${props => props.theme.primaryExtraLight};
+    background-color: ${(props) => props.theme.primaryExtraLight};
     p#description {
       color: #222222;
     }
@@ -72,6 +72,6 @@ const ProjectTile = styled.a`
     }
   }
   .octicon {
-    fill: ${props => props.theme.primary};
+    fill: ${(props) => props.theme.primary};
   }
 `;

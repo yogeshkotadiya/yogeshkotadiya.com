@@ -30,7 +30,7 @@ BlogIndex.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -50,9 +50,7 @@ export const pageQuery = graphql`
             description
             banner {
               childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 300, layout: CONSTRAINED)
               }
             }
           }

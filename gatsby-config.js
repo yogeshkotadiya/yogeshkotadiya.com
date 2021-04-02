@@ -36,6 +36,7 @@ module.exports = {
         siteUrl: config.siteUrl,
       },
     },
+    `gatsby-plugin-image`,
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-styled-components",

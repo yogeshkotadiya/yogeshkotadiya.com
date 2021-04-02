@@ -8,11 +8,11 @@
  */
 
 function highlightLine(str) {
-  const _array = str.split(",").map(i => {
+  const _array = str.split(",").map((i) => {
     if (typeof parseInt(i) === "number" && i.length === 1) {
       return parseInt(i);
     }
-    let string = i.split("-").map(e => parseInt(e));
+    let string = i.split("-").map((e) => parseInt(e));
     let num = [string[0]];
     while (string[0] < string[1]) {
       string[0]++;

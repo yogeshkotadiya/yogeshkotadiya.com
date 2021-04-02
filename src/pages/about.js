@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 import styled, { css } from "styled-components";
 
@@ -14,7 +14,10 @@ function About(props) {
     <Container>
       <SEO title={`About ${props.data.site.siteMetadata.title}`} />
       <div className="about">
-        <Img fluid={props.data.profile.childImageSharp.fluid} alt="Profile" />
+        <GatsbyImage
+          image={props.data.profile.childImageSharp.gatsbyImageData}
+          alt="Profile"
+        />
         <div
           className="aboutContainer"
           css={css`
@@ -105,9 +108,7 @@ export const PageQuery = graphql`
     }
     profile: file(relativePath: { eq: "profileV3.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 800, layout: CONSTRAINED)
       }
     }
   }

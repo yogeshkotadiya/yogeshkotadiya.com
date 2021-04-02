@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { rhythm, scale } from "utils/typography";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ const BlogList = ({ posts }) => (
     {posts.map(({ node }) => {
       const title = node.frontmatter.title || node.fields.slug;
       const blogLink = node.fields.slug;
-      const blogImage = node.frontmatter.banner.childImageSharp.fluid;
+      const blogImage = node.frontmatter.banner.childImageSharp.gatsbyImageData;
       return (
         <BlogListStyled
           style={{
@@ -38,7 +38,7 @@ const BlogList = ({ posts }) => (
             </Link>
           </div>
           <div className="blogList-imageContainer">
-            <Img fluid={blogImage} alt="Post Image" />
+            <GatsbyImage image={blogImage} alt="Post Image" />
           </div>
         </BlogListStyled>
       );
@@ -58,8 +58,8 @@ const BlogListStyled = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
-  background-color: ${props => props.theme.backgroundColorAlt};
-  border-bottom: 2px dashed ${props => props.theme.primary};
+  background-color: ${(props) => props.theme.backgroundColorAlt};
+  border-bottom: 2px dashed ${(props) => props.theme.primary};
   &:hover {
     .gatsby-image-wrapper {
       transform: scale(1.1);
@@ -67,13 +67,13 @@ const BlogListStyled = styled.div`
     }
   }
   .blog-date {
-    color: ${props => props.theme.textColor};
+    color: ${(props) => props.theme.textColor};
   }
   .blogList-container {
     width: 100%;
     padding: ${rhythm(2 / 4)} ${rhythm(3 / 4)};
     h1 {
-      color: ${props => props.theme.primary};
+      color: ${(props) => props.theme.primary};
       font-weight: 800;
     }
     p {

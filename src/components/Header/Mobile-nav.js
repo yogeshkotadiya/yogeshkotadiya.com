@@ -56,7 +56,7 @@ const Menu = ({ color = "white" }) => {
       {isToggledOn && (
         <div
           css={css`
-            background: ${props => props.theme.primary}60;
+            background: ${(props) => props.theme.primary}60;
           `}
           className="nav__container"
         >

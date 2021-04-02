@@ -15,7 +15,7 @@ const Nav = ({ toggle }) => {
           aria-label="Navigate to Projects page"
           className="nav__link"
           css={css`
-            color: ${props => props.theme.lightBlack};
+            color: ${(props) => props.theme.lightBlack};
           `}
           to={"/projects"}
         >
@@ -25,7 +25,7 @@ const Nav = ({ toggle }) => {
           onClick={toggle}
           className="nav__link"
           css={css`
-            color: ${props => props.theme.lightBlack};
+            color: ${(props) => props.theme.lightBlack};
           `}
           aria-label="Navigate to Blog page"
           to={"/blog"}
@@ -36,7 +36,7 @@ const Nav = ({ toggle }) => {
           onClick={toggle}
           className="nav__link"
           css={css`
-            color: ${props => props.theme.lightBlack};
+            color: ${(props) => props.theme.lightBlack};
           `}
           aria-label="Navigate to About page"
           to={"/about"}
